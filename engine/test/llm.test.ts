@@ -95,4 +95,19 @@ describe("truncateUtf8", () => {
     const out = truncateUtf8("a" + "😀".repeat(10), 6);
     expect(out).toBe("a😀");
   });
+
+  test("times out a hung endpoint", async () => {
+    const hung = (async (_url: unknown, init?: RequestInit) =>
+      new Promise((_, reject) => {
+        init?.signal?.addEventListener("abort", () => reject(new Error("aborted")));
+      })) as unknown as typeof fetch;
+    const r = new OpenAICompatReviewer({
+      baseUrl: "https://llm.example/v1",
+      apiKey: "k",
+      model: "m",
+      fetch: hung,
+      timeoutMs: 10,
+    });
+    await expect(r.review("x")).rejects.toThrow("llm: request failed");
+  });
 });

@@ -22,12 +22,14 @@ export class OpenAICompatReviewer implements Reviewer {
   private readonly apiKey: string;
   private readonly model: string;
   private readonly fetchFn: typeof fetch;
+  private readonly timeoutMs: number;
 
-  constructor(opts: { baseUrl: string; apiKey: string; model: string; fetch?: typeof fetch }) {
+  constructor(opts: { baseUrl: string; apiKey: string; model: string; fetch?: typeof fetch; timeoutMs?: number }) {
     this.url = `${opts.baseUrl.replace(/\/$/, "")}/chat/completions`;
     this.apiKey = opts.apiKey;
     this.model = opts.model;
     this.fetchFn = opts.fetch ?? fetch;
+    this.timeoutMs = opts.timeoutMs ?? 120_000;
   }
 
   async review(brief: string): Promise<string> {
@@ -35,6 +37,7 @@ export class OpenAICompatReviewer implements Reviewer {
     try {
       res = await this.fetchFn(this.url, {
         method: "POST",
+        signal: AbortSignal.timeout(this.timeoutMs),
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${this.apiKey}`,
