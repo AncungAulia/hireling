@@ -1,0 +1,30 @@
+# Internal notes and research, kept locally only (not in English)
+research/
+judge/
+notes/
+*.local.md
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.mnemonic
+.keys/
+
+# Dependencies and builds
+node_modules/
+.next/
+out/
+dist/
+.turbo/
+*.tsbuildinfo
+
+# OS / editor
+.DS_Store
+*.log
+.impeccable/
+
+# Claude Code (local / runtime)
+.claude/settings.local.json
+.claude/*.lock
+.claude/worktrees/
