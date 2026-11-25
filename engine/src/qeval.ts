@@ -30,38 +30,44 @@ export function parseQevalString(raw: string): string {
   const m = WRAPPER.exec(raw);
   if (!m) fail("unexpected output format", raw);
   const body = m[1] as string;
-  let out = "";
+  // Go %q emits hex and octal escapes for raw bytes: build bytes, decode once.
+  const enc = new TextEncoder();
+  const out: number[] = [];
+  const pushText = (t: string) => out.push(...enc.encode(t));
   for (let i = 0; i < body.length; i++) {
     const c = body[i] as string;
     if (c !== "\\") {
-      out += c;
+      const cp = body.codePointAt(i) as number;
+      pushText(String.fromCodePoint(cp));
+      if (cp > 0xffff) i++;
       continue;
     }
     const e = body[++i];
     if (e === undefined) fail("dangling backslash", raw);
     if (e in SIMPLE) {
-      out += SIMPLE[e];
+      pushText(SIMPLE[e] as string);
     } else if (e === "x") {
-      out += String.fromCharCode(hex(body, i + 1, 2, raw));
+      out.push(hex(body, i + 1, 2, raw));
       i += 2;
     } else if (e === "u" || e === "U") {
       const n = e === "u" ? 4 : 8;
       const cp = hex(body, i + 1, n, raw);
       if (cp > 0x10ffff) fail("code point out of range", raw);
-      out += String.fromCodePoint(cp);
+      if (cp >= 0xd800 && cp <= 0xdfff) fail("surrogate code point", raw);
+      pushText(String.fromCodePoint(cp));
       i += n;
     } else if (e >= "0" && e <= "7") {
       const o = body.slice(i, i + 3);
       if (!/^[0-7]{3}$/.test(o)) fail("bad octal escape", raw);
       const v = parseInt(o, 8);
       if (v > 255) fail("octal escape out of range", raw);
-      out += String.fromCharCode(v);
+      out.push(v);
       i += 2;
     } else {
       fail("bad escape", raw);
     }
   }
-  return out;
+  return new TextDecoder().decode(new Uint8Array(out));
 }
 
 /** "" -> [], "3,1,2" -> [1n,2n,3n] (sorted, deduped). */

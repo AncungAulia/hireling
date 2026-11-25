@@ -22,6 +22,16 @@ describe("parseQevalString", () => {
     expect(parseQevalString(raw)).toBe("a\tb\\c'dA");
   });
 
+  test("x and octal escapes are bytes, decoded as UTF-8", () => {
+    expect(parseQevalString(String.raw`("\xc3\xa9" string)`)).toBe("é");
+    expect(parseQevalString(String.raw`("\303\251" string)`)).toBe("é");
+    expect(parseQevalString(String.raw`("\xff" string)`)).toBe("�");
+  });
+
+  test("rejects surrogate code points", () => {
+    expect(() => parseQevalString(String.raw`("\ud800" string)`)).toThrow(/^qeval: /);
+    expect(() => parseQevalString(String.raw`("\U0000DFFF" string)`)).toThrow(/^qeval: /);
+  });
   test("tolerates surrounding whitespace and trailing newline", () => {
     expect(parseQevalString('  ("hi" string)\n')).toBe("hi");
   });
