@@ -1,0 +1,22 @@
+name: Question
+description: Something is unclear or blocked. Ask instead of guessing.
+labels: ["question"]
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: What I was doing
+      description: Issue or PR link, file, step.
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Options I see
+      description: Each option with its trade-off, and which one I would pick.

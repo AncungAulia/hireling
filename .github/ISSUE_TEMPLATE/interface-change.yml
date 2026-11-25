@@ -1,0 +1,26 @@
+name: Interface change
+description: Propose a change to docs/interface.md (needs Ancung's approval)
+labels: ["interface-change"]
+body:
+  - type: textarea
+    id: change
+    attributes:
+      label: Proposed change
+      description: Old and new signatures.
+      render: go
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: What breaks or is impossible without it.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Who is affected
+      description: Which folders and open PRs need to change.
+    validations:
+      required: true

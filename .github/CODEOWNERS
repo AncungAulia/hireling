@@ -1,0 +1,13 @@
+# Default: Ancung reviews anything without a more specific owner
+*                    @AncungAulia
+
+/sc/p/               @AncungAulia
+/sc/r/hireling/      @AncungAulia
+/sc/r/tavernboard/   @RANGGAWIKAN
+/sc/**/*_filetest.gno @RANGGAWIKAN @AncungAulia
+/engine/             @RANGGAWIKAN
+/scripts/            @RANGGAWIKAN
+/apps/fe/            @dillybrainy
+/design/             @dillybrainy
+/docs/interface.md   @AncungAulia
+/CLAUDE.md           @AncungAulia
