@@ -24,6 +24,14 @@ describe("loadConfig", () => {
     expect(c.pollIntervalMs).toBe(5000);
   });
 
+  test("returns trimmed string values", () => {
+    const env = { ...fullEnv, GNO_RPC_URL: "  https://rpc.example:443\n", LLM_API_KEY: " sk-x ", AGENT_MNEMONIC: " a b c " };
+    const c = loadConfig(env);
+    expect(c.rpcUrl).toBe("https://rpc.example:443");
+    expect(c.llmApiKey).toBe("sk-x");
+    expect(c.mnemonic).toBe("a b c");
+  });
+
   test("throws naming every missing var", () => {
     const env = { ...fullEnv, AGENT_MNEMONIC: undefined, LLM_MODEL: "" };
     expect(() => loadConfig(env)).toThrow(/AGENT_MNEMONIC.*LLM_MODEL|LLM_MODEL.*AGENT_MNEMONIC/);

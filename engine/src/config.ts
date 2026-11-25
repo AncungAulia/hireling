@@ -41,13 +41,13 @@ export function loadConfig(env: Record<string, string | undefined>): Config {
   }
 
   return {
-    rpcUrl: env.GNO_RPC_URL!,
-    chainId: env.GNO_CHAIN_ID!,
-    realm: env.HIRELING_REALM!,
-    mnemonic: env.AGENT_MNEMONIC!,
-    llmBaseUrl: env.LLM_BASE_URL!,
-    llmApiKey: env.LLM_API_KEY!,
-    llmModel: env.LLM_MODEL!,
+    rpcUrl: env.GNO_RPC_URL!.trim(),
+    chainId: env.GNO_CHAIN_ID!.trim(),
+    realm: env.HIRELING_REALM!.trim(),
+    mnemonic: env.AGENT_MNEMONIC!.trim(),
+    llmBaseUrl: env.LLM_BASE_URL!.trim(),
+    llmApiKey: env.LLM_API_KEY!.trim(),
+    llmModel: env.LLM_MODEL!.trim(),
     pollIntervalMs,
   };
 }

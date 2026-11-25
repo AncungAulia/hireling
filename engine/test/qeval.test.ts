@@ -56,12 +56,17 @@ describe("parseQevalString", () => {
   });
 
   test("error message truncates long input", () => {
+    let caught: unknown;
     try {
       parseQevalString("x".repeat(500));
-      throw new Error("should have thrown");
     } catch (e) {
-      expect((e as Error).message.length).toBeLessThan(200);
+      caught = e;
     }
+    expect(caught).toBeInstanceOf(Error);
+    const msg = (caught as Error).message;
+    expect(msg).toMatch(/^qeval: /);
+    expect(msg.length).toBeLessThan(200);
+    expect(msg).not.toContain("x".repeat(81)); // input capped at 80 chars
   });
 });
 

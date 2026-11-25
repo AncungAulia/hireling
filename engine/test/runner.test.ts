@@ -104,6 +104,7 @@ describe("Runner", () => {
     expect(logs).toHaveLength(1);
     expect(JSON.stringify(logs)).not.toContain("SECRET-BRIEF");
     const second = await runner.tick();
+    expect(chain.calls.acceptJob).toEqual([1n]);
     expect(chain.calls.deliver).toEqual([1n]);
     expect(second.delivered).toEqual([1n]);
     expect(reviewer.briefs).toHaveLength(2);
@@ -124,7 +125,7 @@ describe("Runner", () => {
   });
 
   test("one failing job does not block another", async () => {
-    const { chain, mk } = setup();
+    const { chain, reviewer, mk } = setup();
     chain.addJob({ id: 1n, brief: "b1" });
     chain.addJob({ id: 2n, brief: "b2" });
     chain.failNext("acceptJob");
@@ -132,6 +133,7 @@ describe("Runner", () => {
     expect(report.failed).toEqual([1n]);
     expect(report.delivered).toEqual([2n]);
     expect(chain.getJob(2n).status).toBe("delivered");
+    expect(reviewer.briefs).toEqual(["b2"]);
   });
 
   test("skips a job whose agent is not ours", async () => {
