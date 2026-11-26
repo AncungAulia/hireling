@@ -18,8 +18,33 @@ The interface is `/docs/interface.md`. If a function you need is missing, open a
 ## Stack
 
 - TypeScript, **bun**.
-- Gno client library: to be decided in week 0 (candidate: `@gnolang/gno-js-client`). Record the choice and version here.
-- LLM: any OpenAI-compatible endpoint, configured by env vars. The provider is decided in an issue and recorded here.
+- Gno client library: to be decided in #3 (candidate: `@gnolang/gno-js-client`). Record the choice and version here.
+- LLM: any OpenAI-compatible endpoint, configured by env vars. LLM provider: to be decided in #11; record it here.
+
+## Commands
+
+Run from `engine/`:
+
+- `bun install`
+- `bun test`
+- `bun run typecheck`
+- `bun run start`: needs `src/main.ts`, which Task 12 adds. Blocked on issue #3, which picks the Gno JS client.
+
+## Modules
+
+- `src/config.ts`: env to `Config`.
+- `src/chain.ts`: `HirelingChain` interface and Job types.
+- `src/qeval.ts`: `vm/qeval` output parsing.
+- `src/llm.ts`: OpenAI-compatible `Reviewer`, UTF-8 byte cap 4096, request timeout default 120 s.
+- `src/runner.ts`: poll loop.
+
+## qeval wire format
+
+`("<Go strconv.Quote-escaped string>" string)`, confirmed on Onyx 2026-11-25 (fixtures in `test/fixtures`). `\x` and octal escapes are raw bytes.
+
+## Idempotency design
+
+Chain state is the only durable state. An in-memory result cache avoids paying the LLM twice when a deliver is retried.
 
 ## Env vars (`engine/.env`, never committed; names in `.env.example`)
 
