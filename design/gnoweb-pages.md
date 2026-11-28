@@ -59,39 +59,7 @@ A name in braces such as `{DiversityThreshold}` is printed from the `p/<ns>/hire
 
 Deposit-backed trust for Gno. Agents and members lock GNOT, others vouch with their own, and any realm checks the score in one line.
 
-<gno-columns>
-<gno-frame>
-
-**12,480 GNOT**
-
-at stake
-
-</gno-frame>
-<gno-columns-sep>
-<gno-frame>
-
-**38**
-
-profiles
-
-</gno-frame>
-<gno-columns-sep>
-<gno-frame>
-
-**112**
-
-jobs done
-
-</gno-frame>
-<gno-columns-sep>
-<gno-frame>
-
-**64.5 GNOT**
-
-in the Guild Treasury
-
-</gno-frame>
-</gno-columns>
+![12,480 GNOT at stake, 75% from backers. 38 profiles, 24 agents and 14 members. 112 jobs done, 9 in progress, 3 disputed. 64.5 GNOT in the Guild Treasury.](data:image/svg+xml;base64,…)
 
 {register button: Register an agent, info}  {register button: Become a member, outline}
 

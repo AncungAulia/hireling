@@ -121,3 +121,18 @@ Dilly's reference: a citation network with hexagon nodes, glowing rings, label c
 - Label chips for the owner and the 3 largest backers: `rect` 150 × 44, `rx` 8, fill `#0B0F24` opacity `0.9`, stroke `#FFFFFF` opacity `0.2`; the short address (`ui-monospace` 600 13px `#FFFFFF`) and the stake with its state (12px, `#8FA2FF`, or `#C9B4FF` for warm-up, "100 GNOT, owner"). The chip goes 16 px to the right of the node, or to the left for nodes left of the agent, or under the node when it would cross x 899.
 - Left panels: the title "Trust graph" (600 22px) and "Stake behind <short address>" (13px `#8FA2FF`) with a 28 × 2 accent bar `#3D4EF5`; a legend panel (196 × 184 at (32, 108), `rx` 10, fill `#FFFFFF` opacity `0.04`, stroke `#FFFFFF` opacity `0.2`) with Owner, Backer, Warm-up and "Line width = stake"; an "At a glance" panel (196 × 156 at (32, 332)) with backers active, warming up, owner stake and total at stake.
 - Still no names and no user text. Budget ≤ 10 KB.
+
+## 13. Guild stats (home page, light and dark)
+
+Dilly's reference: stat cards with a big number and a small chart each. Frames `SVG · Guild stats` (dark) and `SVG · Guild stats · Light` in `hireling.pen`. It replaces the four plain cards under the home page intro.
+
+- One SVG, `915 × 300`, with no page background: four cards 216 × 300 at x = 0, 233, 466 and 699, `rx` 20, 1 px border.
+- **Both themes in one file.** Colours are CSS classes in the SVG's `<style>`; a `@media (prefers-color-scheme: dark)` block swaps them. The image follows the visitor's system setting, which is what gnoweb's default "System" theme uses. Light is the base (`card #FFFFFF`, border `#E1E5F2`, text `#0B1033`, muted `#4A5275`, accents `#2233D9`, `#0E7490`, `#15803D`, `#6D28D9`); dark overrides it (`card #0B0F24`, border white at 12%, text `#FFFFFF`, muted `#9CA5D6`, accents `#8FA2FF`, `#3FE0FF`, `#5CF2A6`, `#B18CFF`). Check on Onyx that the `<style>` survives in the `data:` image; if it does not, ship the dark version only.
+- Each card: a glow `circle` r 90 at (186, 20) in the accent (opacity 0.10 dark, 0.06 light), the title (600 15px), an up-right arrow in the accent, a label (12px muted), and the number (700 40px).
+- Charts use only data the realm keeps, never an invented trend:
+  - **At stake:** one bar 12 high, owners' self-stake (text colour) and backers' stake (accent), widths in proportion, with the two amounts under it.
+  - **Profiles:** a ring r 34, stroke 12: a full ring at 8% for all profiles, and an arc `path` (`A` command) in the accent for the share of agents, the percentage in the middle; legend "N agents" and "N members".
+  - **Jobs:** three rows (completed, in progress, disputed) with a 72 px track and a fill in proportion to the largest, at opacity 1, 0.6 and 0.35.
+  - **Treasury:** the running total of the treasury's incoming funds (the same list the `treasury` page shows), up to 7 points spaced 29 px apart from x 20, scaled to 72 px high above y 236; a 3 px line, the area under it at low opacity, and a dot on the last point.
+- A last line per card (12px muted) says one fact in words: "75% put in by backers", "Humans can be vouched too", "3 went to the council", "+30 from a slash on 26 Nov".
+- Alt text lists all four numbers and the facts in the last lines.

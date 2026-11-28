@@ -206108,173 +206108,11 @@
                       "fontWeight": "normal"
                     },
                     {
-                      "type": "frame",
-                      "id": "iISUf",
-                      "name": "Columns · stats",
-                      "width": "fill_container",
-                      "gap": 40,
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "t0M6nG",
-                          "name": "Frame card",
-                          "width": "fill_container",
-                          "cornerRadius": 6,
-                          "stroke": "#292929",
-                          "strokeWidth": 1,
-                          "strokeAlignment": "inner",
-                          "layout": "vertical",
-                          "gap": 12,
-                          "padding": [
-                            24,
-                            20
-                          ],
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "ajIMi",
-                              "name": "Text",
-                              "fill": "#E2E2E2",
-                              "content": "12,480 GNOT",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "text",
-                              "id": "jUOIL",
-                              "name": "Text",
-                              "fill": "#E2E2E2",
-                              "content": "at stake",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "normal"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "LYcTd",
-                          "name": "Frame card",
-                          "width": "fill_container",
-                          "cornerRadius": 6,
-                          "stroke": "#292929",
-                          "strokeWidth": 1,
-                          "strokeAlignment": "inner",
-                          "layout": "vertical",
-                          "gap": 12,
-                          "padding": [
-                            24,
-                            20
-                          ],
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "OmhtH",
-                              "name": "Text",
-                              "fill": "#E2E2E2",
-                              "content": "38",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "text",
-                              "id": "yzdD1",
-                              "name": "Text",
-                              "fill": "#E2E2E2",
-                              "content": "profiles",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "normal"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "CB5dg",
-                          "name": "Frame card",
-                          "width": "fill_container",
-                          "cornerRadius": 6,
-                          "stroke": "#292929",
-                          "strokeWidth": 1,
-                          "strokeAlignment": "inner",
-                          "layout": "vertical",
-                          "gap": 12,
-                          "padding": [
-                            24,
-                            20
-                          ],
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "H1lnuo",
-                              "name": "Text",
-                              "fill": "#E2E2E2",
-                              "content": "112",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "text",
-                              "id": "awsSs",
-                              "name": "Text",
-                              "fill": "#E2E2E2",
-                              "content": "jobs done",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "normal"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "C6fara",
-                          "name": "Frame card",
-                          "width": "fill_container",
-                          "cornerRadius": 6,
-                          "stroke": "#292929",
-                          "strokeWidth": 1,
-                          "strokeAlignment": "inner",
-                          "layout": "vertical",
-                          "gap": 12,
-                          "padding": [
-                            24,
-                            20
-                          ],
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "xw8qg",
-                              "name": "Text",
-                              "fill": "#E2E2E2",
-                              "content": "64.5 GNOT",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "text",
-                              "id": "YG7qi",
-                              "name": "Text",
-                              "fill": "#E2E2E2",
-                              "content": "in the Guild Treasury",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "normal"
-                            }
-                          ]
-                        }
-                      ]
+                      "id": "XKDoE",
+                      "type": "ref",
+                      "ref": "uttSM",
+                      "name": "Guild stats SVG",
+                      "width": "fill_container"
                     },
                     {
                       "type": "frame",
@@ -218879,173 +218717,11 @@
                       "fontWeight": "normal"
                     },
                     {
-                      "type": "frame",
-                      "id": "kEZ6W",
-                      "name": "Columns · stats",
-                      "width": "fill_container",
-                      "gap": 40,
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "CrVpI",
-                          "name": "Frame card",
-                          "width": "fill_container",
-                          "cornerRadius": 6,
-                          "stroke": "#BDBDBD",
-                          "strokeWidth": 1,
-                          "strokeAlignment": "inner",
-                          "layout": "vertical",
-                          "gap": 12,
-                          "padding": [
-                            24,
-                            20
-                          ],
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "i8bq3F",
-                              "name": "Text",
-                              "fill": "#0A0A0A",
-                              "content": "12,480 GNOT",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "text",
-                              "id": "C0caFt",
-                              "name": "Text",
-                              "fill": "#0A0A0A",
-                              "content": "at stake",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "normal"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "Sdd3h",
-                          "name": "Frame card",
-                          "width": "fill_container",
-                          "cornerRadius": 6,
-                          "stroke": "#BDBDBD",
-                          "strokeWidth": 1,
-                          "strokeAlignment": "inner",
-                          "layout": "vertical",
-                          "gap": 12,
-                          "padding": [
-                            24,
-                            20
-                          ],
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "jysbk",
-                              "name": "Text",
-                              "fill": "#0A0A0A",
-                              "content": "38",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "text",
-                              "id": "R3XVGv",
-                              "name": "Text",
-                              "fill": "#0A0A0A",
-                              "content": "profiles",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "normal"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "m1US7K",
-                          "name": "Frame card",
-                          "width": "fill_container",
-                          "cornerRadius": 6,
-                          "stroke": "#BDBDBD",
-                          "strokeWidth": 1,
-                          "strokeAlignment": "inner",
-                          "layout": "vertical",
-                          "gap": 12,
-                          "padding": [
-                            24,
-                            20
-                          ],
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "u5xW8",
-                              "name": "Text",
-                              "fill": "#0A0A0A",
-                              "content": "112",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "text",
-                              "id": "wd1bE",
-                              "name": "Text",
-                              "fill": "#0A0A0A",
-                              "content": "jobs done",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "normal"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "aXAK4",
-                          "name": "Frame card",
-                          "width": "fill_container",
-                          "cornerRadius": 6,
-                          "stroke": "#BDBDBD",
-                          "strokeWidth": 1,
-                          "strokeAlignment": "inner",
-                          "layout": "vertical",
-                          "gap": 12,
-                          "padding": [
-                            24,
-                            20
-                          ],
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "LfOeA",
-                              "name": "Text",
-                              "fill": "#0A0A0A",
-                              "content": "64.5 GNOT",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "700"
-                            },
-                            {
-                              "type": "text",
-                              "id": "yaVTV",
-                              "name": "Text",
-                              "fill": "#0A0A0A",
-                              "content": "in the Guild Treasury",
-                              "lineHeight": 1.5,
-                              "fontFamily": "Inter",
-                              "fontSize": 16,
-                              "fontWeight": "normal"
-                            }
-                          ]
-                        }
-                      ]
+                      "id": "D8gkmo",
+                      "type": "ref",
+                      "ref": "xZtyZ",
+                      "name": "Guild stats SVG",
+                      "width": "fill_container"
                     },
                     {
                       "type": "frame",
@@ -229868,6 +229544,1436 @@
                   "fontWeight": "600"
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "uttSM",
+      "x": 8989,
+      "y": 15235,
+      "name": "SVG · Guild stats",
+      "reusable": true,
+      "width": 915,
+      "height": 300,
+      "fill": "#00000000",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "flNSs",
+          "x": 0,
+          "y": 0,
+          "name": "Card At stake",
+          "clip": true,
+          "width": 216,
+          "height": 300,
+          "fill": "#0B0F24",
+          "cornerRadius": 20,
+          "stroke": "#FFFFFF1F",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "srESb",
+              "x": 96,
+              "y": -70,
+              "name": "Glow",
+              "opacity": 0.1,
+              "fill": "#8FA2FF",
+              "width": 180,
+              "height": 180
+            },
+            {
+              "type": "text",
+              "id": "zl3nd",
+              "x": 20,
+              "y": 20,
+              "name": "Title",
+              "fill": "#FFFFFF",
+              "content": "At stake",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon",
+              "id": "IP1MM",
+              "x": 176,
+              "y": 20,
+              "name": "Arrow",
+              "width": 20,
+              "height": 20,
+              "icon": "arrow-up-right",
+              "library": "lucide",
+              "fill": "#8FA2FF"
+            },
+            {
+              "type": "text",
+              "id": "ixKTo",
+              "x": 20,
+              "y": 62,
+              "name": "Label",
+              "fill": "#9CA5D6",
+              "content": "GNOT locked",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "jUwUE",
+              "x": 18,
+              "y": 80,
+              "name": "Value",
+              "fill": "#FFFFFF",
+              "content": "12,480",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 40,
+              "fontWeight": "700",
+              "letterSpacing": -1.5
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 6,
+              "id": "VslCb",
+              "x": 20,
+              "y": 168,
+              "name": "Bar owner",
+              "fill": "#FFFFFF",
+              "width": 42,
+              "height": 12
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 6,
+              "id": "KmHak",
+              "x": 66,
+              "y": 168,
+              "name": "Bar backers",
+              "fill": "#8FA2FF",
+              "width": 130,
+              "height": 12
+            },
+            {
+              "type": "text",
+              "id": "tS42N",
+              "x": 20,
+              "y": 190,
+              "name": "L",
+              "fill": "#9CA5D6",
+              "content": "Owners 3,120",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "ojbHY",
+              "x": 120,
+              "y": 190,
+              "name": "R",
+              "fill": "#9CA5D6",
+              "content": "Backers 9,360",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "K2pU7",
+              "x": 20,
+              "y": 262,
+              "name": "Note",
+              "fill": "#9CA5D6",
+              "content": "75% put in by backers",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "POq84",
+          "x": 233,
+          "y": 0,
+          "name": "Card Profiles",
+          "clip": true,
+          "width": 216,
+          "height": 300,
+          "fill": "#0B0F24",
+          "cornerRadius": 20,
+          "stroke": "#FFFFFF1F",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "hgkTY",
+              "x": 96,
+              "y": -70,
+              "name": "Glow",
+              "opacity": 0.1,
+              "fill": "#3FE0FF",
+              "width": 180,
+              "height": 180
+            },
+            {
+              "type": "text",
+              "id": "HohJH",
+              "x": 20,
+              "y": 20,
+              "name": "Title",
+              "fill": "#FFFFFF",
+              "content": "Profiles",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon",
+              "id": "M6jm3",
+              "x": 176,
+              "y": 20,
+              "name": "Arrow",
+              "width": 20,
+              "height": 20,
+              "icon": "arrow-up-right",
+              "library": "lucide",
+              "fill": "#3FE0FF"
+            },
+            {
+              "type": "text",
+              "id": "aDBHH",
+              "x": 20,
+              "y": 62,
+              "name": "Label",
+              "fill": "#9CA5D6",
+              "content": "registered",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "Hsz4v",
+              "x": 18,
+              "y": 80,
+              "name": "Value",
+              "fill": "#FFFFFF",
+              "content": "38",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 40,
+              "fontWeight": "700",
+              "letterSpacing": -1.5
+            },
+            {
+              "type": "ellipse",
+              "id": "yKVGl",
+              "x": 36,
+              "y": 156,
+              "name": "Ring bg",
+              "fill": "#00000000",
+              "width": 68,
+              "height": 68,
+              "stroke": "#FFFFFF14",
+              "strokeWidth": 12
+            },
+            {
+              "type": "path",
+              "id": "RzdcY",
+              "x": 0,
+              "y": 0,
+              "name": "Ring agents",
+              "geometry": "M70 156a34 34 0 1 1-25 57",
+              "viewBox": [
+                0,
+                0,
+                216,
+                300
+              ],
+              "width": 216,
+              "height": 300,
+              "stroke": "#3FE0FF",
+              "strokeWidth": 12
+            },
+            {
+              "type": "text",
+              "id": "y6TkY",
+              "x": 50,
+              "y": 181,
+              "name": "Ring mid",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 40,
+              "content": "63%",
+              "textAlign": "center",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 13,
+              "fontWeight": "700"
+            },
+            {
+              "type": "ellipse",
+              "id": "raEdG",
+              "x": 124,
+              "y": 168,
+              "name": "Dot a",
+              "fill": "#3FE0FF",
+              "width": 8,
+              "height": 8
+            },
+            {
+              "type": "text",
+              "id": "BQoIB",
+              "x": 138,
+              "y": 163,
+              "name": "Agents",
+              "fill": "#FFFFFF",
+              "content": "24 agents",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "ellipse",
+              "id": "klfC3",
+              "x": 124,
+              "y": 196,
+              "name": "Dot m",
+              "fill": "#FFFFFF14",
+              "width": 8,
+              "height": 8,
+              "stroke": "#9CA5D6",
+              "strokeWidth": 1
+            },
+            {
+              "type": "text",
+              "id": "ZFCej",
+              "x": 138,
+              "y": 191,
+              "name": "Members",
+              "fill": "#FFFFFF",
+              "content": "14 members",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "P5D6R",
+              "x": 20,
+              "y": 262,
+              "name": "Note",
+              "fill": "#9CA5D6",
+              "content": "Humans can be vouched too",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "BZx9u",
+          "x": 466,
+          "y": 0,
+          "name": "Card Jobs",
+          "clip": true,
+          "width": 216,
+          "height": 300,
+          "fill": "#0B0F24",
+          "cornerRadius": 20,
+          "stroke": "#FFFFFF1F",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "ytWLy",
+              "x": 96,
+              "y": -70,
+              "name": "Glow",
+              "opacity": 0.1,
+              "fill": "#5CF2A6",
+              "width": 180,
+              "height": 180
+            },
+            {
+              "type": "text",
+              "id": "wU2kn",
+              "x": 20,
+              "y": 20,
+              "name": "Title",
+              "fill": "#FFFFFF",
+              "content": "Jobs",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon",
+              "id": "vTIgv",
+              "x": 176,
+              "y": 20,
+              "name": "Arrow",
+              "width": 20,
+              "height": 20,
+              "icon": "arrow-up-right",
+              "library": "lucide",
+              "fill": "#5CF2A6"
+            },
+            {
+              "type": "text",
+              "id": "mMJT7",
+              "x": 20,
+              "y": 62,
+              "name": "Label",
+              "fill": "#9CA5D6",
+              "content": "done through escrow",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "g4o54",
+              "x": 18,
+              "y": 80,
+              "name": "Value",
+              "fill": "#FFFFFF",
+              "content": "112",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 40,
+              "fontWeight": "700",
+              "letterSpacing": -1.5
+            },
+            {
+              "type": "text",
+              "id": "hvIi8",
+              "x": 20,
+              "y": 159,
+              "name": "Row",
+              "fill": "#9CA5D6",
+              "content": "Completed",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 4,
+              "id": "paox7",
+              "x": 96,
+              "y": 163,
+              "name": "Track",
+              "fill": "#FFFFFF14",
+              "width": 72,
+              "height": 8
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 4,
+              "id": "C5zWX",
+              "x": 96,
+              "y": 163,
+              "name": "Fill",
+              "fill": "#5CF2A6",
+              "width": 72,
+              "height": 8
+            },
+            {
+              "type": "text",
+              "id": "eCG9c",
+              "x": 172,
+              "y": 159,
+              "name": "Num",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 24,
+              "content": "112",
+              "textAlign": "right",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "jG4hd",
+              "x": 20,
+              "y": 187,
+              "name": "Row",
+              "fill": "#9CA5D6",
+              "content": "In progress",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 4,
+              "id": "w3q4q",
+              "x": 96,
+              "y": 191,
+              "name": "Track",
+              "fill": "#FFFFFF14",
+              "width": 72,
+              "height": 8
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 4,
+              "id": "Z4w7q",
+              "x": 96,
+              "y": 191,
+              "name": "Fill",
+              "opacity": 0.6,
+              "fill": "#5CF2A6",
+              "width": 6,
+              "height": 8
+            },
+            {
+              "type": "text",
+              "id": "nODy0",
+              "x": 172,
+              "y": 187,
+              "name": "Num",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 24,
+              "content": "9",
+              "textAlign": "right",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "czg6b",
+              "x": 20,
+              "y": 215,
+              "name": "Row",
+              "fill": "#9CA5D6",
+              "content": "Disputed",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 4,
+              "id": "t5DHH",
+              "x": 96,
+              "y": 219,
+              "name": "Track",
+              "fill": "#FFFFFF14",
+              "width": 72,
+              "height": 8
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 4,
+              "id": "UlfP7",
+              "x": 96,
+              "y": 219,
+              "name": "Fill",
+              "opacity": 0.35,
+              "fill": "#5CF2A6",
+              "width": 6,
+              "height": 8
+            },
+            {
+              "type": "text",
+              "id": "Boy2N",
+              "x": 172,
+              "y": 215,
+              "name": "Num",
+              "fill": "#FFFFFF",
+              "textGrowth": "fixed-width",
+              "width": 24,
+              "content": "3",
+              "textAlign": "right",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "orLe9",
+              "x": 20,
+              "y": 262,
+              "name": "Note",
+              "fill": "#9CA5D6",
+              "content": "3 went to the council",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ZOYiO",
+          "x": 699,
+          "y": 0,
+          "name": "Card Treasury",
+          "clip": true,
+          "width": 216,
+          "height": 300,
+          "fill": "#0B0F24",
+          "cornerRadius": 20,
+          "stroke": "#FFFFFF1F",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "O9tbw",
+              "x": 96,
+              "y": -70,
+              "name": "Glow",
+              "opacity": 0.1,
+              "fill": "#B18CFF",
+              "width": 180,
+              "height": 180
+            },
+            {
+              "type": "text",
+              "id": "u4L4Q",
+              "x": 20,
+              "y": 20,
+              "name": "Title",
+              "fill": "#FFFFFF",
+              "content": "Treasury",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon",
+              "id": "P07cg",
+              "x": 176,
+              "y": 20,
+              "name": "Arrow",
+              "width": 20,
+              "height": 20,
+              "icon": "arrow-up-right",
+              "library": "lucide",
+              "fill": "#B18CFF"
+            },
+            {
+              "type": "text",
+              "id": "B5jWWW",
+              "x": 20,
+              "y": 62,
+              "name": "Label",
+              "fill": "#9CA5D6",
+              "content": "GNOT, no withdrawal",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "X4Xop",
+              "x": 18,
+              "y": 80,
+              "name": "Value",
+              "fill": "#FFFFFF",
+              "content": "64.5",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 40,
+              "fontWeight": "700",
+              "letterSpacing": -1.5
+            },
+            {
+              "type": "path",
+              "id": "k0jgo",
+              "x": 0,
+              "y": 0,
+              "name": "Area",
+              "opacity": 0.14,
+              "geometry": "M20 236l29-6 29-7 29-9 29-14 29-33 29-3 0 72-174 0z",
+              "viewBox": [
+                0,
+                0,
+                216,
+                300
+              ],
+              "fill": "#B18CFF",
+              "width": 216,
+              "height": 300
+            },
+            {
+              "type": "path",
+              "id": "G4UZ1A",
+              "x": 0,
+              "y": 0,
+              "name": "Curve",
+              "geometry": "M20 236l29-6 29-7 29-9 29-14 29-33 29-3",
+              "viewBox": [
+                0,
+                0,
+                216,
+                300
+              ],
+              "width": 216,
+              "height": 300,
+              "stroke": "#B18CFF",
+              "strokeWidth": 3
+            },
+            {
+              "type": "ellipse",
+              "id": "fG9p9",
+              "x": 183,
+              "y": 153,
+              "name": "End halo",
+              "opacity": 0.25,
+              "fill": "#B18CFF",
+              "width": 22,
+              "height": 22
+            },
+            {
+              "type": "ellipse",
+              "id": "x8j5Jt",
+              "x": 189,
+              "y": 159,
+              "name": "End",
+              "fill": "#B18CFF",
+              "width": 10,
+              "height": 10,
+              "stroke": "#0B0F24",
+              "strokeWidth": 2
+            },
+            {
+              "type": "text",
+              "id": "rky9p",
+              "x": 20,
+              "y": 262,
+              "name": "Note",
+              "fill": "#9CA5D6",
+              "content": "+30 from a slash on 26 Nov",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "xZtyZ",
+      "x": 9949,
+      "y": 15235,
+      "name": "SVG · Guild stats · Light",
+      "reusable": true,
+      "width": 915,
+      "height": 300,
+      "fill": "#00000000",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "O9H4Zb",
+          "x": 0,
+          "y": 0,
+          "name": "Card At stake",
+          "clip": true,
+          "width": 216,
+          "height": 300,
+          "fill": "#FFFFFF",
+          "cornerRadius": 20,
+          "stroke": "#E1E5F2",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "jFkQ6",
+              "x": 96,
+              "y": -70,
+              "name": "Glow",
+              "opacity": 0.06,
+              "fill": "#2233D9",
+              "width": 180,
+              "height": 180
+            },
+            {
+              "type": "text",
+              "id": "YD20j",
+              "x": 20,
+              "y": 20,
+              "name": "Title",
+              "fill": "#0B1033",
+              "content": "At stake",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon",
+              "id": "evkwb",
+              "x": 176,
+              "y": 20,
+              "name": "Arrow",
+              "width": 20,
+              "height": 20,
+              "icon": "arrow-up-right",
+              "library": "lucide",
+              "fill": "#2233D9"
+            },
+            {
+              "type": "text",
+              "id": "K0J8m",
+              "x": 20,
+              "y": 62,
+              "name": "Label",
+              "fill": "#4A5275",
+              "content": "GNOT locked",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "wxzN3",
+              "x": 18,
+              "y": 80,
+              "name": "Value",
+              "fill": "#0B1033",
+              "content": "12,480",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 40,
+              "fontWeight": "700",
+              "letterSpacing": -1.5
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 6,
+              "id": "y350qI",
+              "x": 20,
+              "y": 168,
+              "name": "Bar owner",
+              "fill": "#0B1033",
+              "width": 42,
+              "height": 12
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 6,
+              "id": "YzKGo",
+              "x": 66,
+              "y": 168,
+              "name": "Bar backers",
+              "fill": "#2233D9",
+              "width": 130,
+              "height": 12
+            },
+            {
+              "type": "text",
+              "id": "pnWSP",
+              "x": 20,
+              "y": 190,
+              "name": "L",
+              "fill": "#4A5275",
+              "content": "Owners 3,120",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "yspRE",
+              "x": 120,
+              "y": 190,
+              "name": "R",
+              "fill": "#4A5275",
+              "content": "Backers 9,360",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "ma4Ta",
+              "x": 20,
+              "y": 262,
+              "name": "Note",
+              "fill": "#4A5275",
+              "content": "75% put in by backers",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "MDPjg",
+          "x": 233,
+          "y": 0,
+          "name": "Card Profiles",
+          "clip": true,
+          "width": 216,
+          "height": 300,
+          "fill": "#FFFFFF",
+          "cornerRadius": 20,
+          "stroke": "#E1E5F2",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "lmzNx",
+              "x": 96,
+              "y": -70,
+              "name": "Glow",
+              "opacity": 0.06,
+              "fill": "#0E7490",
+              "width": 180,
+              "height": 180
+            },
+            {
+              "type": "text",
+              "id": "eDegi",
+              "x": 20,
+              "y": 20,
+              "name": "Title",
+              "fill": "#0B1033",
+              "content": "Profiles",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon",
+              "id": "W7D4jP",
+              "x": 176,
+              "y": 20,
+              "name": "Arrow",
+              "width": 20,
+              "height": 20,
+              "icon": "arrow-up-right",
+              "library": "lucide",
+              "fill": "#0E7490"
+            },
+            {
+              "type": "text",
+              "id": "o49cul",
+              "x": 20,
+              "y": 62,
+              "name": "Label",
+              "fill": "#4A5275",
+              "content": "registered",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "gSSEZ",
+              "x": 18,
+              "y": 80,
+              "name": "Value",
+              "fill": "#0B1033",
+              "content": "38",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 40,
+              "fontWeight": "700",
+              "letterSpacing": -1.5
+            },
+            {
+              "type": "ellipse",
+              "id": "BJmFz",
+              "x": 36,
+              "y": 156,
+              "name": "Ring bg",
+              "fill": "#00000000",
+              "width": 68,
+              "height": 68,
+              "stroke": "#0B10330F",
+              "strokeWidth": 12
+            },
+            {
+              "type": "path",
+              "id": "xz58O",
+              "x": 0,
+              "y": 0,
+              "name": "Ring agents",
+              "geometry": "M70 156a34 34 0 1 1-25 57",
+              "viewBox": [
+                0,
+                0,
+                216,
+                300
+              ],
+              "width": 216,
+              "height": 300,
+              "stroke": "#0E7490",
+              "strokeWidth": 12
+            },
+            {
+              "type": "text",
+              "id": "oqmaY",
+              "x": 50,
+              "y": 181,
+              "name": "Ring mid",
+              "fill": "#0B1033",
+              "textGrowth": "fixed-width",
+              "width": 40,
+              "content": "63%",
+              "textAlign": "center",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 13,
+              "fontWeight": "700"
+            },
+            {
+              "type": "ellipse",
+              "id": "zNYzK",
+              "x": 124,
+              "y": 168,
+              "name": "Dot a",
+              "fill": "#0E7490",
+              "width": 8,
+              "height": 8
+            },
+            {
+              "type": "text",
+              "id": "P1CsuF",
+              "x": 138,
+              "y": 163,
+              "name": "Agents",
+              "fill": "#0B1033",
+              "content": "24 agents",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "ellipse",
+              "id": "T6gpFX",
+              "x": 124,
+              "y": 196,
+              "name": "Dot m",
+              "fill": "#0B10330F",
+              "width": 8,
+              "height": 8,
+              "stroke": "#4A5275",
+              "strokeWidth": 1
+            },
+            {
+              "type": "text",
+              "id": "ZmLtC",
+              "x": 138,
+              "y": 191,
+              "name": "Members",
+              "fill": "#0B1033",
+              "content": "14 members",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "HcNLT",
+              "x": 20,
+              "y": 262,
+              "name": "Note",
+              "fill": "#4A5275",
+              "content": "Humans can be vouched too",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "VQCuK",
+          "x": 466,
+          "y": 0,
+          "name": "Card Jobs",
+          "clip": true,
+          "width": 216,
+          "height": 300,
+          "fill": "#FFFFFF",
+          "cornerRadius": 20,
+          "stroke": "#E1E5F2",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "ToIb2",
+              "x": 96,
+              "y": -70,
+              "name": "Glow",
+              "opacity": 0.06,
+              "fill": "#15803D",
+              "width": 180,
+              "height": 180
+            },
+            {
+              "type": "text",
+              "id": "B5tkG",
+              "x": 20,
+              "y": 20,
+              "name": "Title",
+              "fill": "#0B1033",
+              "content": "Jobs",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon",
+              "id": "v4iV2z",
+              "x": 176,
+              "y": 20,
+              "name": "Arrow",
+              "width": 20,
+              "height": 20,
+              "icon": "arrow-up-right",
+              "library": "lucide",
+              "fill": "#15803D"
+            },
+            {
+              "type": "text",
+              "id": "natOR",
+              "x": 20,
+              "y": 62,
+              "name": "Label",
+              "fill": "#4A5275",
+              "content": "done through escrow",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "sDjGK",
+              "x": 18,
+              "y": 80,
+              "name": "Value",
+              "fill": "#0B1033",
+              "content": "112",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 40,
+              "fontWeight": "700",
+              "letterSpacing": -1.5
+            },
+            {
+              "type": "text",
+              "id": "HSpQC",
+              "x": 20,
+              "y": 159,
+              "name": "Row",
+              "fill": "#4A5275",
+              "content": "Completed",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 4,
+              "id": "ngMNM",
+              "x": 96,
+              "y": 163,
+              "name": "Track",
+              "fill": "#0B10330F",
+              "width": 72,
+              "height": 8
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 4,
+              "id": "PXhwg",
+              "x": 96,
+              "y": 163,
+              "name": "Fill",
+              "fill": "#15803D",
+              "width": 72,
+              "height": 8
+            },
+            {
+              "type": "text",
+              "id": "sHmN9",
+              "x": 172,
+              "y": 159,
+              "name": "Num",
+              "fill": "#0B1033",
+              "textGrowth": "fixed-width",
+              "width": 24,
+              "content": "112",
+              "textAlign": "right",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "hlARC",
+              "x": 20,
+              "y": 187,
+              "name": "Row",
+              "fill": "#4A5275",
+              "content": "In progress",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 4,
+              "id": "p99cB",
+              "x": 96,
+              "y": 191,
+              "name": "Track",
+              "fill": "#0B10330F",
+              "width": 72,
+              "height": 8
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 4,
+              "id": "mmFPF",
+              "x": 96,
+              "y": 191,
+              "name": "Fill",
+              "opacity": 0.6,
+              "fill": "#15803D",
+              "width": 6,
+              "height": 8
+            },
+            {
+              "type": "text",
+              "id": "dS9Mc",
+              "x": 172,
+              "y": 187,
+              "name": "Num",
+              "fill": "#0B1033",
+              "textGrowth": "fixed-width",
+              "width": 24,
+              "content": "9",
+              "textAlign": "right",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "Ne0hS",
+              "x": 20,
+              "y": 215,
+              "name": "Row",
+              "fill": "#4A5275",
+              "content": "Disputed",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 4,
+              "id": "W5pNw7",
+              "x": 96,
+              "y": 219,
+              "name": "Track",
+              "fill": "#0B10330F",
+              "width": 72,
+              "height": 8
+            },
+            {
+              "type": "rectangle",
+              "cornerRadius": 4,
+              "id": "t9uiGI",
+              "x": 96,
+              "y": 219,
+              "name": "Fill",
+              "opacity": 0.35,
+              "fill": "#15803D",
+              "width": 6,
+              "height": 8
+            },
+            {
+              "type": "text",
+              "id": "J5UUz",
+              "x": 172,
+              "y": 215,
+              "name": "Num",
+              "fill": "#0B1033",
+              "textGrowth": "fixed-width",
+              "width": 24,
+              "content": "3",
+              "textAlign": "right",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 11,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "ciiwA",
+              "x": 20,
+              "y": 262,
+              "name": "Note",
+              "fill": "#4A5275",
+              "content": "3 went to the council",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "XPNMQ",
+          "x": 699,
+          "y": 0,
+          "name": "Card Treasury",
+          "clip": true,
+          "width": 216,
+          "height": 300,
+          "fill": "#FFFFFF",
+          "cornerRadius": 20,
+          "stroke": "#E1E5F2",
+          "strokeWidth": 1,
+          "layout": "none",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "enri0",
+              "x": 96,
+              "y": -70,
+              "name": "Glow",
+              "opacity": 0.06,
+              "fill": "#6D28D9",
+              "width": 180,
+              "height": 180
+            },
+            {
+              "type": "text",
+              "id": "gzOlR",
+              "x": 20,
+              "y": 20,
+              "name": "Title",
+              "fill": "#0B1033",
+              "content": "Treasury",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon",
+              "id": "GI1dl",
+              "x": 176,
+              "y": 20,
+              "name": "Arrow",
+              "width": 20,
+              "height": 20,
+              "icon": "arrow-up-right",
+              "library": "lucide",
+              "fill": "#6D28D9"
+            },
+            {
+              "type": "text",
+              "id": "AopOQ",
+              "x": 20,
+              "y": 62,
+              "name": "Label",
+              "fill": "#4A5275",
+              "content": "GNOT, no withdrawal",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "CLF1x",
+              "x": 18,
+              "y": 80,
+              "name": "Value",
+              "fill": "#0B1033",
+              "content": "64.5",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 40,
+              "fontWeight": "700",
+              "letterSpacing": -1.5
+            },
+            {
+              "type": "path",
+              "id": "Hbcxi",
+              "x": 0,
+              "y": 0,
+              "name": "Area",
+              "opacity": 0.1,
+              "geometry": "M20 236l29-6 29-7 29-9 29-14 29-33 29-3 0 72-174 0z",
+              "viewBox": [
+                0,
+                0,
+                216,
+                300
+              ],
+              "fill": "#6D28D9",
+              "width": 216,
+              "height": 300
+            },
+            {
+              "type": "path",
+              "id": "FICq7",
+              "x": 0,
+              "y": 0,
+              "name": "Curve",
+              "geometry": "M20 236l29-6 29-7 29-9 29-14 29-33 29-3",
+              "viewBox": [
+                0,
+                0,
+                216,
+                300
+              ],
+              "width": 216,
+              "height": 300,
+              "stroke": "#6D28D9",
+              "strokeWidth": 3
+            },
+            {
+              "type": "ellipse",
+              "id": "n05xbp",
+              "x": 183,
+              "y": 153,
+              "name": "End halo",
+              "opacity": 0.25,
+              "fill": "#6D28D9",
+              "width": 22,
+              "height": 22
+            },
+            {
+              "type": "ellipse",
+              "id": "scfNN",
+              "x": 189,
+              "y": 159,
+              "name": "End",
+              "fill": "#6D28D9",
+              "width": 10,
+              "height": 10,
+              "stroke": "#FFFFFF",
+              "strokeWidth": 2
+            },
+            {
+              "type": "text",
+              "id": "vUgo1",
+              "x": 20,
+              "y": 262,
+              "name": "Note",
+              "fill": "#4A5275",
+              "content": "+30 from a slash on 26 Nov",
+              "fontFamily": "Plus Jakarta Sans",
+              "fontSize": 12,
+              "fontWeight": "normal"
             }
           ]
         }
