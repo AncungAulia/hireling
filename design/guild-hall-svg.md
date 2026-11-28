@@ -71,3 +71,72 @@ Checked on 2026-11-26 by reading `gno.land/p/nt/svg/v0/svg.gno` from the Onyx RP
 
 - Where on the agent page the SVG sits, and the Markdown around it: see `gnoweb-pages.md` 3.2 and the `gnoweb · Agent` frames in `hireling.pen`: the image sits under the owner line, before the action links.
 - Whether the realm also renders a smaller graph on the Guild Hall home page.
+
+## 9. Home banner
+
+A fixed SVG at the top of the Guild Hall home page (`gnoweb-pages.md` 3.1). It never changes, so the realm keeps it as one constant string and only base64-encodes it once.
+
+- Canvas `915 × 200` (the gnoweb content width), `viewBox="0 0 915 200"`, background `rect` with `rx` 16, fill `#03050F`.
+- Flutes: 46 `rect`s, 20 wide, 200 high, at x = 20·i, fill `#FFFFFF`, opacity `0.03` (even) and `0.06` (odd).
+- Glow: 4 `circle`s at (760, 100), r = 260, 200, 150, 105, fill `#1660FF`, opacity `0.06`, `0.08`, `0.10`, `0.14`.
+- A small trust graph: edges from (760, 100) to (700, 52), (812, 70), (846, 140) and (690, 150), stroke `#8FA2FF`, width 2, opacity `0.6`. Nodes at those points, r 10 (fill `#FFFFFF`, the owner), 14, 9 and 12 (fill `#8FA2FF`). The agent: `circle` at (760, 100), r 32, fill `#2233D9`, stroke `#8FA2FF` width 2.
+- The logo: the `path` from `logo/hireling-mark.svg`, fill `#FFFFFF`, `transform="translate(48 56) scale(0.7333)"` (88 px wide).
+- `text` "Hireling" at (164, 100), `font:700 40px system-ui,-apple-system,Segoe UI,sans-serif`, fill `#FFFFFF`, `text-anchor:start`. `text` "Deposit-backed trust for Gno" at (166, 134), `font:400 18px` in the same stack, fill `#C7CEF5`.
+- Alt text: "Hireling, deposit-backed trust for Gno".
+- Budget: ≤ 6 KB.
+
+## 10. Score card (agent and member page)
+
+A `915 × 300` SVG under the "Owned by" line (`gnoweb-pages.md` 3.2), in the same look as the graph. Frame `SVG · Score card` in `hireling.pen`.
+
+- Background `rect` with `rx` 24, fill `#03050F`. Flutes as in §9, 300 high, opacity `0.025` and `0.05`. Glow: 3 `circle`s at (150, 20), r = 220, 160, 110, fill `#1660FF`, opacity `0.07`, `0.10`, `0.14`.
+- Top left: `rect` 36 × 36 at (40, 36), `rx` 10, fill `#2233D9`, with the logo `path` in white, 20 px, and the `text` "Trust score" (600 16px, `#FFFFFF`).
+- The score: `text` at (38, 156) baseline, `700 72px`, `#FFFFFF`.
+- Chips next to it at y 124, height 28, `rx` 14: the diversity bonus ("+20% diversity", `rect` fill `#5CF2A6` opacity `0.15`, text `#5CF2A6`) and strikes ("0 of 3 strikes", fill `#FFFFFF` opacity `0.08`, text `#C9D4F2`).
+- Top right, from x 500 to 875: who put the stake in. "Owner" and "Backers" labels (13px `#C9D4F2`), their amounts (700 20px `#FFFFFF`), then one bar 12 high split by stake: owner `#FFFFFF`, backers `#8FA2FF`, 6 px gap, `rx` 6, and the two percentages under it. Bar widths are integers: `owner = 369 · ownerStake / total`. A member with no backers shows one full white bar.
+- Divider `rect` at y 196, 1 high, `#FFFFFF` opacity `0.12`. Under it 4 stats at x 40, 250, 460 and 670: value `700 24px #FFFFFF`, label `14px #C9D4F2`: at stake, backers counted, capacity left for jobs (agents only), jobs done (agents only).
+- Only numbers and the address. No name, because the SVG cannot escape user text.
+- Alt text lists every number on the card (see the template).
+
+## 11. Top agents board (home page)
+
+A `915 × 424` SVG under "## Top agents", above the table. Frame `SVG · Top agents`.
+
+- Background, flutes and glow as in §10; the glow sits at (457, 30) behind the first row.
+- Up to 5 rows ("pills"), `rect` 600 × 64 at x 157, y = 32 + 76·i, `rx` 32. Row 1: fill `#2233D9`, edge `#8FA2FF` opacity `0.7`. Others: fill `#FFFFFF` opacity `0.05`, edge `#FFFFFF` opacity `0.12`.
+- In each row: the rank (700 18px), an identicon, the short address (`ui-monospace` 600 16px `#FFFFFF`), "trust score N" (13px), and the total stake on the right (700 16px, `#5CF2A6`; white on row 1).
+- **Identicon:** a `rect` 40 × 40, `rx` 12, fill `#0B0F24`, with a 4 × 4 grid of 8 px squares, mirrored left to right. The left two columns come from the first 8 bits of `sha256(address)` (bit set = square drawn), and the colour from the next byte modulo 5: `#8FA2FF`, `#5CF2A6`, `#FBBF24`, `#3FE0FF`, `#FF7A7A`. The same address always gets the same picture.
+- The table below keeps the names and links; the board is a picture of the first 5 only.
+
+## 12. Trust graph v2 (replaces the layout of §2 to §6)
+
+Dilly's reference: a citation network with hexagon nodes, glowing rings, label chips and side panels. Frame `SVG · Trust graph` in `hireling.pen`. The node and edge maths of §4 and §5 still apply (radius and width from `ISqrt`, at most 12 nodes plus "+N"); what changes is the canvas, the shapes and the panels. The samples in `guild-hall-sample*.svg` are still v1 and are regenerated when R3 is built.
+
+- Canvas `915 × 520`, background `rect` `rx` 24 fill `#03050F`, flutes 20 wide at opacity `0.015` and `0.035`.
+- Dust: 34 small `circle`s (r 1 to 3) in the graph area (x 260 to 900), fill `#8FA2FF` or `#B18CFF`, opacity `0.15` to `0.40`. Positions come from a fixed linear congruential sequence (seed 7, `s = (s·1103515245 + 12345) mod 2^31`), so every page draws the same dust. Decoration only: no lines between dust.
+- Agent at (590, 265): halo `circle`s r 150, 110, 78, 56 (fill `#1660FF`, opacity `0.05`, `0.07`, `0.10`, `0.16`); three orbit `ellipse`s rx/ry 130/96, 200/148, 262/196, no fill, stroke `#8FA2FF` width 1, opacity `0.14`; an outer hexagon r 44 (fill `#2233D9`, stroke `#8FA2FF` width 2) and an inner hexagon r 30 (fill `#3D4EF5`, opacity `0.8`); the score (700 26px) and "trust score" (10px `#DCE2FA`) centred inside.
+- Hexagons are `polygon`s with 6 integer points, flat sides left and right: angle 30° + 60°·k.
+- Nodes sit on the ellipse rx 230, ry 170 around the agent, owner first at 12 o'clock. Each node: a halo `circle` r + 10 (node colour, opacity `0.12`), a ring hexagon r + 5 (no fill, stroke node colour 1.5, opacity `0.6`), and the node hexagon r with its stake in whole GNOT centred inside (700, 11px if r ≥ 16, else 9px).
+- Colours: owner `#FFFFFF`; active backer `#8FA2FF`; warm-up: fill `#1A1240`, stroke and text `#B18CFF`, dashed edge `stroke-dasharray:6 6`; unbonding: as active at opacity `0.4`. Edges at opacity `0.65`.
+- Label chips for the owner and the 3 largest backers, **only when the graph has 6 nodes or fewer** (with more, chips cover the neighbouring nodes; the Backers table lists every address): `rect` 150 × 44, `rx` 8, fill `#0B0F24` opacity `0.9`, stroke `#FFFFFF` opacity `0.2`; the short address (`ui-monospace` 600 13px `#FFFFFF`) and the stake with its state (12px, `#8FA2FF`, or `#C9B4FF` for warm-up, "100 GNOT, owner"). The chip goes 16 px to the right of the node, or to the left for nodes left of the agent, or under the node when it would cross x 899.
+- Left panels: the title "Trust graph" (600 22px) and "Stake behind <short address>" (13px `#8FA2FF`) with a 28 × 2 accent bar `#3D4EF5`; a legend panel (196 × 184 at (32, 108), `rx` 10, fill `#FFFFFF` opacity `0.04`, stroke `#FFFFFF` opacity `0.2`) with Owner, Backer, Warm-up and "Line width = stake"; an "At a glance" panel (196 × 156 at (32, 332)) with backers active, warming up, owner stake and total at stake.
+- Still no names and no user text. Budget ≤ 10 KB.
+
+## 13. Guild stats (home page, light and dark)
+
+Dilly's reference: stat cards with a big number and a small chart each. Frames `SVG · Guild stats` (dark) and `SVG · Guild stats · Light` in `hireling.pen`. It replaces the four plain cards under the home page intro.
+
+- One SVG, `915 × 300`, with no page background: four cards 216 × 300 at x = 0, 233, 466 and 699, `rx` 20, 1 px border.
+- **Both themes in one file.** Colours are CSS classes in the SVG's `<style>`; a `@media (prefers-color-scheme: dark)` block swaps them. The image follows the visitor's system setting, which is what gnoweb's default "System" theme uses. Light is the base (`card #FFFFFF`, border `#E1E5F2`, text `#0B1033`, muted `#4A5275`, accents `#2233D9`, `#0E7490`, `#15803D`, `#6D28D9`); dark overrides it (`card #0B0F24`, border white at 12%, text `#FFFFFF`, muted `#9CA5D6`, accents `#8FA2FF`, `#3FE0FF`, `#5CF2A6`, `#B18CFF`). Check on Onyx that the `<style>` survives in the `data:` image; if it does not, ship the dark version only.
+- Each card: a glow `circle` r 90 at (186, 20) in the accent (opacity 0.10 dark, 0.06 light), the title (600 15px), an up-right arrow in the accent, a label (12px muted), and the number (700 40px).
+- Charts use only data the realm keeps, never an invented trend:
+  - **At stake:** one bar 12 high, owners' self-stake (text colour) and backers' stake (accent), widths in proportion, with the two amounts under it.
+  - **Profiles:** a ring r 34, stroke 12: a full ring at 8% for all profiles, and an arc `path` (`A` command) in the accent for the share of agents, the percentage in the middle; legend "N agents" and "N members".
+  - **Jobs:** three rows (completed, in progress, disputed) with a 72 px track and a fill in proportion to the largest, at opacity 1, 0.6 and 0.35.
+  - **Treasury:** the running total of the treasury's incoming funds (the same list the `treasury` page shows), up to 7 points spaced 29 px apart from x 20, scaled to 72 px high above y 236; a 3 px line, the area under it at low opacity, and a dot on the last point.
+- A last line per card (12px muted) says one fact in words: "75% put in by backers", "Humans can be vouched too", "3 went to the council", "+30 from a slash on 26 Nov".
+- Alt text lists all four numbers and the facts in the last lines.
+
+## 14. How the realm writes the SVGs
+
+`render_svg.gno` writes the SVGs as raw strings, not with `p/nt/svg/v0`. That lets it use what svg/v0 cannot write: a `<clipPath>` with rounded corners so glows stay inside the cards, a `<style>` with a `prefers-color-scheme` media query (§13), and `<polygon>` hexagons. Ribs are drawn as two `path`s (one per opacity) and dust dots are grouped by colour, which keeps the 12-node trust graph near 12 KB. The rules from §1 still hold: integer coordinates, and only numbers, fixed words and addresses in any text.

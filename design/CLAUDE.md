@@ -23,5 +23,5 @@ Design source for Hireling. Owner: Dilly. Root rules in `/CLAUDE.md` also apply.
 | `guild-hall-sample*.svg` | Samples that follow that spec |
 | `scripts-design/guild-hall-samples.mjs` | Generates the samples: `node design/scripts-design/guild-hall-samples.mjs` (or `bun`) |
 | `tokens.css` | The variables of `hireling.pen` as CSS custom properties: dark under `:root`, light under `[data-theme="light"]` |
-| `assets/` | 3D glass coin renders (`*-dark.jpg`) and their cutouts (`*-cutout.png`) used in the landing. Faces are blank; the vector logo is overlaid in pen.dev. Never ask an image model to draw the logo |
+| `assets/` | 3D glass coins used in the landing: `coin-<pose>.png` (transparent cutouts), with the original renders in `assets/source/`. `assets/cards/hero-*.png` are exports of the `Hero Cards` frame, used as image fills in the landing hero fan; re-export them when that frame changes. Faces are blank; the vector logo is overlaid in pen.dev. Never ask an image model to draw the logo |
 | `exports/` | JPEG and PNG exports for PR review |
