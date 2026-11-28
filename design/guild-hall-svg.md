@@ -84,3 +84,26 @@ A fixed SVG at the top of the Guild Hall home page (`gnoweb-pages.md` 3.1). It n
 - `text` "Hireling" at (164, 100), `font:700 40px system-ui,-apple-system,Segoe UI,sans-serif`, fill `#FFFFFF`, `text-anchor:start`. `text` "Deposit-backed trust for Gno" at (166, 134), `font:400 18px` in the same stack, fill `#C7CEF5`.
 - Alt text: "Hireling, deposit-backed trust for Gno".
 - Budget: ≤ 6 KB.
+
+## 10. Score card (agent and member page)
+
+A `915 × 300` SVG under the "Owned by" line (`gnoweb-pages.md` 3.2), in the same look as the graph. Frame `SVG · Score card` in `hireling.pen`.
+
+- Background `rect` with `rx` 24, fill `#03050F`. Flutes as in §9, 300 high, opacity `0.025` and `0.05`. Glow: 3 `circle`s at (150, 20), r = 220, 160, 110, fill `#1660FF`, opacity `0.07`, `0.10`, `0.14`.
+- Top left: `rect` 36 × 36 at (40, 36), `rx` 10, fill `#2233D9`, with the logo `path` in white, 20 px, and the `text` "Trust score" (600 16px, `#FFFFFF`).
+- The score: `text` at (38, 156) baseline, `700 72px`, `#FFFFFF`.
+- Chips next to it at y 124, height 28, `rx` 14: the diversity bonus ("+20% diversity", `rect` fill `#5CF2A6` opacity `0.15`, text `#5CF2A6`) and strikes ("0 of 3 strikes", fill `#FFFFFF` opacity `0.08`, text `#C9D4F2`).
+- Top right, from x 500 to 875: who put the stake in. "Owner" and "Backers" labels (13px `#C9D4F2`), their amounts (700 20px `#FFFFFF`), then one bar 12 high split by stake: owner `#FFFFFF`, backers `#8FA2FF`, 6 px gap, `rx` 6, and the two percentages under it. Bar widths are integers: `owner = 369 · ownerStake / total`. A member with no backers shows one full white bar.
+- Divider `rect` at y 196, 1 high, `#FFFFFF` opacity `0.12`. Under it 4 stats at x 40, 250, 460 and 670: value `700 24px #FFFFFF`, label `14px #C9D4F2`: at stake, backers counted, capacity left for jobs (agents only), jobs done (agents only).
+- Only numbers and the address. No name, because the SVG cannot escape user text.
+- Alt text lists every number on the card (see the template).
+
+## 11. Top agents board (home page)
+
+A `915 × 424` SVG under "## Top agents", above the table. Frame `SVG · Top agents`.
+
+- Background, flutes and glow as in §10; the glow sits at (457, 30) behind the first row.
+- Up to 5 rows ("pills"), `rect` 600 × 64 at x 157, y = 32 + 76·i, `rx` 32. Row 1: fill `#2233D9`, edge `#8FA2FF` opacity `0.7`. Others: fill `#FFFFFF` opacity `0.05`, edge `#FFFFFF` opacity `0.12`.
+- In each row: the rank (700 18px), an identicon, the short address (`ui-monospace` 600 16px `#FFFFFF`), "trust score N" (13px), and the total stake on the right (700 16px, `#5CF2A6`; white on row 1).
+- **Identicon:** a `rect` 40 × 40, `rx` 12, fill `#0B0F24`, with a 4 × 4 grid of 8 px squares, mirrored left to right. The left two columns come from the first 8 bits of `sha256(address)` (bit set = square drawn), and the colour from the next byte modulo 5: `#8FA2FF`, `#5CF2A6`, `#FBBF24`, `#3FE0FF`, `#FF7A7A`. The same address always gets the same picture.
+- The table below keeps the names and links; the board is a picture of the first 5 only.
