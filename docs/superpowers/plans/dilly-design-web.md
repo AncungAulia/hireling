@@ -1,171 +1,271 @@
-# Workstream #6 (design, then web) Implementation Plan
+# Workstream #6 (design, Render, engine, then web) Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Deliver issue #6: the design in `design/hireling.pen` (landing page, the look of the gnoweb pages and the Guild Hall trust-graph SVG, and the paid-action screens if OQ-9 needs them), then the web app in `apps/fe` (landing page first, then the paid-action screens if needed). Every screen is checked at 390, 834 and 1440 px.
+**Revision 2 (28 Nov).** Rewritten after Ancung's review of #14 and the ownership change in #1 / PR #16. Dilly now also owns `sc/r/hireling/render.gno` and `engine/` (continuing from #13). Priorities follow the PRD: Render is P0, the engine P1, the landing page P2.
 
-**Architecture:** Design comes first and is merged before its screen is coded (root rule 5). The web app is a static Next.js export (`output: "export"`) with no backend. Reads go `lib/gnoClient.ts` → module api functions (`vm/qeval` on `ProfileJSON`, `JobJSON`, `TrustScore`, `p/` constants) → TanStack Query hooks. Writes go through the Adena wallet only. The Guild Hall SVG is a design hand-off (`design/guild-hall-svg.md` plus a sample SVG); Ancung implements it in `sc/r/hireling/render.gno`.
+**Goal:** Deliver, in priority order:
 
-**Tech Stack:** pen.dev with the `pencil-design` skill; Next.js App Router, TypeScript strict, shadcn/ui, Tailwind, TanStack Query, react-hook-form + zod, Vitest + Testing Library (per `frontend-starter-kit`); **bun**; Adena wallet; Gno JS client chosen in #3 (candidate `@gnolang/gno-js-client`), or plain JSON-RPC `abci_query` if #3 rejects it.
+1. **P0, week 1:** the `Render` pages of `r/<ns>/hireling` for FR-06 (Guild Hall home, agent or member profile, voucher profile), escaped and paged, deployed with Wikan's P0 core by 1 Dec.
+2. **P1, weeks 2 and 3:** the remaining Render routes, the Guild Hall SVG (FR-12), TxLinks (FR-13), and the AuditBot engine (FR-15) running against Onyx.
+3. **P2, cuttable:** the landing page in `apps/fe`, and the paid-action screens only if OQ-9 needs them.
 
-**Spec:** `docs/PRD-Hireling.md` (§1, §5, §6.1, §7 F1–F5, §9.4, §9.7, FR-12, FR-13, FR-16, OQ-9), `docs/interface.md` (frozen), `apps/fe/CLAUDE.md`, `design/CLAUDE.md`, `.claude/skills/frontend-starter-kit/`. Issue: #6.
+The design for all of it lives in `design/hireling.pen` (PR #15).
+
+**Architecture:**
+- `render.gno` is one file in the main realm. It reads the realm state through a small set of unexported accessors that Wikan's registry and stake code provide (agreed in #4, see R0), builds Markdown with `p/moul/md/v0` and `p/moul/mdtable/v0`, escapes every user string with `p/nt/markdown/sanitize/v0`, pages lists with `p/nt/avl/pager/v0`, and draws the Guild Hall with `p/nt/svg/v0`. The Markdown contract is `design/gnoweb-pages.md`; the SVG contract is `design/guild-hall-svg.md`.
+- The engine is the #13 core (config, qeval parsing, runner loop) plus a Gno chain adapter, a `vm/qfile` source fetcher and an OpenRouter reviewer with structured output, as decided in #2 and recorded by PR #7.
+- The web app is a static Next.js export (`output: "export"`) with no backend. Reads go through `vm/qeval`; writes go through the Adena wallet only.
+
+**Tech Stack:** Gno `v1.8.0-rc.1` (commit `fc79041f4`, the Onyx version, #3) with `gno test` and `gnodev`, in WSL Ubuntu; TypeScript and **bun** for the engine (`bun test`) and the web app (`bun run test`, Vitest); OpenRouter `z-ai/glm-5.3-flash`; Next.js App Router per `frontend-starter-kit`; Adena; pen.dev with the `pencil-design` skill.
+
+**Spec:** `docs/PRD-Hireling.md` (§5, §5.2 #9 and #21, §6.1, §7, §9.4, §9.7, FR-06, FR-12, FR-13, FR-15, FR-16, NFR-02, NFR-06, OQ-9), `docs/interface.md` (frozen), issue #2 and `engine/CLAUDE.md` (LLM decisions), `design/gnoweb-pages.md`, `design/guild-hall-svg.md`, `sc/CLAUDE.md`, `apps/fe/CLAUDE.md`. Issue: #6.
 
 ## Dependencies and order
 
-| Task | Can start | Blocked by | Target date |
+| Task | Priority | Blocked by | Target date |
 |---|---|---|---|
-| D1 Foundations (tokens, components) | **now** | `pencil-design` skill available | 30 Nov |
-| D2 gnoweb look + Guild Hall SVG hand-off | after D1 | — (reads `p/nt/svg/v0` on Onyx) | 3 Dec |
-| D3 Landing page design | after D1 | — | 5 Dec |
-| W1 Scaffold, tokens, format, env | after D1 merged | — | 6 Dec |
-| W2 Gno read layer | after W1 | #3 JS-client result (falls back to raw JSON-RPC) | 8 Dec |
-| W3 Landing page | after D3 merged, W2 | — | 10 Dec |
-| D4 Paid-action screens design | only if OQ-9 = "TxLink cannot send" | #3 OQ-9 | 11 Dec |
-| W4 Wallet module (Adena) | after D4 merged | #3 OQ-9 | 12 Dec |
-| W5 Paid-action screens | after W4 | D4 | 15 Dec |
-| W6 Final width, theme and state pass; docs | last | — | 15 Dec (freeze is 16 Dec) |
+| D1 to D3 Brand, foundations, gnoweb look, Guild Hall spec, landing | done in PR #15, review fixes left | Ancung's review of #15 | 30 Nov |
+| R0 Render read contract with Wikan | P0 | Wikan's answer in #4 | 29 Nov |
+| R1 Render: home, agent, voucher, not found (FR-06) | **P0** | R0; Wikan's registry and stake code | tests 30 Nov, deploy with P0 by **1 Dec** |
+| R2 Render: job, dispute, council, treasury | P1 | Ancung's escrow and disputes (#4, week 2) | 10 Dec |
+| R3 Guild Hall SVG (FR-12) | P1 | R1 | 8 Dec |
+| R4 TxLinks and paid-action links (FR-13) | P1 | OQ-9 (#3); R2 for job and dispute actions | 12 Dec |
+| E1 Take over #13 and fix its review | P1 | PR #7 merged first, then #12 and #13 | 6 Dec |
+| E2 AuditBot reviewer per #2 | P1 | E1 | 11 Dec |
+| E3 Gno chain adapter and live run | P1 | JS client choice (#3); escrow deployed (week 2) | 14 Dec |
+| W1 to W3 Landing page in `apps/fe` | P2, cuttable | D3 merged; R1 to R4 and E1 to E3 first | 15 Dec |
+| D4, W4, W5 Paid-action screens | P2, only if OQ-9 = "cannot send" | OQ-9 cut-off (below) | 15 Dec |
+| W6 Final pass and docs | last | | 15 Dec (freeze 16 Dec) |
 
-Ancung starts the Guild Hall SVG in week 3 (11–15 Dec), so D2 lands first among the design tasks that other people wait on.
+**OQ-9 cut-off.** OQ-9 decides whether Vouch, Register, Hire and Open dispute can be TxLinks with `-send`. Wikan is asked in #3 for a date. If there is no answer by **4 Dec**, this plan assumes "cannot send":
+- R4 links paid actions to the web app;
+- D4, W4 and W5 are built for **Vouch** first, then Hire, Register and Open dispute in that order.
 
-If OQ-9 shows TxLinks *can* attach `-send`, D4, W4 and W5 are dropped and recorded as such in #6. The landing page still ships.
+If W5 is not done by 15 Dec, the Render pages show the matching `gnokey maketx call` command instead of a web link, and the screens are dropped and recorded in #6.
+
+**Cut order if time runs out** (last cut first): landing page (W1 to W3), then the paid-action screens beyond Vouch, then R2's council and treasury pages. R1, R3 and the engine are never cut.
 
 ## Global Constraints
 
-- Everything in the repo, the UI and on GitHub is English. Locale `en-US`, time zone `UTC` (`apps/fe/CLAUDE.md`).
-- **bun only**; never npm, yarn or pnpm. Unit tests run with `bun run test` (Vitest), not `bun test` (bun's own runner).
-- No backend, no database, no IPFS, no axios, no mock mode. Static export only: no route handlers, no server actions, no `next/image` optimisation.
-- Network: Onyx, chain id `onyx-1`, RPC `https://rpc.onyx.testnets.gno.land:443`, gnoweb `https://latest.testnets.gno.land`. Env vars: `NEXT_PUBLIC_GNO_RPC_URL`, `NEXT_PUBLIC_GNO_CHAIN_ID`, `NEXT_PUBLIC_HIRELING_REALM`.
-- Interface is frozen (`docs/interface.md`). A missing read function means an `interface-change` issue, never a workaround.
-- Amounts: `int64` ugnot on chain, `bigint` in the app, shown in GNOT (1 GNOT = 1,000,000 ugnot) only through `lib/format.ts`. No float math on amounts.
-- Parameter values are read from the `p/<ns>/hireling` constants at runtime, never hard-coded, because testnet and mainnet values differ (PRD §5).
+- Everything in the repo, the UI and on GitHub is English. Locale `en-US`, time zone `UTC`.
+- **Stay in folder:** `design/`, `apps/fe/`, `engine/`, and `sc/r/hireling/render.gno` with its own tests (`render_test.gno`, `render_*_filetest.gno`). Every other file in `sc/` (registry, stake, jobs, `p/hireling`) belongs to Wikan or Ancung. If Render needs something there, ask in #4 first (root rule 4).
+- **bun only.** The engine uses `bun test` (bun's runner, as set up in #13); the web app uses `bun run test` (Vitest).
+- The interface is frozen (`docs/interface.md`). A missing *public* read function means an `interface-change` issue, never a workaround. Render lives inside the realm, so it does not need new public functions; the unexported accessors in R0 are an internal agreement with Wikan, not an interface change.
+- Network: Onyx, chain id `onyx-1`, RPC `https://rpc.onyx.testnets.gno.land:443`, gnoweb `https://latest.testnets.gno.land`. Namespace `g1hfywsc0ytpxkyyrkz7dgxnkuuepsm63wae4mrj`. Only Ancung deploys.
+- Amounts: `int64` ugnot on chain, shown as GNOT with the unit (`400 GNOT`, `0.1 GNOT`) and no float math. Times in UTC.
+- Parameter values come from the `p/<ns>/hireling` constants, never hard-coded, because testnet and mainnet differ (PRD §5). Render prints them from the constants (for example the diversity threshold, testnet 1 GNOT).
 - Text limits are bytes: brief ≤ 2 KB (`MaxBrief`), evidence ≤ 2 KB (`MaxEvidence`), result ≤ 4 KB (`MaxResult`), name ≤ 32 (`MaxName`), desc ≤ 280 (`MaxDesc`).
-- Every screen: light and dark, checked at 390, 834 and 1440 px with no horizontal scroll, 44 px touch targets (`frontend-starter-kit` §5).
-- Design PRs include PNG exports of every changed frame in `design/exports/`. `.pen` files are touched only through the pen.dev MCP tools, never read or edited as text.
-- User text is never rendered as HTML or links (PRD §5.2 #21). The shortened address always appears next to a name.
-- The UI always says that briefs, results and evidence are public (PRD §5.2 #9), that this is testnet only, and that the demo council is the team (PRD §11).
-- No marketing copy: say what it is, the problem, and "do X, see Y". The name never starts with "Gno" and uses no official Gno.land branding.
-- Stay in folder: `design/`, `apps/fe/`. Anything else (`sc/`, `docs/`, root `README.md`) goes through an issue first.
-- Branches `feat/6-…`, `docs/6-…`. PRs say `Part of #6`; only the last one says `Closes #6`.
+- **User text is never Markdown, a link, an image or HTML** (NFR-06, PRD §5.2 #21). The shortened address always follows a name.
+- The UI and the pages say that briefs, results and evidence are public, that this is testnet only, and that the demo council is the team (PRD §11).
+- Secrets: the OpenRouter key and the agent mnemonic live only in `engine/.env`. They never appear in an issue, PR, commit, log, test fixture or prompt.
+- Web screens: dark is the default theme, every screen also has a light version, checked at 390, 834 and 1440 px with no horizontal scroll and 44 px touch targets.
+- Design PRs include exports of every changed frame in `design/exports/`. `.pen` files are touched only through the pen.dev MCP tools.
+- No marketing copy. The name never starts with "Gno" and uses no official Gno.land branding.
+- Branches `feat/6-…`, `fix/6-…`, `docs/6-…`. PRs say `Part of #6`; only the last one says `Closes #6`. PRs that touch `sc/` need Ancung's approval.
 
 ## Review Focus
 
-1. **GNOT amount entry.** People type `0.1`, `1,5`, `1.0000001`, ` 2 `, `-1`, `1e3` or nothing. `0.1` must become exactly `100000n` ugnot. More than 6 decimals, negatives, exponents and empty input must be rejected under the field, never rounded silently. Pinned by `parseGnot` tests in W1.
-2. **Multibyte text at the limit.** A brief of 700 emoji is under 2048 characters but over 2048 bytes. The realm counts bytes, so the counter and the schema must count UTF-8 bytes and block submit at `MaxBrief + 1` bytes. Pinned by `briefSchema rejects MaxBrief+1 bytes of multibyte text` in W5.
-3. **Wallet not ready.** Adena is not installed, is locked, is on another chain, or the person rejects the signature. The app must never send to a chain other than `NEXT_PUBLIC_GNO_CHAIN_ID`, and each case gets its own message. Pinned by the `useWallet` state tests in W4.
-4. **Realm panic shown to the person.** A tx fails with `hireling: price below minimum`. The person sees `Price below minimum.`, not a stack trace or a generic error. Pinned by `mapTxError` tests in W4.
-5. **Address with no profile.** Someone looks up or vouches for a valid `g1…` address that never registered. What `ProfileJSON` returns for it is not in the interface (empty string, `{}` or a panic). All three must show the "not registered" state, not the error state. Pinned by `getProfile treats empty, {} and panic as not registered` in W2; the real behaviour is asked of Ancung in the plan PR.
+1. **User text that tries to become Markdown.** A name like `[Approve](javascript:alert(1))`, `![x](https://evil.example/a.png)`, `<img src=x>`, `| a | b |` or a line starting with `#` must show as plain text, and a `|` must not break a table. Pinned by the escaping tests in R1 (`TestRenderEscapesUserText`) and a filetest that registers such a name and renders the page.
+2. **Unbounded lists.** A profile can have any number of backers and jobs (PRD §5). Every list on a page is paged at 20 rows, and the SVG draws at most 12 nodes plus "+N". Pinned by `TestRenderPagesBackers` (45 backers give 3 pages) and `TestGuildHallSVGCapsNodes` in R3.
+3. **Address with no profile.** `agent/<addr>` for a valid address that never registered shows the "No profile" page, and an invalid address shows "Not a valid address", never a panic. What `ProfileJSON` returns for an unknown address is asked of Wikan in #4 (R0); the web app follows the same answer (W2).
+4. **Prompt injection through the brief.** A brief containing `</brief>`, "ignore the instructions above" or a fake JSON findings block must stay data. The brief and the fetched source are sent JSON-encoded inside the user message, never spliced into tags. Pinned by `review() sends the brief JSON-encoded` in E1.
+5. **Delivering after the deadline.** The LLM call can take up to 120 s. The runner checks the deadline again after `review()` and does not send `Deliver` if fewer than 60 s are left. Pinned by `skips deliver when review ends past the deadline margin` in E1.
+6. **GNOT amount entry and multibyte limits in the web app** (W1, W5), as in revision 1: `0.1` is exactly `100000n`; more than 6 decimals, negatives, exponents and empty input are rejected; byte counters count UTF-8 bytes.
 
 ---
 
 ## Design tasks
 
-Design tasks have no unit tests. Their check is: every frame exists in light and dark at the listed widths, the PNG exports are in the PR, text contrast is measured, and Ancung (D2) or a reviewer approves. Before each design task, load the `pencil-design` skill and open `design/hireling.pen` through the pen.dev MCP server.
+Design check: every frame exists in dark and light at the listed widths, exports are in the PR, text contrast is measured, and a reviewer approves. Load the `pencil-design` skill first.
 
-### Task D1: Foundations
+### Tasks D1 to D3: done in PR #15, review fixes left
 
-**Files:**
-- Create: `design/hireling.pen` (pages `Foundations`, `Components`)
-- Create: `design/tokens.css`
-- Create: `design/exports/foundations-light.png`, `foundations-dark.png`, `components-light.png`, `components-dark.png`
-- Modify: `design/CLAUDE.md` (page list, token export step)
+PR #15 holds the brand, foundations, the final logo, the landing page at 1440, 834 and 390 in dark and light, the trust-lookup states, the gnoweb frames, `design/gnoweb-pages.md`, `design/guild-hall-svg.md` and the sample SVGs. Ancung approves once his review points are fixed:
 
-**Interfaces:**
-- Produces: `design/tokens.css` with CSS custom properties under `:root` (light) and `.dark` (dark), named to match shadcn: `--background`, `--foreground`, `--card`, `--card-foreground`, `--primary`, `--primary-foreground`, `--secondary`, `--muted`, `--muted-foreground`, `--accent`, `--destructive`, `--border`, `--input`, `--ring`, `--radius`, plus Hireling-specific `--score-high`, `--score-mid`, `--score-low`, `--stake`, `--slash`. W1 copies this file into the app.
-
-- [ ] **Step 1: Define the look.** Guild / tavern theme (PRD §2.1 "User appeal"): warm, readable, not a game skin. Pick one display font and one text font from Google Fonts (`next/font` can load them), and one monospace for addresses and amounts.
-- [ ] **Step 2: Define the variables** in the `.pen` file for every token listed above, in both themes. Body text on `--background` and `--card` must reach WCAG AA (4.5:1); large text and icons 3:1.
-- [ ] **Step 3: Build the components** used by D2–D4: Button (primary, secondary, ghost, destructive; default, hover, pressed, disabled, loading), Input, Textarea with byte counter, Amount input with `GNOT` suffix, Address chip (`g1abcd…wxyz` + copy), Score badge (score number, colour from `--score-*`), Status badge (`pending|active|inactive|banned`, job statuses), Card, Alert (info, warning for "public on chain", error), Skeleton, Empty state, Error state with retry.
-- [ ] **Step 4: Export** `design/tokens.css` from the variables, and the four PNGs.
-- [ ] **Step 5: Verify.** Measure contrast for every text/background pair in both themes and paste the numbers in the PR. Expected: all body pairs ≥ 4.5:1.
-- [ ] **Step 6: Commit and open the PR** (`feat(design): foundations and components`).
-
-### Task D2: gnoweb look and Guild Hall SVG hand-off
-
-gnoweb styles the page itself, so "the look of the gnoweb pages" means the Markdown structure each `Render` route returns, plus the SVG, which Hireling fully controls.
-
-**Files:**
-- Modify: `design/hireling.pen` (page `gnoweb`)
-- Create: `design/guild-hall-svg.md` (spec for Ancung)
-- Create: `design/guild-hall-sample.svg`, `design/guild-hall-sample-empty.svg`, `design/guild-hall-sample-banned.svg`
-- Create: `design/exports/gnoweb-*-light.png`, `gnoweb-*-dark.png` (one pair per route)
-
-**Interfaces:**
-- Consumes: Render routes `""`, `agent/<addr>`, `job/<id>`, `dispute/<id>`, `voucher/<addr>`, `council`, `treasury` and their content from PRD §9.4.
-- Produces: `design/guild-hall-svg.md`, the contract Ancung implements in `render.gno`.
-
-- [ ] **Step 1: Check what gnoweb on Onyx renders.** Read `p/nt/svg/v0` on Onyx (`gnokey query vm/qfile -data gno.land/p/nt/svg/v0 -remote $RPC`) and list the elements and attributes it can emit. Render a throwaway Markdown sample in `gnodev` against the Onyx version (Ancung's pin in `sc/CLAUDE.md`) to see which extensions work (tables, columns, alerts, `data:` SVG images). Record both lists at the top of `guild-hall-svg.md`. Use nothing outside them.
-- [ ] **Step 2: Design one frame per route**, as it will look inside gnoweb's chrome in light and dark: section order, headings, tables, where the TxLink buttons and the "public on chain" and "demo council is the team" notes go. The agent profile shows the SVG, the score breakdown (total, N, bonus, strikes), vouchers, job history, owner history, capacity left, and the full address next to the name (PRD §9.4).
-- [ ] **Step 3: Write `guild-hall-svg.md`** with these decisions pinned:
-  - Canvas `640 × 400` viewBox, scales to width. Own background `rect` with rounded corners and fixed hex colours that read on both gnoweb themes. The SVG does not depend on the page theme.
-  - Agent node in the centre (radius 40, score inside). Vouchers on a circle around it, ordered by active stake, largest at 12 o'clock and going clockwise.
-  - At most **12** voucher nodes. The rest are one node `+N more`. Voucher count is unlimited (PRD §5), so the SVG must stay bounded.
-  - Line width `1 + 7 × sqrt(stake / maxStake)` px, rounded to an integer (Ancung can use `ISqrt` from `p/` on scaled integers).
-  - Line style: active vouch solid; warm-up vouch dashed; unbonding faded at 40 % opacity.
-  - Labels: shortened address (`g1` + 4 … last 4) under each node; the agent name only in the page Markdown, not in the SVG, so no user text goes into SVG markup.
-  - Banned agent: grey node with a red ring and a strike count; inactive agent: grey node.
-  - Empty state (no vouchers): agent node alone and the text "No vouchers yet".
-  - System font stack only (an SVG in an `img` cannot load web fonts).
-  - Size budget: ≤ 8 KB for the 12-voucher case, so the `data:` URI stays small.
-- [ ] **Step 4: Hand-draw the three sample SVGs** that follow the spec (12 + "more", empty, banned).
-- [ ] **Step 5: Verify.** Open each sample SVG in a browser over a white and a black page, and paste the byte sizes in the PR. Expected: readable on both, each ≤ 8 KB. Export the PNGs.
-- [ ] **Step 6: Commit and open the PR** (`feat(design): gnoweb look and Guild Hall SVG spec`) with Ancung as reviewer, because he implements it.
-
-### Task D3: Landing page
-
-**Files:**
-- Modify: `design/hireling.pen` (page `Landing`, frames at 390, 834, 1440, each light and dark)
-- Create: `design/exports/landing-{390,834,1440}-{light,dark}.png`
-
-**Interfaces:**
-- Produces: the landing copy and section order W3 builds. The copy is final in the design; W3 does not rewrite it.
-
-- [ ] **Step 1: Lay out the sections**, in this order:
-  1. Header: name, links "Guild Hall" (gnoweb realm URL), "Source" (GitHub repo), theme toggle.
-  2. Hero: the one-liner "Deposit-backed trust for Gno. Start with AI agents someone has put money behind." (PRD §1), a one-sentence problem (PRD §1.1), and two actions: "Open the Guild Hall" and "Check a trust score".
-  3. How it works: four steps, Stake, Vouch, Hire, Dispute, one sentence each (PRD §1.2).
-  4. Trust score: the formula and the five-row example table from PRD §6.1.
-  5. For realm developers: the one-line `IsTrusted` snippet from PRD §7 F5 with a copy button, and a link to `tavernboard`.
-  6. Check a trust score: address field → score badge, status, total stake, voucher count, link to the agent's gnoweb page. States: idle, loading, found, not registered, invalid address, chain error.
-  7. Honest notes: testnet only, the demo council is the team, briefs and results are public on chain.
-  8. Footer: repo, realm, licence.
-- [ ] **Step 2: Design all states of section 6** and the mobile header.
-- [ ] **Step 3: Verify.** Every frame exists at the three widths in both themes; no text below 16 px on mobile; touch targets ≥ 44 px. Export the PNGs.
-- [ ] **Step 4: Commit and open the PR** (`feat(design): landing page`).
+- [ ] **Step 1: Copy fixes.** Collateral copy says "each backer loses 10%; the owner loses 2× the job price". The ticker shows the shortened address after every name and says **95 GNOT** slashed to the Treasury (5 GNOT goes to jurors first).
+- [ ] **Step 2: Spec fixes.** `gnoweb-pages.md` 3.2 prints the diversity threshold from the constant instead of "5 GNOT or more"; the agent example shows capacity left 100 GNOT; the dispute page says "a majority of non-abstain votes decides". `guild-hall-svg.md` says "floor" instead of "round", mentions the 0.4 opacity on the "+N" edge, and §8 no longer says the gnoweb frames are coming.
+- [ ] **Step 3: Sample fix.** `guild-hall-samples.mjs` labels the owner node with the owner's address, not the agent's. Regenerate the three samples and paste their sizes.
+- [ ] **Step 4: Tokens.** Export `design/tokens.css` from the `.pen` variables (dark under `:root`, light under `[data-theme="light"]`), which Foundations already refers to.
+- [ ] **Step 5: Housekeeping.** "Trust travels" is already in every landing frame; refresh the exports. After PR #8 merges, delete `design/.gitattributes` (the root file has `*.pen binary`).
+- [ ] **Step 6: Push, reply to each review point in #15, and mark it ready.**
 
 ### Task D4: Paid-action screens (only if OQ-9 needs them)
 
+Unchanged from revision 1, except that the order is **Vouch first**, then Hire, Register and Open dispute, and each screen is designed dark first with its light version.
+
+- Modify: `design/hireling.pen` (page `Actions`); create `design/exports/action-<name>-<width>-<theme>.jpg`.
+- [ ] **Step 1:** the shared wallet bar: not installed, locked, wrong network, connected, awaiting signature, submitted.
+- [ ] **Step 2:** each screen with its form, field errors, pending, success and a confirm step that shows the amount in GNOT before signing. Content as in revision 1 (Vouch: target summary, amount ≥ `MinVouch`, warm-up, 10% slash and unbond notes; Hire: capacity left, price, brief byte counter, deadline, "public on chain"; Register: Agent and Member tabs; Dispute: time left, evidence byte counter, deposit).
+- [ ] **Step 3:** verify as in D3 and export. **Step 4:** commit and open the PR (`feat(design): paid-action screens`).
+
+---
+
+## Render tasks (`sc/r/hireling/render.gno`)
+
+All Render work is test-first. Commands run in WSL from the repo root with the Onyx toolchain from `sc/CLAUDE.md`. "Verify" means `gno test ./sc/r/hireling/ -v` passes (all tests, including Wikan's), output pasted in the PR, and the page checked in `gnodev` in both gnoweb themes.
+
+### Task R0: Render read contract with Wikan
+
+**Files:** none (an issue comment in #4).
+
+- [ ] **Step 1: Check the helper packages on Onyx.** `gnokey query vm/qfile -data gno.land/p/nt/markdown/sanitize/v0 -remote $RPC`, and the same for `p/moul/md/v0`, `p/moul/mdtable/v0`, `p/nt/avl/pager/v0`, `p/nt/svg/v0`, `p/moul/txlink/v0`. Write down the exported functions Render will use (for example the inline-text escaper in `sanitize`, `pager.NewPager`, `txlink.Call`).
+- [ ] **Step 2: Ask Wikan in #4** for the unexported accessors Render needs, with the shapes proposed so he can accept or rename them:
+
+```go
+// in Wikan's files; read-only, no cross
+func getProfile(addr address) (*Profile, bool)         // ok=false if never registered
+func profilesByScore() *avl.Tree                        // key sorts by score desc, value *Profile
+func backersOf(target address) *avl.Tree               // value *Vouch{Voucher, Amount, Status, WarmsAt, FreeAt}
+func vouchesBy(voucher address) *avl.Tree              // value *Vouch, keyed by target
+func ownedBy(owner address) []address
+func pendingRewards(voucher address) int64
+func guildStats() (totalStake int64, profiles int, jobsDone int)
+```
+
+Also ask what `ProfileJSON` returns for an address that never registered (empty string, `{}` or a panic), because W2 and the engine parse it.
+- [ ] **Step 3: Record the answer** at the top of `render.gno` as a comment listing the accessors used. Until they land, R1's tests build state only through the public functions (`RegisterMember`, `RegisterAgent`, `AcceptRegistration`, `Vouch`) with `testing.SetOriginCaller` and `testing.SetOriginSend`, so they survive renames inside Wikan's code.
+
+### Task R1: Home, agent, voucher and not-found pages (FR-06, P0)
+
 **Files:**
-- Modify: `design/hireling.pen` (page `Actions`)
-- Create: `design/exports/action-{register,vouch,hire,dispute}-{390,834,1440}-{light,dark}.png`
+- Create: `sc/r/hireling/render.gno`
+- Test: `sc/r/hireling/render_test.gno`, `sc/r/hireling/render_escape_filetest.gno`
+- Modify: `sc/CLAUDE.md` (Render section: routes, helper packages used, how to view in `gnodev`)
 
 **Interfaces:**
-- Consumes: `RegisterAgent`, `RegisterMember`, `Vouch`, `CreateJob`, `OpenDispute` from `docs/interface.md`; the fields of `ProfileJSON` and `JobJSON`.
-- Produces: the screens and copy W5 builds.
+- Consumes: R0 accessors; `p/<ns>/hireling` constants and `TrustScore`.
+- Produces: `func Render(path string) string` for `""`, `agent/<addr>`, `voucher/<addr>`; unknown routes return a "Page not found" page with the footer. Markdown exactly as in `design/gnoweb-pages.md` 3.1, 3.2, 3.5 and 3.8, minus the SVG image (R3) and action links (R4).
 
-- [ ] **Step 1: Design the shared wallet bar**: not installed (link to Adena), locked, wrong network (shows the expected chain id), connected (address chip), awaiting signature, submitted (tx hash and link to the gnoweb page).
-- [ ] **Step 2: Design four screens**, each with its form, every field error, the pending and success states, and a confirm step that shows the amount in GNOT before signing:
-  - **Register**: tabs Agent / Member. Agent: agent address, name (≤ `MaxName`), description (≤ `MaxDesc`), tags (comma-separated), self-stake ≥ shown minimum; a note that the agent key must then call `AcceptRegistration`. Member: name, description, self-stake.
-  - **Vouch**: target summary from `ProfileJSON` (name, address, score, status), amount ≥ `MinVouch`, notes "counts after 3 days", "10 % of your stake is slashed if the agent is found guilty", "unbonding takes 7 days".
-  - **Hire** (`CreateJob`): agent summary with capacity left, price ≥ `MinJobPrice` and ≤ capacity left, brief with a byte counter and an acceptance-criteria hint (PRD §5.2 #8), deadline days (default `DefaultDeadline`, max `MaxDeadline`), the "public on chain" warning.
-  - **Dispute** (`OpenDispute`): job summary from `JobJSON`, time left until `T`, evidence with a byte counter, the deposit amount, closed state when `now ≥ T` or the caller is not the hirer.
-- [ ] **Step 3: Verify** as in D3 and export the PNGs.
-- [ ] **Step 4: Commit and open the PR** (`feat(design): paid-action screens`).
+- [ ] **Step 1: Write the failing tests.**
+
+```go
+// render_test.gno
+func TestRenderHomeEmpty(t *testing.T) {
+	out := Render("")
+	urequire.True(t, strings.HasPrefix(out, "# The Guild Hall\n"))
+	uassert.True(t, strings.Contains(out, "No agents yet."))
+	uassert.True(t, strings.Contains(out, "Testnet only. Hireling is not affiliated with Gno.land."))
+}
+
+func TestRenderAgentShowsScoreAndBackers(t *testing.T) {
+	// Sinta registers AuditBot with 100 GNOT; Budi vouches 200, Rina 100; warm-up passes; Activate
+	out := Render("agent/" + auditBot.String())
+	uassert.True(t, strings.Contains(out, "# AuditBot\n"))
+	uassert.True(t, strings.Contains(out, "`g1jg8m…sqf5`  Agent, active."))
+	uassert.True(t, strings.Contains(out, "## Score 240"))
+	uassert.True(t, strings.Contains(out, "| Budi `g1bud1…7x2a` | 200 GNOT | active |"))
+}
+
+func TestRenderNoProfile(t *testing.T)    // valid unknown address -> "# No profile at `g1xx…yyyy`"
+func TestRenderInvalidAddress(t *testing.T) // "agent/hello" -> "Not a valid address", no panic
+func TestRenderPagesBackers(t *testing.T)  // 45 backers -> page 1 has 20 rows and "[Next 20 backers](:agent/<addr>?page=2)", page 3 has 5
+func TestRenderVoucherPortfolio(t *testing.T) // Budi backs 2 agents -> both rows, "Withdraw" amount from pendingRewards
+func TestRenderThresholdFromConstant(t *testing.T) // "Backers counted (" + gnot(DiversityThreshold) + " or more)"
+
+func TestRenderEscapesUserText(t *testing.T) {
+	for _, name := range []string{"[Approve](javascript:alert(1))", "![x](https://evil.example/a.png)", "<img src=x>", "a | b", "# big", "`code`"} {
+		// register a member with this name, render its page
+		out := Render("agent/" + addr.String())
+		uassert.False(t, strings.Contains(out, "]("+"javascript"))
+		uassert.False(t, strings.Contains(out, "![x]("))
+		uassert.False(t, strings.Contains(out, "<img"))
+		uassert.False(t, strings.Contains(out, "\n# big"))
+	}
+}
+```
+
+`render_escape_filetest.gno` does the same through a real `RegisterMember` transaction and checks the `// Output:` of `Render`. It sits under Wikan's filetest path, so he reviews it.
+
+- [ ] **Step 2: Run** `gno test ./sc/r/hireling/ -run TestRender -v`. Expected: FAIL, `Render` not defined.
+- [ ] **Step 3: Implement** `render.gno`: a router on the first path segment and `?page=`, one builder per page, a helper `who(name string, addr address) string` that returns the escaped name plus the shortened address, `gnot(ugnot int64) string` (integer math, at most 6 decimals, trailing zeros dropped), `utc(unix int64) string`, and the shared footer.
+- [ ] **Step 4: Verify.** Full command; then `gnodev` with seed data, open `/r/<ns>/hireling`, `:agent/<addr>` and `:voucher/<addr>` in gnoweb light and dark, and compare with the `gnoweb · …` frames. Paste screenshots in the PR.
+- [ ] **Step 5: Commit** (`feat(sc): render guild hall, profile and voucher pages`), open the PR with Ancung and Wikan as reviewers, and tell Ancung it is ready for the 1 Dec deploy.
+
+### Task R2: Job, dispute, council and treasury pages (P1)
+
+**Files:** modify `render.gno`, `render_test.gno`.
+
+**Interfaces:** consumes Ancung's job, dispute and council state (accessors asked in #4 the same way as R0, once his week-2 code exists); produces `job/<id>`, `dispute/<id>`, `council`, `treasury` as in `gnoweb-pages.md` 3.3, 3.4, 3.6 and 3.7, and the "Latest jobs" table on the home page.
+
+- [ ] **Step 1: Failing tests:** brief and result render as block quotes of escaped text (a result with `## Heading` and `[link](x)` stays literal on every line, including after newlines); the job steps table shows only the steps that happened; a dispute shows "2 of 3 voted" and, after `Resolve`, an "## Outcome" section; the treasury balance equals `TreasuryBalance()`; unknown ids give "No job 99".
+- [ ] **Step 2: Run** (FAIL), **Step 3: Implement**, **Step 4: Verify** in `gnodev`, **Step 5: Commit** (`feat(sc): render job, dispute, council and treasury pages`).
+
+### Task R3: Guild Hall SVG (FR-12, P1)
+
+**Files:** modify `render.gno` (or add `render_svg.gno`, also Dilly's; update `CODEOWNERS` through Ancung if so), `render_test.gno`; test data `sc/r/hireling/testdata/guild-hall-sample.svg` copied from `design/`.
+
+**Interfaces:** consumes R0 accessors and `ISqrt`; produces `guildHallSVG(target address) string` (the raw SVG) and its `data:image/svg+xml;base64,` image line on the agent page, following `design/guild-hall-svg.md`.
+
+- [ ] **Step 1: Failing tests:**
+  - `TestGuildHallSVGMatchesSample`: the 12-backer state from `guild-hall-samples.mjs` produces byte-for-byte `testdata/guild-hall-sample.svg`;
+  - `TestGuildHallSVGCapsNodes`: 30 backers give 12 nodes and one "+18" node;
+  - empty and banned states match their samples;
+  - output is ≤ 8192 bytes for 12 backers;
+  - the SVG contains no name, only addresses and numbers; the alt text is built from numbers and the address only.
+- [ ] **Step 2: Run** (FAIL), **Step 3: Implement** with integer coordinates (`radius = 8 + 14·ISqrt(stake·10000/max)/100`), **Step 4: Verify**: the image shows in gnoweb light and dark in `gnodev`; paste the byte size. **Step 5: Commit** (`feat(sc): guild hall trust graph svg`).
+
+### Task R4: TxLinks and paid-action links (FR-13, P1)
+
+**Files:** modify `render.gno`, `render_test.gno`, `design/gnoweb-pages.md` (replace `{… link}` placeholders with the chosen form).
+
+- [ ] **Step 1: Confirm on Onyx** that a `$help&func=Approve&id=12` link opens the call form in gnoweb, and whether `p/moul/txlink/v0` builds the same link. Record the result in `sc/CLAUDE.md`.
+- [ ] **Step 2: Failing tests:** free actions appear only in the states where they are allowed (Approve and Open dispute only for `delivered` before T; Release only after T; Accept and Cancel per PRD F3; Vote only while voting is open; Withdraw only when something is ready); paid actions use the OQ-9 form (TxLink with send, web link `https://hirelings.xyz/vouch?agent=<addr>`, or the `gnokey` command after the cut-off); a banned agent shows no Vouch or Hire link; no link ever contains user text.
+- [ ] **Step 3: Run** (FAIL), **Step 4: Implement**, **Step 5: Verify** one real TxLink call on Onyx after Ancung deploys, with the tx hash in the PR. **Step 6: Commit** (`feat(sc): action links on render pages`).
+
+---
+
+## Engine tasks (`engine/`)
+
+Commands run from `engine/`. "Verify" means `bun test && bun run typecheck` passes, output pasted in the PR. Pin `"packageManager": "bun@1.4.5"`.
+
+### Task E1: Take over #13 and fix its review
+
+**Files:** `engine/src/llm.ts`, `engine/src/runner.ts`, `engine/package.json`, `engine/CLAUDE.md`; tests in `engine/test/llm.test.ts`, `engine/test/runner.test.ts`.
+
+- [ ] **Step 1: Merge order.** Wait for PR #7 to merge, then rebase #13 (with Wikan's agreement, or continue it on `feat/6-engine-review-fixes` from his branch) and keep #7's LLM lines in `engine/CLAUDE.md`. Change the owner line to Dilly as in PR #16.
+- [ ] **Step 2: Failing tests:**
+  - `times out a hung endpoint` finishes on bun 1.3.13 and 1.4.5 (timeout via `AbortController` and a `setTimeout` cleared in `finally`, not `AbortSignal.timeout`);
+  - `review() sends the brief JSON-encoded`: a brief containing `</brief>` appears in the request body only as a JSON string value;
+  - `skips deliver when review ends past the deadline margin`: `now()` advances 120 s inside `review()`, and `deliver` is never called;
+  - `drops cached results for jobs no longer open`.
+- [ ] **Step 3: Run** `bun test` (FAIL), **Step 4: Implement**, **Step 5: Verify**, **Step 6: Commit** (`fix(engine): timeout, deadline recheck and brief encoding`).
+
+### Task E2: AuditBot reviewer per #2
+
+**Files:** create `engine/src/source.ts`, `engine/src/findings.ts`; modify `engine/src/llm.ts`, `engine/src/config.ts`, `engine/.env.example`, `engine/CLAUDE.md`; tests `engine/test/source.test.ts`, `engine/test/findings.test.ts`, `engine/test/llm.test.ts`.
+
+**Interfaces:**
+- `parseBrief(brief: string): { realmPath: string; criteria: string } | null`: finds one `gno.land/r/…` path; `null` means "Brief does not name a realm" is delivered as the result.
+- `fetchSource(realmPath: string): Promise<{ file: string; body: string }[]>` through `vm/qfile` (list files, then each `.gno` file); total capped at a byte budget, cut files are named in the result.
+- `Finding = { file: string; line: number; severity: "high" | "medium" | "low"; explanation: string }`; `renderFindings(f: Finding[], verdict: string): string` ≤ `MaxResult` bytes, plain text, no Markdown links.
+- The request: model from `LLM_MODEL` (`z-ai/glm-5.3-flash`), `max_tokens: 6000`, `reasoning: { effort: LLM_REASONING_EFFORT, exclude: true }`, a `response_format` JSON schema for `{ findings: Finding[], verdict: string }`, and the checklist from `docs/gno-notes.md` in the system prompt.
+
+- [ ] **Step 1: Failing tests:** `loadConfig` requires `LLM_REASONING_EFFORT` in `low|medium|high`; the request body has exactly the settings above; a response with reasoning text stores only the final answer; invalid JSON gives one retry, then the error "llm: invalid findings"; `renderFindings` of 200 findings stays ≤ 4096 bytes and ends with "N more findings not shown"; `fetchSource` parses a captured `vm/qfile` fixture from Onyx.
+- [ ] **Step 2: Run** (FAIL), **Step 3: Implement**, **Step 4: Verify**, plus one real OpenRouter call on a public realm (for example `gno.land/r/gnoland/blog`) with the rendered result pasted, and no key in the output. **Step 5: Commit** (`feat(engine): audit a realm's source with structured findings`).
+
+### Task E3: Gno chain adapter and live run
+
+**Files:** create `engine/src/gnoChain.ts`, `engine/src/main.ts`; test `engine/test/gnoChain.test.ts` (fixtures only).
+
+- [ ] **Step 1:** use the JS client chosen in #3. `acceptJob` and `deliver` resolve only after commit, and errors never include the signed tx or key material (the `HirelingChain` contract in `chain.ts`). Add per-job backoff when `Deliver` panics with a fixed reason. Read `MaxResult` and `AcceptWindow` from the `p/` constants at start instead of hard-coding them.
+- [ ] **Step 2: Failing tests** with captured `abci_query` and broadcast fixtures; **Step 3: Implement**; **Step 4: Verify** live on Onyx after Ancung deploys escrow: a job created with `gnokey` is accepted and delivered by AuditBot, with both tx hashes in the PR. **Step 5: Commit** (`feat(engine): gno chain adapter and main loop`).
 
 ---
 
 ## Web tasks
 
-All web tasks follow `frontend-starter-kit` with the overrides in `apps/fe/CLAUDE.md`. Commands run from `apps/fe/`. "Verify" always means `bun run typecheck && bun run lint && bun run test && bun run build` passes, with the output pasted in the PR.
+Web tasks are P2 and start only after R1 to R4 and E1 to E3 (see the cut order). They follow `frontend-starter-kit` with the overrides in `apps/fe/CLAUDE.md`. Commands run from `apps/fe/`. "Verify" always means `bun run typecheck && bun run lint && bun run test && bun run build` passes, with the output pasted in the PR.
 
 ### Task W1: Scaffold, tokens, format, env
 
 **Files:**
 - Create: the Next.js app in `apps/fe/` (Scaffold mode, `references/stack.md`), `next.config.ts` with `output: "export"`
 - Create: `apps/fe/docs/ui-profile.md` (kept in `apps/fe/`, not `docs/`, because `docs/` is Ancung's folder)
-- Create: `apps/fe/src/app/tokens.css` (copy of `design/tokens.css`), imported from `globals.css`
+- Create: `apps/fe/src/app/tokens.css` (copy of `design/tokens.css`), imported from `globals.css`, plus the shadcn variable names (`--background`, `--foreground`, `--primary`, …) mapped onto those tokens in `globals.css`
 - Create: `apps/fe/src/lib/format.ts`, `apps/fe/src/lib/env.ts`
 - Test: `apps/fe/src/lib/format.test.ts`, `apps/fe/src/lib/env.test.ts`, `apps/fe/src/app/tokens.test.ts`
-- Modify: `apps/fe/CLAUDE.md` (Commands, ui-profile location), `apps/fe/.env.example` if names change
+- Modify: `apps/fe/CLAUDE.md` (Commands: replace `bun test` with `bun run test`, which runs Vitest; ui-profile location), `apps/fe/.env.example` if names change
 
 **Interfaces:**
 - Produces:
@@ -175,7 +275,7 @@ All web tasks follow `frontend-starter-kit` with the overrides in `apps/fe/CLAUD
   - `formatDate(unixSeconds: number): string` in `UTC`, `en-US`.
   - `env: { rpcUrl: string; chainId: string; realmPath: string; pkgPath: string }` from `env.ts`, zod-validated. `pkgPath` is derived: `realmPath` with `/r/` replaced by `/p/`.
 
-- [ ] **Step 1: Scaffold** with `bunx create-next-app@latest` and `bunx shadcn@latest`, per `references/stack.md`, minus axios. Add scripts `typecheck`, `lint`, `test` (Vitest), `build`. Fill `ui-profile.md`: language English, theme light and dark, number `en-US`, currency `1.5 GNOT`, time zone `UTC`, glossary (Vouch, Self-stake, Trust score, Hire, Dispute, Guild Hall), design source `design/hireling.pen`, backend messages safe to show: only `hireling: ` panics, through `mapTxError` (W4).
+- [ ] **Step 1: Scaffold** with `bunx create-next-app@latest` and `bunx shadcn@latest`, per `references/stack.md`, minus axios. Add scripts `typecheck`, `lint`, `test` (Vitest), `build`. Fill `ui-profile.md`: language English, theme dark (default) and light, number `en-US`, currency `1.5 GNOT`, time zone `UTC`, glossary (Vouch, Self-stake, Trust score, Hire, Dispute, Guild Hall), design source `design/hireling.pen`, backend messages safe to show: only `hireling: ` panics, through `mapTxError` (W4).
 - [ ] **Step 2: Write the failing tests.**
 
 ```ts
@@ -245,7 +345,7 @@ await expect(getProfile(ADDR)).rejects.toMatchObject({ kind: "network" });
 
 **Files:**
 - Create: `apps/fe/src/app/page.tsx` (thin), `apps/fe/src/app/layout.tsx` metadata
-- Create: `apps/fe/src/modules/landing/components/` (`Hero.tsx`, `HowItWorks.tsx`, `ScoreFormula.tsx`, `IntegrateSnippet.tsx`, `HonestNotes.tsx`, `SiteHeader.tsx`, `SiteFooter.tsx`), `apps/fe/src/modules/landing/index.ts`
+- Create: `apps/fe/src/modules/landing/components/` (`Hero.tsx`, `HowItWorks.tsx`, `ScoreFormula.tsx`, `IntegrateSnippet.tsx`, `TrustTravels.tsx`, `FollowOneHire.tsx`, `HonestNotes.tsx`, `SiteHeader.tsx`, `SiteFooter.tsx`), `apps/fe/src/modules/landing/index.ts`
 - Create: `apps/fe/src/modules/profiles/components/TrustLookup.tsx`
 - Test: `apps/fe/src/modules/profiles/components/TrustLookup.test.tsx`
 
