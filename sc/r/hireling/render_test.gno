@@ -101,6 +101,7 @@ func example() *fakeSource {
 				Addr: auditBot, Kind: "agent", Name: "AuditBot", Desc: "Reviews Gno realms against the security checklist.",
 				Status: "active", Owner: sinta, OwnerName: "Sinta", SelfStake: 100 * gnotU, TotalStake: 400 * gnotU, Score: 240,
 				Counted: 2, BonusPct: 20, StrikePct: 100, CapacityLeft: 100 * gnotU, JobsDone: 14, OwnedAgents: 1,
+				ActiveBackers: 2, WarmingBackers: 1,
 			},
 			budi: {Addr: budi, Kind: "member", Name: "Budi", Status: "active", SelfStake: 10 * gnotU, TotalStake: 10 * gnotU, Score: 100, StrikePct: 100},
 		},
@@ -390,6 +391,54 @@ func TestRingPoint(t *testing.T) {
 	x, y = ringPoint(100, 100, 10, 50)
 	uassert.Equal(t, 100, x)
 	uassert.Equal(t, 110, y)
+}
+
+func TestTrustGraphOnAgentPage(t *testing.T) {
+	withSource(example(), func() {
+		out := Render("agent/" + auditBot.String())
+		uassert.True(t, strings.Contains(out, "![Trust graph of "+short(auditBot)+", score 240, 4 backers including the owner, 400 GNOT at stake]("))
+		images := svgs(t, out)
+		urequire.Equal(t, 2, len(images)) // score card, graph
+		g := images[1]
+		uassert.Equal(t, 4*2+2+3, strings.Count(g, "<polygon")) // 4 nodes x (ring, node), agent outer and inner, 3 legend marks
+		uassert.True(t, strings.Contains(g, ">"+short(sinta)+"</text>"))
+		uassert.True(t, strings.Contains(g, ">100 GNOT, owner</text>"))
+		uassert.True(t, strings.Contains(g, ">48 GNOT, warm-up</text>"))
+		uassert.True(t, strings.Contains(g, `stroke-dasharray="6 6"`))
+		uassert.True(t, strings.Contains(g, ">Stake behind "+short(auditBot)+"</text>"))
+		uassert.False(t, strings.Contains(g, "Sinta"))
+		uassert.False(t, strings.Contains(g, "AuditBot"))
+	})
+}
+
+func TestTrustGraphCapsNodes(t *testing.T) {
+	v := example().profiles[auditBot]
+	var rows []backerRow
+	rows = append(rows, backerRow{Addr: sinta, Amount: 100 * gnotU, Status: "active", IsOwner: true})
+	for i := 0; i < 11; i++ {
+		rows = append(rows, backerRow{Addr: testutils.TestAddress("g" + strconv.Itoa(i)), Amount: int64(60-i) * gnotU, Status: "active"})
+	}
+	g := graphSVG(v, rows, 30)
+	uassert.True(t, strings.Contains(g, ">+19</text>"))
+	uassert.True(t, len(g) <= 12*1024, "graph "+strconv.Itoa(len(g)))
+	// 11 nodes shown, the 12th slot is "+19", and no chips when crowded.
+	uassert.Equal(t, 11, strings.Count(g, `opacity="0.12"/>`))
+	uassert.False(t, strings.Contains(g, ", owner</text>"))
+}
+
+func TestTrustGraphStates(t *testing.T) {
+	v := example().profiles[auditBot]
+	v.Status = "banned"
+	g := graphSVG(v, []backerRow{{Addr: sinta, Amount: 100 * gnotU, Status: "active", IsOwner: true}}, 1)
+	uassert.True(t, strings.Contains(g, `fill="#3A3F55" stroke="#FF7A7A" stroke-width="3"`))
+	uassert.True(t, strings.Contains(g, ">No backers yet</text>"))
+}
+
+func TestIsqrt(t *testing.T) {
+	uassert.Equal(t, int64(0), isqrt(0))
+	uassert.Equal(t, int64(1), isqrt(3))
+	uassert.Equal(t, int64(100), isqrt(10000))
+	uassert.Equal(t, int64(70), isqrt(5000))
 }
 
 func TestFormatting(t *testing.T) {

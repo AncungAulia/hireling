@@ -56,24 +56,26 @@ type agentRow struct {
 }
 
 type profileView struct {
-	Addr         address
-	Kind         string // "agent" | "member"
-	Name         string
-	Desc         string
-	Status       string // "pending" | "active" | "inactive" | "banned"
-	Owner        address
-	OwnerName    string
-	SelfStake    int64 // ugnot
-	TotalStake   int64 // ugnot
-	Score        int64
-	Counted      int // backers counted for the diversity bonus
-	BonusPct     int // diversity bonus, percent
-	StrikePct    int // strike factor, percent (100 = no penalty)
-	Strikes      int
-	CapacityLeft int64 // ugnot
-	JobsDone     int
-	OwnedAgents  int
-	BannedAgents []nameAddr
+	Addr           address
+	Kind           string // "agent" | "member"
+	Name           string
+	Desc           string
+	Status         string // "pending" | "active" | "inactive" | "banned"
+	Owner          address
+	OwnerName      string
+	SelfStake      int64 // ugnot
+	TotalStake     int64 // ugnot
+	Score          int64
+	Counted        int // backers counted for the diversity bonus
+	BonusPct       int // diversity bonus, percent
+	StrikePct      int // strike factor, percent (100 = no penalty)
+	Strikes        int
+	CapacityLeft   int64 // ugnot
+	JobsDone       int
+	ActiveBackers  int // backers whose stake counts now, owner excluded
+	WarmingBackers int // backers still in warm-up
+	OwnedAgents    int
+	BannedAgents   []nameAddr
 }
 
 type nameAddr struct {
@@ -121,7 +123,8 @@ type paramsView struct {
 }
 
 // viewSource is what Render needs from the realm state. Lists are paged
-// by the source, so a page never walks an unbounded collection.
+// by the source, so a page never walks an unbounded collection. backers
+// lists the owner first, then the other backers by stake, largest first.
 type viewSource interface {
 	stats() homeStats
 	topAgents(offset, limit int) ([]agentRow, int)
@@ -258,6 +261,9 @@ func renderAgent(s viewSource, raw string, page int) string {
 		b.WriteString(alert("TIP", "Vouching puts your GNOT behind this profile. If it is found guilty, each backer loses "+
 			strconv.Itoa(p.BackerSlashPct)+"% and the owner loses "+strconv.Itoa(p.SlashJobMultiplier)+"× the job price."))
 	}
+
+	graphRows, graphTotal := s.backers(addr, 0, graphMaxNodes)
+	b.WriteString(image(graphAlt(v, graphTotal), graphSVG(v, graphRows, graphTotal)) + "\n\n")
 
 	b.WriteString("## Score " + itoa(v.Score) + "\n\n| Part | Value |\n|---|---:|\n")
 	b.WriteString("| Total at stake | " + gnot(v.TotalStake) + " |\n")

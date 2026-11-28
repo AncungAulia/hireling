@@ -10,6 +10,7 @@ package hireling
 import (
 	"crypto/sha256"
 	"encoding/base64"
+	"math"
 	"strconv"
 	"strings"
 )
@@ -78,12 +79,14 @@ func (d *svgDoc) fluted(w, h, rx int, lo, hi string) {
 	d.clip("bg", 0, 0, w, h, rx)
 	d.open++
 	d.rect(0, 0, w, h, 0, "fill=\"#03050F\"")
-	for i := 0; i*20 < w; i++ {
-		op := lo
-		if i%2 == 1 {
-			op = hi
+	// Two paths, one per opacity, instead of one rect per rib: same
+	// picture, a fifth of the bytes.
+	for parity, op := range []string{lo, hi} {
+		var p strings.Builder
+		for x := parity * 20; x < w; x += 40 {
+			p.WriteString("M" + si(x) + " 0h20v" + si(h) + "h-20z")
 		}
-		d.rect(i*20, 0, 20, h, 0, "fill=\"#FFFFFF\" opacity=\""+op+"\"")
+		d.path(p.String(), "fill=\"#FFFFFF\" opacity=\""+op+"\"")
 	}
 }
 
@@ -412,4 +415,291 @@ func statsAlt(st homeStats) string {
 		plural(st.Profiles, "profile") + ", " + plural(st.Agents, "agent") + " and " + plural(st.Members, "member") + ". " +
 		plural(st.JobsDone, "job") + " done, " + si(st.JobsInProgress) + " in progress, " + si(st.JobsDisputed) + " disputed. " +
 		gnot(st.Treasury) + " in the Guild Treasury."
+}
+
+// §12 Trust graph v2 on the agent page.
+
+const (
+	graphW, graphH = 915, 520
+	graphCX        = 590
+	graphCY        = 265
+	graphMaxNodes  = 12
+)
+
+var nodeColor = map[string]string{"owner": "#FFFFFF", "active": "#8FA2FF", "warmup": "#B18CFF", "unbonding": "#8FA2FF"}
+
+// isqrt is the integer square root (Newton), like ISqrt in p/hireling.
+func isqrt(x int64) int64 {
+	if x < 2 {
+		if x < 0 {
+			return 0
+		}
+		return x
+	}
+	r := x
+	y := (r + 1) / 2
+	for y < r {
+		r = y
+		y = (r + x/r) / 2
+	}
+	return r
+}
+
+// hexPoints is a hexagon with flat left and right sides, integer points.
+func hexPoints(cx, cy, r int) string {
+	pts := make([]string, 6)
+	for k := 0; k < 6; k++ {
+		a := math.Pi/6 + float64(k)*math.Pi/3
+		pts[k] = si(cx+int(math.Round(float64(r)*math.Cos(a)))) + "," + si(cy+int(math.Round(float64(r)*math.Sin(a))))
+	}
+	return strings.Join(pts, " ")
+}
+
+func (d *svgDoc) hex(cx, cy, r int, attrs string) {
+	d.b.WriteString("<polygon points=\"" + hexPoints(cx, cy, r) + "\" " + attrs + "/>")
+}
+
+// graphNode is one node around the agent.
+type graphNode struct {
+	addr   address
+	stake  int64
+	status string // "owner" | "active" | "warmup" | "unbonding"
+	x, y   int
+	r      int
+}
+
+func graphSVG(v profileView, rows []backerRow, total int) string {
+	d := newSVG(graphW, graphH, ".h{font:600 22px "+fontStack+";fill:#FFFFFF}"+
+		".sub{font:400 13px "+fontStack+";fill:#8FA2FF}"+
+		".lt{font:600 13px "+fontStack+";fill:#FFFFFF}"+
+		".ls{font:400 11px "+fontStack+";fill:#9CA5D6}"+
+		".pt{font:600 12px "+fontStack+";fill:#C9D4F2}"+
+		".pl{font:400 12px "+fontStack+";fill:#9CA5D6}"+
+		".pv{font:600 12px "+fontStack+";fill:#8FA2FF}"+
+		".ca{font:600 13px "+monoStack+";fill:#FFFFFF}"+
+		".cv{font:400 12px "+fontStack+"}"+
+		".sc{font:700 26px "+fontStack+";fill:#FFFFFF}"+
+		".sl{font:400 10px "+fontStack+";fill:#DCE2FA}"+
+		".k{font:700 11px "+fontStack+"}.k9{font:700 9px "+fontStack+"}"+
+		".m{text-anchor:middle}.e{text-anchor:end}")
+	d.fluted(graphW, graphH, 24, "0.015", "0.035")
+
+	// Dust: fixed positions from a linear congruential sequence (seed 7).
+	s := int64(7)
+	next := func() int64 {
+		s = (s*1103515245 + 12345) % 2147483648
+		return s
+	}
+	// Grouped by colour and opacity so each dot is only cx, cy and r.
+	ops := []string{"0.15", "0.22", "0.30", "0.38"}
+	groups := make([]strings.Builder, 8)
+	for i := 0; i < 34; i++ {
+		x := 260 + int(next()*640/2147483648)
+		y := 20 + int(next()*480/2147483648)
+		r := 1 + int(next()*3/2147483648)
+		g := int(next() * 4 / 2147483648)
+		if i%3 == 0 {
+			g += 4
+		}
+		groups[g].WriteString("<circle cx=\"" + si(x) + "\" cy=\"" + si(y) + "\" r=\"" + si(r) + "\"/>")
+	}
+	for g := range groups {
+		if groups[g].Len() == 0 {
+			continue
+		}
+		fill := "#8FA2FF"
+		if g >= 4 {
+			fill = "#B18CFF"
+		}
+		d.raw("<g fill=\"" + fill + "\" opacity=\"" + ops[g%4] + "\">" + groups[g].String() + "</g>")
+	}
+
+	d.glow(graphCX, graphCY, []int{150, 110, 78, 56}, []string{"0.05", "0.07", "0.10", "0.16"})
+	for _, o := range [][2]int{{130, 96}, {200, 148}, {262, 196}} {
+		d.b.WriteString("<ellipse cx=\"" + si(graphCX) + "\" cy=\"" + si(graphCY) + "\" rx=\"" + si(o[0]) + "\" ry=\"" + si(o[1]) +
+			"\" fill=\"none\" stroke=\"#8FA2FF\" stroke-width=\"1\" opacity=\"0.14\"/>")
+	}
+
+	// Nodes: the source lists the owner first, then backers by stake.
+	shown := rows
+	if len(shown) > graphMaxNodes {
+		shown = shown[:graphMaxNodes]
+	}
+	more := 0
+	if total > graphMaxNodes {
+		shown = shown[:graphMaxNodes-1]
+		more = total - len(shown)
+	}
+	n := len(shown)
+	if more > 0 {
+		n++
+	}
+	var top int64 = 1
+	for _, r := range shown {
+		if r.Amount > top {
+			top = r.Amount
+		}
+	}
+	nodes := make([]graphNode, len(shown))
+	for i, r := range shown {
+		a := -math.Pi/2 + 2*math.Pi*float64(i)/float64(n)
+		st := r.Status
+		if r.IsOwner {
+			st = "owner"
+		}
+		nodes[i] = graphNode{
+			addr: r.Addr, stake: r.Amount, status: st,
+			x: graphCX + int(math.Round(230*math.Cos(a))),
+			y: graphCY + int(math.Round(170*math.Sin(a))),
+			r: 8 + int(14*isqrt(r.Amount*10000/top)/100),
+		}
+	}
+	banned := v.Status == "banned"
+
+	// Edges first, so nodes sit on top.
+	for _, nd := range nodes {
+		w := 1 + int(5*isqrt(nd.stake*10000/top)/100)
+		op := "0.65"
+		if banned {
+			op = "0.25"
+		} else if nd.status == "unbonding" {
+			op = "0.26"
+		}
+		attrs := "stroke=\"" + nodeColor[nd.status] + "\" stroke-width=\"" + si(w) + "\" opacity=\"" + op + "\" fill=\"none\""
+		if nd.status == "warmup" {
+			attrs += " stroke-dasharray=\"6 6\""
+		}
+		d.path("M"+si(graphCX)+" "+si(graphCY)+"L"+si(nd.x)+" "+si(nd.y), attrs)
+	}
+	var mx, my int
+	if more > 0 {
+		a := -math.Pi/2 + 2*math.Pi*float64(n-1)/float64(n)
+		mx = graphCX + int(math.Round(230*math.Cos(a)))
+		my = graphCY + int(math.Round(170*math.Sin(a)))
+		d.path("M"+si(graphCX)+" "+si(graphCY)+"L"+si(mx)+" "+si(my), "stroke=\"#8FA2FF\" stroke-width=\"1\" opacity=\"0.4\" fill=\"none\"")
+	}
+
+	for i, nd := range nodes {
+		col := nodeColor[nd.status]
+		if nd.status == "unbonding" {
+			d.raw("<g opacity=\"0.4\">")
+		} else {
+			d.raw("<g>")
+		}
+		d.circle(nd.x, nd.y, nd.r+10, "fill=\""+col+"\" opacity=\"0.12\"")
+		d.hex(nd.x, nd.y, nd.r+5, "fill=\"none\" stroke=\""+col+"\" stroke-width=\"1.5\" opacity=\"0.6\"")
+		label := strconv.FormatInt(nd.stake/1_000_000, 10)
+		cls := "k"
+		if nd.r < 16 {
+			cls = "k9"
+		}
+		if nd.status == "warmup" {
+			d.hex(nd.x, nd.y, nd.r, "fill=\"#1A1240\" stroke=\""+col+"\" stroke-width=\"2\"")
+			d.text(nd.x, nd.y+4, label, "class=\""+cls+" m\" fill=\"#C9B4FF\"")
+		} else {
+			d.hex(nd.x, nd.y, nd.r, "fill=\""+col+"\"")
+			d.text(nd.x, nd.y+4, label, "class=\""+cls+" m\" fill=\"#03050F\"")
+		}
+		d.raw("</g>")
+		// Chips for the owner and the 3 largest backers, only while there
+		// is room: with more than 6 nodes they would cover their
+		// neighbours, and the Backers table lists every address anyway.
+		if i < 4 && n <= 6 {
+			d.chip(nd)
+		}
+	}
+	if more > 0 {
+		d.hex(mx, my, 16, "fill=\"#1B2470\" stroke=\"#8FA2FF\" stroke-width=\"1\"")
+		d.text(mx, my+4, "+"+si(more), "class=\"k m\" fill=\"#FFFFFF\"")
+	}
+
+	// The agent.
+	if banned || v.Status == "inactive" {
+		stroke, sw := "#9CA5D6", "2"
+		if banned {
+			stroke, sw = "#FF7A7A", "3"
+		}
+		d.hex(graphCX, graphCY, 44, "fill=\"#3A3F55\" stroke=\""+stroke+"\" stroke-width=\""+sw+"\"")
+	} else {
+		d.hex(graphCX, graphCY, 44, "fill=\"#2233D9\" stroke=\"#8FA2FF\" stroke-width=\"2\"")
+		d.hex(graphCX, graphCY, 30, "fill=\"#3D4EF5\" opacity=\"0.8\"")
+	}
+	d.text(graphCX, graphCY+6, itoa(v.Score), "class=\"sc m\"")
+	d.text(graphCX, graphCY+22, "trust score", "class=\"sl m\"")
+	if len(nodes) <= 1 && more == 0 {
+		d.text(graphCX, 470, "No backers yet", "class=\"pl m\"")
+	}
+
+	// Left panels.
+	d.text(32, 50, "Trust graph", "class=\"h\"")
+	d.text(32, 74, "Stake behind "+short(v.Addr), "class=\"sub\"")
+	d.rect(32, 86, 28, 2, 0, "fill=\"#3D4EF5\"")
+	d.rect(32, 108, 196, 184, 10, "fill=\"#FFFFFF\" fill-opacity=\"0.04\" stroke=\"#FFFFFF\" stroke-opacity=\"0.2\"")
+	legend := [][3]string{{"owner", "Owner", "Self-stake, slashed first"}, {"active", "Backer", "Counts in the score"}, {"warmup", "Warm-up", "Counts after the warm-up"}}
+	for i, l := range legend {
+		y := 128 + 48*i
+		if l[0] == "warmup" {
+			d.hex(52, y+12, 8, "fill=\"#1A1240\" stroke=\"#B18CFF\" stroke-width=\"2\"")
+		} else {
+			d.hex(52, y+12, 8, "fill=\""+nodeColor[l[0]]+"\"")
+		}
+		d.text(70, y+12, l[1], "class=\"lt\"")
+		d.text(70, y+30, l[2], "class=\"ls\"")
+	}
+	d.path("M44 276L60 276", "stroke=\"#8FA2FF\" stroke-width=\"3\" fill=\"none\"")
+	d.text(70, 280, "Line width = stake", "class=\"lt\"")
+
+	d.rect(32, 332, 196, 156, 10, "fill=\"#FFFFFF\" fill-opacity=\"0.04\" stroke=\"#FFFFFF\" stroke-opacity=\"0.2\"")
+	d.text(48, 360, "At a glance", "class=\"pt\"")
+	d.rect(48, 370, 164, 1, 0, "fill=\"#FFFFFF\" opacity=\"0.1\"")
+	glance := [][2]string{
+		{"Backers active", si(v.ActiveBackers)},
+		{"Warming up", si(v.WarmingBackers)},
+		{"Owner stake", gnot(v.SelfStake)},
+		{"Total at stake", gnot(v.TotalStake)},
+	}
+	for i, g := range glance {
+		y := 394 + 24*i
+		d.text(48, y, g[0], "class=\"pl\"")
+		d.text(212, y, g[1], "class=\"pv e\"")
+	}
+	return d.String()
+}
+
+// chip labels a node with its address and stake, beside it or under it.
+func (d *svgDoc) chip(nd graphNode) {
+	cw, ch := 150, 44
+	x := nd.x + nd.r + 16
+	y := nd.y - ch/2
+	if nd.x < graphCX {
+		x = nd.x - nd.r - 16 - cw
+	}
+	if x+cw > graphW-16 || x < 244 {
+		x = nd.x - cw/2
+		y = nd.y + nd.r + 12
+		if y+ch > graphH-8 {
+			y = nd.y - nd.r - 12 - ch
+		}
+	}
+	if x+cw > graphW-16 {
+		x = graphW - 16 - cw
+	}
+	value, fill := gnot(nd.stake), "#8FA2FF"
+	switch nd.status {
+	case "owner":
+		value += ", owner"
+	case "warmup":
+		value += ", warm-up"
+		fill = "#C9B4FF"
+	case "unbonding":
+		value += ", unbonding"
+	}
+	d.rect(x, y, cw, ch, 8, "fill=\"#0B0F24\" fill-opacity=\"0.9\" stroke=\"#FFFFFF\" stroke-opacity=\"0.2\"")
+	d.text(x+12, y+18, short(nd.addr), "class=\"ca\"")
+	d.text(x+12, y+36, value, "class=\"cv\" fill=\""+fill+"\"")
+}
+
+func graphAlt(v profileView, total int) string {
+	return "Trust graph of " + short(v.Addr) + ", score " + itoa(v.Score) + ", " + plural(total, "backer") +
+		" including the owner, " + gnot(v.TotalStake) + " at stake"
 }
