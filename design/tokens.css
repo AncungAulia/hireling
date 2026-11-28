@@ -1,0 +1,114 @@
+/*
+ * Hireling design tokens, exported from the variables in design/hireling.pen.
+ * hireling.pen is the source; change a value there first, then here.
+ * Dark is the default theme. Light applies under [data-theme="light"].
+ * apps/fe copies this file and maps the shadcn names onto these tokens.
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* Surfaces and text */
+  --bg: #03050F;
+  --surface: #0B0F24;
+  --surface-muted: #121845;
+  --line: #222A5C;
+  --text-strong: #F2F4FF;
+  --text: #D3D8F5;
+  --text-muted: #9CA5D6;
+
+  /* Brand */
+  --primary: #3D4EF5;
+  --on-primary: #FFFFFF;
+  --primary-soft: #1B2470;
+  --link: #8FA2FF;
+  --focus: #8FA2FF;
+
+  /* States (only for states) */
+  --success: #5CF2A6;
+  --success-soft: #5CF2A626;
+  --warning: #FBBF24;
+  --warning-soft: #FBBF2426;
+  --danger: #FF7A7A;
+  --danger-soft: #FF7A7A26;
+
+  /* Glass */
+  --glass-fill: #FFFFFF14;
+  --glass-line: #FFFFFF33;
+  --glass-frost: #141A4DE6;
+  --glass-frost-line: #FFFFFF26;
+  --glass-text: #FFFFFF;
+  --glass-text-soft: #E4E8FF;
+  --glass-text-muted: #DCE2FA;
+  --blur-glass: 40px;
+
+  /* Hero (same in both themes) */
+  --hero-top: #05072E;
+  --hero-mid: #0A0F6B;
+  --hero-bottom: #2233D9;
+  --signal: #4A5BFF;
+  --glow: #8FA2FF;
+  --cyan: #3FE0FF;
+  --on-hero: #FFFFFF;
+  --on-hero-muted: #C7CEF5;
+
+  /* Type */
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --size-display: 68px;
+  --size-h1: 44px;
+  --size-h2: 32px;
+  --size-h3: 22px;
+  --size-title: 18px;
+  --size-body: 16px;
+  --size-small: 14px;
+  --size-caption: 12px;
+
+  /* Space */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #EEF1FA;
+  --surface: #FFFFFF;
+  --surface-muted: #F5F7FD;
+  --line: #E1E5F2;
+  --text-strong: #0B1033;
+  --text: #2A3157;
+  --text-muted: #4A5275;
+
+  --primary: #2233D9;
+  --on-primary: #FFFFFF;
+  --primary-soft: #DDE2F7;
+  --link: #0B1033;
+  --focus: #4A5BFF;
+
+  --success: #15803D;
+  --success-soft: #DCFCE7;
+  --warning: #B45309;
+  --warning-soft: #FEF3C7;
+  --danger: #C62828;
+  --danger-soft: #FDE2E2;
+
+  --glass-frost: #FFFFFFE6;
+  --glass-frost-line: #FFFFFF;
+  --glass-text: #0B1033;
+  --glass-text-soft: #2A3157;
+  --glass-text-muted: #4A5275;
+}

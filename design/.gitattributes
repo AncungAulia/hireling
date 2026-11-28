@@ -1,0 +1,2 @@
+# pen.dev files are encrypted; never convert line endings or diff them as text.
+*.pen binary
