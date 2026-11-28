@@ -118,7 +118,7 @@ Dilly's reference: a citation network with hexagon nodes, glowing rings, label c
 - Hexagons are `polygon`s with 6 integer points, flat sides left and right: angle 30° + 60°·k.
 - Nodes sit on the ellipse rx 230, ry 170 around the agent, owner first at 12 o'clock. Each node: a halo `circle` r + 10 (node colour, opacity `0.12`), a ring hexagon r + 5 (no fill, stroke node colour 1.5, opacity `0.6`), and the node hexagon r with its stake in whole GNOT centred inside (700, 11px if r ≥ 16, else 9px).
 - Colours: owner `#FFFFFF`; active backer `#8FA2FF`; warm-up: fill `#1A1240`, stroke and text `#B18CFF`, dashed edge `stroke-dasharray:6 6`; unbonding: as active at opacity `0.4`. Edges at opacity `0.65`.
-- Label chips for the owner and the 3 largest backers: `rect` 150 × 44, `rx` 8, fill `#0B0F24` opacity `0.9`, stroke `#FFFFFF` opacity `0.2`; the short address (`ui-monospace` 600 13px `#FFFFFF`) and the stake with its state (12px, `#8FA2FF`, or `#C9B4FF` for warm-up, "100 GNOT, owner"). The chip goes 16 px to the right of the node, or to the left for nodes left of the agent, or under the node when it would cross x 899.
+- Label chips for the owner and the 3 largest backers, **only when the graph has 6 nodes or fewer** (with more, chips cover the neighbouring nodes; the Backers table lists every address): `rect` 150 × 44, `rx` 8, fill `#0B0F24` opacity `0.9`, stroke `#FFFFFF` opacity `0.2`; the short address (`ui-monospace` 600 13px `#FFFFFF`) and the stake with its state (12px, `#8FA2FF`, or `#C9B4FF` for warm-up, "100 GNOT, owner"). The chip goes 16 px to the right of the node, or to the left for nodes left of the agent, or under the node when it would cross x 899.
 - Left panels: the title "Trust graph" (600 22px) and "Stake behind <short address>" (13px `#8FA2FF`) with a 28 × 2 accent bar `#3D4EF5`; a legend panel (196 × 184 at (32, 108), `rx` 10, fill `#FFFFFF` opacity `0.04`, stroke `#FFFFFF` opacity `0.2`) with Owner, Backer, Warm-up and "Line width = stake"; an "At a glance" panel (196 × 156 at (32, 332)) with backers active, warming up, owner stake and total at stake.
 - Still no names and no user text. Budget ≤ 10 KB.
 
@@ -136,3 +136,7 @@ Dilly's reference: stat cards with a big number and a small chart each. Frames `
   - **Treasury:** the running total of the treasury's incoming funds (the same list the `treasury` page shows), up to 7 points spaced 29 px apart from x 20, scaled to 72 px high above y 236; a 3 px line, the area under it at low opacity, and a dot on the last point.
 - A last line per card (12px muted) says one fact in words: "75% put in by backers", "Humans can be vouched too", "3 went to the council", "+30 from a slash on 26 Nov".
 - Alt text lists all four numbers and the facts in the last lines.
+
+## 14. How the realm writes the SVGs
+
+`render_svg.gno` writes the SVGs as raw strings, not with `p/nt/svg/v0`. That lets it use what svg/v0 cannot write: a `<clipPath>` with rounded corners so glows stay inside the cards, a `<style>` with a `prefers-color-scheme` media query (§13), and `<polygon>` hexagons. Ribs are drawn as two `path`s (one per opacity) and dust dots are grouped by colour, which keeps the 12-node trust graph near 12 KB. The rules from §1 still hold: integer coordinates, and only numbers, fixed words and addresses in any text.
