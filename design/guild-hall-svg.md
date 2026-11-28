@@ -107,3 +107,17 @@ A `915 × 424` SVG under "## Top agents", above the table. Frame `SVG · Top age
 - In each row: the rank (700 18px), an identicon, the short address (`ui-monospace` 600 16px `#FFFFFF`), "trust score N" (13px), and the total stake on the right (700 16px, `#5CF2A6`; white on row 1).
 - **Identicon:** a `rect` 40 × 40, `rx` 12, fill `#0B0F24`, with a 4 × 4 grid of 8 px squares, mirrored left to right. The left two columns come from the first 8 bits of `sha256(address)` (bit set = square drawn), and the colour from the next byte modulo 5: `#8FA2FF`, `#5CF2A6`, `#FBBF24`, `#3FE0FF`, `#FF7A7A`. The same address always gets the same picture.
 - The table below keeps the names and links; the board is a picture of the first 5 only.
+
+## 12. Trust graph v2 (replaces the layout of §2 to §6)
+
+Dilly's reference: a citation network with hexagon nodes, glowing rings, label chips and side panels. Frame `SVG · Trust graph` in `hireling.pen`. The node and edge maths of §4 and §5 still apply (radius and width from `ISqrt`, at most 12 nodes plus "+N"); what changes is the canvas, the shapes and the panels. The samples in `guild-hall-sample*.svg` are still v1 and are regenerated when R3 is built.
+
+- Canvas `915 × 520`, background `rect` `rx` 24 fill `#03050F`, flutes 20 wide at opacity `0.015` and `0.035`.
+- Dust: 34 small `circle`s (r 1 to 3) in the graph area (x 260 to 900), fill `#8FA2FF` or `#B18CFF`, opacity `0.15` to `0.40`. Positions come from a fixed linear congruential sequence (seed 7, `s = (s·1103515245 + 12345) mod 2^31`), so every page draws the same dust. Decoration only: no lines between dust.
+- Agent at (590, 265): halo `circle`s r 150, 110, 78, 56 (fill `#1660FF`, opacity `0.05`, `0.07`, `0.10`, `0.16`); three orbit `ellipse`s rx/ry 130/96, 200/148, 262/196, no fill, stroke `#8FA2FF` width 1, opacity `0.14`; an outer hexagon r 44 (fill `#2233D9`, stroke `#8FA2FF` width 2) and an inner hexagon r 30 (fill `#3D4EF5`, opacity `0.8`); the score (700 26px) and "trust score" (10px `#DCE2FA`) centred inside.
+- Hexagons are `polygon`s with 6 integer points, flat sides left and right: angle 30° + 60°·k.
+- Nodes sit on the ellipse rx 230, ry 170 around the agent, owner first at 12 o'clock. Each node: a halo `circle` r + 10 (node colour, opacity `0.12`), a ring hexagon r + 5 (no fill, stroke node colour 1.5, opacity `0.6`), and the node hexagon r with its stake in whole GNOT centred inside (700, 11px if r ≥ 16, else 9px).
+- Colours: owner `#FFFFFF`; active backer `#8FA2FF`; warm-up: fill `#1A1240`, stroke and text `#B18CFF`, dashed edge `stroke-dasharray:6 6`; unbonding: as active at opacity `0.4`. Edges at opacity `0.65`.
+- Label chips for the owner and the 3 largest backers: `rect` 150 × 44, `rx` 8, fill `#0B0F24` opacity `0.9`, stroke `#FFFFFF` opacity `0.2`; the short address (`ui-monospace` 600 13px `#FFFFFF`) and the stake with its state (12px, `#8FA2FF`, or `#C9B4FF` for warm-up, "100 GNOT, owner"). The chip goes 16 px to the right of the node, or to the left for nodes left of the agent, or under the node when it would cross x 899.
+- Left panels: the title "Trust graph" (600 22px) and "Stake behind <short address>" (13px `#8FA2FF`) with a 28 × 2 accent bar `#3D4EF5`; a legend panel (196 × 184 at (32, 108), `rx` 10, fill `#FFFFFF` opacity `0.04`, stroke `#FFFFFF` opacity `0.2`) with Owner, Backer, Warm-up and "Line width = stake"; an "At a glance" panel (196 × 156 at (32, 332)) with backers active, warming up, owner stake and total at stake.
+- Still no names and no user text. Budget ≤ 10 KB.
