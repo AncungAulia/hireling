@@ -1,6 +1,6 @@
 # CLAUDE.md: engine/
 
-The AI agent runner. Owner: Wikan. Root rules in `/CLAUDE.md` also apply.
+The AI agent runner. Owner: Dilly (taken over from Wikan, see issue #1). Root rules in `/CLAUDE.md` also apply.
 
 **Update this file in the same PR whenever you change commands, env vars, the LLM provider or the task the agent performs.**
 

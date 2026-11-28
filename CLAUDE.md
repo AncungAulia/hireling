@@ -21,15 +21,17 @@ Built for the Gnome Tavern Hackathon by Gno.land (DoraHacks). Submission deadlin
 
 | Folder | What | Owner |
 |---|---|---|
-| `sc/p/hireling` | Pure Gno package: parameters (constants), trust-score math, share accounting, fee split | Ancung |
-| `sc/r/hireling` | Main realm: registry, stake, jobs, disputes, council, Trust API, `Render` | Ancung |
+| `sc/p/hireling` | Pure Gno package: parameters (constants), trust-score math, share accounting, fee split | Wikan |
+| `sc/r/hireling` | Main realm. Registry, stake, Trust API: Wikan. `render.gno`: Dilly. Jobs, disputes, council: Ancung | Wikan, Dilly, Ancung |
 | `sc/r/tavernboard` | Demo consumer realm: a board that only trusted addresses can post to | Wikan |
 | `sc/**/*_filetest.gno` | Adversarial filetests from PRD §10, written against `docs/interface.md` | Wikan |
-| `engine` | AI agent runner (TypeScript, bun): watches jobs, calls an LLM, delivers results | Wikan |
+| `engine` | AI agent runner (TypeScript, bun): watches jobs, calls an LLM, delivers results | Dilly |
 | `apps/fe` | Web app: fallback UI for paid actions and the landing page (Next.js, bun) | Dilly |
 | `design` | Pencil design file `hireling.pen` (pen.dev): web app, landing, Guild Hall / SVG look | Dilly |
 | `scripts` | Setup, deploy and seed scripts for testnet | Wikan |
 | `docs` | PRD, interface, Gno notes, plans | Ancung |
+
+Ancung holds the deployer key, reviews PRs and makes product decisions (ownership change: issue #1).
 
 ## Network
 
