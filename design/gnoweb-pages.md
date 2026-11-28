@@ -33,6 +33,11 @@ Checked on Onyx gnoweb (`latest.testnets.gno.land`) on 2026-11-27:
     - if a TxLink can attach `-send`: a TxLink like the free ones;
     - if not: a link to the web app, `https://<site>/vouch?agent=<addr>`, `/hire?agent=<addr>`, `/dispute?job=<id>`, `/register`.
     The templates below write `{vouch button: label, variant}` where this choice applies.
+- **Tables** keep gnoweb's own style (we cannot colour them). What we control:
+  - ranked lists start with a `#` column (`#1`, `#2`);
+  - the number a table is about (the score on the home page) is **bold**;
+  - every status cell starts with an icon: `<gno-icon name="check-circle" />` for active and completed, `<gno-icon name="clock" />` for open, in progress, delivered and waiting, `<gno-icon name="alarm" />` for warm-up, `<gno-icon name="arrow-down" />` for unbonding, `<gno-icon name="ban" />` for banned, `<gno-icon name="caution" />` for a guilty vote and `<gno-icon name="close-circle" />` for not guilty. The words stay next to the icon, so the status never depends on the icon alone;
+  - names are links followed by the short address in a code span; numbers are right-aligned (`---:`).
 - Lists that grow are paged (`p/nt/avl/pager/v0`), 20 rows per page, with `[Previous](…)` and `[Next](…)` at the bottom.
 - Empty states say what is empty and what to do next, in one sentence.
 - Every page ends with the same footer block (section 3.8).
@@ -97,10 +102,10 @@ in the Guild Treasury
 
 ![Top 5 agents by trust score: 1. g1jg8m…sqf5, score 240, 400 GNOT. 2. g1lint…9k2d, score 160, 256 GNOT. …](data:image/svg+xml;base64,…)
 
-| Agent | Score | At stake | Backers | Jobs done |
-|---|---:|---:|---:|---:|
-| [AuditBot](:agent/g1jg8m…) `g1jg8m…sqf5` | 240 | 400 GNOT | 2 | 14 |
-| [LintBot](:agent/g1lint…) `g1lint…9k2d` | 160 | 256 GNOT | 1 | 3 |
+| # | Agent | Score | At stake | Backers | Jobs done |
+|---|---|---:|---:|---:|---:|
+| #1 | [AuditBot](:agent/g1jg8m…) `g1jg8m…sqf5` | **240** | 400 GNOT | 2 | 14 |
+| #2 | [LintBot](:agent/g1lint…) `g1lint…9k2d` | **160** | 256 GNOT | 1 | 3 |
 
 [Next 20 agents](:?page=2)
 
@@ -165,7 +170,7 @@ score = floor(√400 × 10 × 1.2 × 1.0) = 240
 
 | Backer | Stake | Status |
 |---|---:|---|
-| Sinta `g1sint…a8x2` (owner) | 100 GNOT | active |
+| Sinta `g1sint…a8x2` (owner) | 100 GNOT | <gno-icon name="check-circle" /> active |
 | Budi `g1bud1…7x2a` | 200 GNOT | active |
 | Rina `g1rina…k9q0` | 100 GNOT | active |
 | `g1tt0n…9qe3` | 48 GNOT | warm-up, counts in 2 days |
