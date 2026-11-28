@@ -5,7 +5,12 @@ package hireling
 // The Markdown contract is design/gnoweb-pages.md. Every user string goes
 // through p/nt/markdown/sanitize/v0 before it reaches the page: InlineText
 // for headings and lines, TableCell for table cells. User text never becomes
-// a link or an image, and a name is always followed by its short address.
+// a link, an image, a button label or part of an SVG; a name is always
+// followed by its short address.
+//
+// The pages use the gnoweb extensions checked on the Onyx version
+// (v1.8.0-rc.1): <gno-button>, <gno-icon> and > [!NOTE] alerts. The images
+// are SVGs built in render_svg.gno.
 //
 // Render reads the realm through viewSource. The registry and stake code
 // (Wikan, issue #4) provides the real source; until it lands, source is
@@ -21,13 +26,24 @@ import (
 
 const pageSize = 20
 
+// webApp is where paid actions (register, vouch, hire) go until OQ-9 (#3)
+// says whether a TxLink can attach -send. Free actions are TxLinks.
+const webApp = "https://hirelings.xyz"
+
 // Views: plain data the pages need, filled by the source.
 
 type homeStats struct {
-	TotalStake int64 // ugnot
-	Profiles   int
-	JobsDone   int
-	Treasury   int64 // ugnot
+	TotalStake     int64 // ugnot
+	OwnerStake     int64 // ugnot, self-stake of all profiles
+	BackerStake    int64 // ugnot, vouched by others
+	Profiles       int
+	Agents         int
+	Members        int
+	JobsDone       int
+	JobsInProgress int
+	JobsDisputed   int
+	Treasury       int64   // ugnot
+	TreasuryTrail  []int64 // running total after each of the last incoming funds, oldest first, at most 7
 }
 
 type agentRow struct {
@@ -47,6 +63,7 @@ type profileView struct {
 	Status       string // "pending" | "active" | "inactive" | "banned"
 	Owner        address
 	OwnerName    string
+	SelfStake    int64 // ugnot
 	TotalStake   int64 // ugnot
 	Score        int64
 	Counted      int // backers counted for the diversity bonus
@@ -54,6 +71,7 @@ type profileView struct {
 	StrikePct    int // strike factor, percent (100 = no penalty)
 	Strikes      int
 	CapacityLeft int64 // ugnot
+	JobsDone     int
 	OwnedAgents  int
 	BannedAgents []nameAddr
 }
@@ -154,20 +172,31 @@ func Render(path string) string {
 func renderHome(s viewSource, page int) string {
 	var b strings.Builder
 	st := s.stats()
+	b.WriteString(image("Hireling, deposit-backed trust for Gno", bannerSVG()) + "\n\n")
 	b.WriteString("# The Guild Hall\n\n")
 	b.WriteString("Deposit-backed trust for Gno. Agents and members lock GNOT, others vouch with their own, and any realm checks the score in one line.\n\n")
-	b.WriteString(gnot(st.TotalStake) + " at stake across " + plural(st.Profiles, "profile") + ". " +
-		plural(st.JobsDone, "job") + " done. " + gnot(st.Treasury) + " in the Guild Treasury.\n\n")
+	b.WriteString(image(statsAlt(st), statsSVG(st)) + "\n\n")
+	b.WriteString(button(webApp+"/register?kind=agent", "Register an agent", "info") + "  " +
+		button(webApp+"/register?kind=member", "Become a member", "outline") + "\n\n")
+	b.WriteString(alert("NOTE", "Testnet only. For this demo, the council that judges disputes is the Hireling team."))
 
 	b.WriteString("## Top agents\n\n")
 	rows, total := s.topAgents((page-1)*pageSize, pageSize)
 	if total == 0 {
 		b.WriteString("No agents yet. Register one and it shows here once it has stake.\n\n")
 	} else {
-		b.WriteString("| Agent | Score | At stake | Backers | Jobs done |\n|---|---:|---:|---:|---:|\n")
-		for _, r := range rows {
-			b.WriteString("| " + linkWho(r.Name, r.Addr) + " | " + itoa(r.Score) + " | " + gnot(r.Stake) +
-				" | " + strconv.Itoa(r.Backers) + " | " + strconv.Itoa(r.JobsDone) + " |\n")
+		if page == 1 {
+			top := rows
+			if len(top) > 5 {
+				top = top[:5]
+			}
+			b.WriteString(image(boardAlt(top), boardSVG(top)) + "\n\n")
+		}
+		b.WriteString("| # | Agent | Score | At stake | Backers | Jobs done |\n|---|---|---:|---:|---:|---:|\n")
+		for i, r := range rows {
+			rank := (page-1)*pageSize + i + 1
+			b.WriteString("| #" + strconv.Itoa(rank) + " | " + linkWho(r.Name, r.Addr) + " | **" + itoa(r.Score) + "** | " +
+				gnot(r.Stake) + " | " + strconv.Itoa(r.Backers) + " | " + strconv.Itoa(r.JobsDone) + " |\n")
 		}
 		b.WriteString(pagerLinks(":", page, total, "agents"))
 	}
@@ -198,10 +227,12 @@ func renderAgent(s viewSource, raw string, page int) string {
 	v, found := s.profile(addr)
 	if !found {
 		return "# No profile at `" + short(addr) + "`\n\n" +
-			"This address has not registered.\n" + footer()
+			"This address has not registered.\n\n" +
+			button(webApp+"/register", "Register as a member or an agent", "info") + "\n" + footer()
 	}
 	var b strings.Builder
 	isAgent := v.Kind == "agent"
+	p := s.params()
 	b.WriteString("# " + title(v.Name, addr) + "\n\n")
 	b.WriteString("`" + short(addr) + "`  " + statusLine(v) + "\n\n")
 	if v.Desc != "" {
@@ -210,11 +241,24 @@ func renderAgent(s viewSource, raw string, page int) string {
 	if isAgent {
 		b.WriteString("Owned by " + who(v.OwnerName, v.Owner) + ".\n\n")
 	}
-	if v.Status == "pending" {
-		b.WriteString("Waiting for the agent key to accept.\n\n")
+	b.WriteString(image(scoreAlt(v), scoreSVG(v, p)) + "\n\n")
+
+	switch v.Status {
+	case "banned":
+		b.WriteString(alert("WARNING", "Banned after "+plural(v.Strikes, "strike")+". It cannot be vouched for or hired."))
+	case "pending":
+		b.WriteString(alert("WARNING", "Waiting for the agent key to accept the registration."))
+		b.WriteString(button("$help&func=AcceptRegistration", "Accept registration", "success") + "\n\n")
+	default:
+		actions := button(webApp+"/vouch?agent="+addr.String(), "Vouch", "info")
+		if isAgent && v.Status == "active" {
+			actions += "  " + button(webApp+"/hire?agent="+addr.String(), "Hire", "outline")
+		}
+		b.WriteString(actions + "\n\n")
+		b.WriteString(alert("TIP", "Vouching puts your GNOT behind this profile. If it is found guilty, each backer loses "+
+			strconv.Itoa(p.BackerSlashPct)+"% and the owner loses "+strconv.Itoa(p.SlashJobMultiplier)+"× the job price."))
 	}
 
-	p := s.params()
 	b.WriteString("## Score " + itoa(v.Score) + "\n\n| Part | Value |\n|---|---:|\n")
 	b.WriteString("| Total at stake | " + gnot(v.TotalStake) + " |\n")
 	b.WriteString("| Backers counted (" + gnot(p.DiversityThreshold) + " or more) | " + strconv.Itoa(v.Counted) + " |\n")
@@ -253,7 +297,7 @@ func renderAgent(s viewSource, raw string, page int) string {
 			for _, j := range jobs {
 				id := strconv.FormatUint(j.ID, 10)
 				b.WriteString("| [#" + id + "](:job/" + id + ") | " + gnot(j.Price) + " | " +
-					strings.ReplaceAll(j.Status, "_", " ") + " | " + utc(j.Updated) + " |\n")
+					withIcon(j.Status, strings.ReplaceAll(j.Status, "_", " ")) + " | " + utc(j.Updated) + " |\n")
 			}
 			b.WriteString("\n")
 		}
@@ -311,9 +355,14 @@ func renderVoucher(s viewSource, raw string, page int) string {
 			stakeStatus(r.Status, r.At, now) + " | " + gnot(r.Rewards) + " |\n")
 	}
 	b.WriteString(pagerLinks(":voucher/"+addr.String(), page, total, "agents"))
-	b.WriteString("## Rewards\n\n" + gnot(ready) + " ready to withdraw.\n\n")
-	b.WriteString("A guilty verdict cuts " + strconv.Itoa(s.params().BackerSlashPct) +
-		"% of each backer's stake, including stake that is still warming up or unbonding.\n")
+	b.WriteString("## Rewards\n\n")
+	if ready > 0 {
+		b.WriteString(button("$help&func=Withdraw", "Withdraw "+gnot(ready), "success") + "\n\n")
+	} else {
+		b.WriteString("Nothing to withdraw yet.\n\n")
+	}
+	b.WriteString(alert("NOTE", "A guilty verdict cuts "+strconv.Itoa(s.params().BackerSlashPct)+
+		"% of each backer's stake, including stake that is still warming up or unbonding."))
 	b.WriteString(footer())
 	return b.String()
 }
@@ -325,6 +374,44 @@ func notAddress() string {
 func footer() string {
 	return "\n---\n\n[The Guild Hall](:)  [Council](:council)  [Treasury](:treasury)  [Source](./$source)\n\n" +
 		"Testnet only. Hireling is not affiliated with Gno.land.\n"
+}
+
+// gnoweb pieces. Labels and hrefs are built by the realm from fixed words,
+// numbers and addresses only, never from user text.
+
+func button(href, label, variant string) string {
+	return "<gno-button href=\"" + href + "\" label=\"" + label + "\" variant=\"" + variant + "\" />"
+}
+
+func alert(kind, text string) string {
+	return "> [!" + kind + "]\n> " + text + "\n\n"
+}
+
+func image(alt, svg string) string {
+	return "![" + alt + "](" + dataURI(svg) + ")"
+}
+
+var statusIcons = map[string]string{
+	"active":      "check-circle",
+	"completed":   "check-circle",
+	"open":        "clock",
+	"in_progress": "clock",
+	"delivered":   "clock",
+	"warmup":      "alarm",
+	"unbonding":   "arrow-down",
+	"banned":      "ban",
+	"disputed":    "caution",
+	"cancelled":   "close-circle",
+	"refunded":    "close-circle",
+}
+
+// withIcon puts the gnoweb icon for a status in front of its words, so the
+// status never depends on the icon alone.
+func withIcon(status, words string) string {
+	if name, ok := statusIcons[status]; ok {
+		return "<gno-icon name=\"" + name + "\" /> " + words
+	}
+	return words
 }
 
 // Pieces
@@ -343,11 +430,11 @@ func statusLine(v profileView) string {
 func stakeStatus(status string, at, now int64) string {
 	switch status {
 	case "warmup":
-		return "warm-up, counts " + inDays(at, now)
+		return withIcon(status, "warm-up, counts "+inDays(at, now))
 	case "unbonding":
-		return "unbonding, free on " + day(at)
+		return withIcon(status, "unbonding, free on "+day(at))
 	}
-	return status
+	return withIcon(status, status)
 }
 
 // who is a name followed by its short address, for lines and headings.

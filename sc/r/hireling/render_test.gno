@@ -1,6 +1,7 @@
 package hireling
 
 import (
+	"encoding/base64"
 	"strconv"
 	"strings"
 	"testing"
@@ -32,7 +33,12 @@ type fakeSource struct {
 }
 
 func (f *fakeSource) stats() homeStats {
-	return homeStats{TotalStake: 12_480 * gnotU, Profiles: 38, JobsDone: 112, Treasury: 64_500_000}
+	return homeStats{
+		TotalStake: 12_480 * gnotU, OwnerStake: 3_120 * gnotU, BackerStake: 9_360 * gnotU,
+		Profiles: 38, Agents: 24, Members: 14, JobsDone: 112, JobsInProgress: 9, JobsDisputed: 3,
+		Treasury:      64_500_000,
+		TreasuryTrail: []int64{5 * gnotU, 12 * gnotU, 20 * gnotU, 32 * gnotU, 62 * gnotU, 64_500_000},
+	}
 }
 
 func (f *fakeSource) topAgents(offset, limit int) ([]agentRow, int) {
@@ -93,10 +99,10 @@ func example() *fakeSource {
 		profiles: map[address]profileView{
 			auditBot: {
 				Addr: auditBot, Kind: "agent", Name: "AuditBot", Desc: "Reviews Gno realms against the security checklist.",
-				Status: "active", Owner: sinta, OwnerName: "Sinta", TotalStake: 400 * gnotU, Score: 240,
-				Counted: 2, BonusPct: 20, StrikePct: 100, CapacityLeft: 100 * gnotU, OwnedAgents: 1,
+				Status: "active", Owner: sinta, OwnerName: "Sinta", SelfStake: 100 * gnotU, TotalStake: 400 * gnotU, Score: 240,
+				Counted: 2, BonusPct: 20, StrikePct: 100, CapacityLeft: 100 * gnotU, JobsDone: 14, OwnedAgents: 1,
 			},
-			budi: {Addr: budi, Kind: "member", Name: "Budi", Status: "active", Score: 100, StrikePct: 100},
+			budi: {Addr: budi, Kind: "member", Name: "Budi", Status: "active", SelfStake: 10 * gnotU, TotalStake: 10 * gnotU, Score: 100, StrikePct: 100},
 		},
 		backs: map[address][]backerRow{
 			auditBot: {
@@ -121,20 +127,49 @@ func withSource(s viewSource, fn func()) {
 	fn()
 }
 
+// svgs decodes every data: SVG image on a page.
+func svgs(t *testing.T, page string) []string {
+	var out []string
+	const marker = "(data:image/svg+xml;base64,"
+	for {
+		i := strings.Index(page, marker)
+		if i < 0 {
+			return out
+		}
+		page = page[i+len(marker):]
+		j := strings.Index(page, ")")
+		raw, err := base64.StdEncoding.DecodeString(page[:j])
+		urequire.NoError(t, err)
+		out = append(out, string(raw))
+		page = page[j:]
+	}
+}
+
+const tick = "`"
+
 func TestRenderHomeEmpty(t *testing.T) {
 	out := Render("")
-	urequire.True(t, strings.HasPrefix(out, "# The Guild Hall\n"))
+	urequire.True(t, strings.HasPrefix(out, "![Hireling, deposit-backed trust for Gno](data:image/svg+xml;base64,"))
+	uassert.True(t, strings.Contains(out, "\n# The Guild Hall\n"))
 	uassert.True(t, strings.Contains(out, "No agents yet."))
 	uassert.True(t, strings.Contains(out, "Testnet only. Hireling is not affiliated with Gno.land."))
+	uassert.Equal(t, 2, len(svgs(t, out))) // banner and stats, no board
 }
 
 func TestRenderHomeWithAgents(t *testing.T) {
 	withSource(example(), func() {
 		out := Render("")
-		uassert.True(t, strings.Contains(out, "12,480 GNOT at stake across 38 profiles. 112 jobs done. 64.5 GNOT in the Guild Treasury."))
-		uassert.True(t, strings.Contains(out, "| [AuditBot](:agent/"+auditBot.String()+") `"+short(auditBot)+"` | 240 | 400 GNOT | 2 | 14 |"))
+		uassert.True(t, strings.Contains(out, "![12,480 GNOT at stake, 9,360 from backers. 38 profiles, 24 agents and 14 members. 112 jobs done, 9 in progress, 3 disputed. 64.5 GNOT in the Guild Treasury.]("))
+		uassert.True(t, strings.Contains(out, "| #1 | [AuditBot](:agent/"+auditBot.String()+") "+tick+short(auditBot)+tick+" | **240** | 400 GNOT | 2 | 14 |"))
+		uassert.True(t, strings.Contains(out, `<gno-button href="https://hirelings.xyz/register?kind=agent" label="Register an agent" variant="info" />`))
+		uassert.True(t, strings.Contains(out, "> [!NOTE]\n> Testnet only. For this demo, the council that judges disputes is the Hireling team.\n"))
 		uassert.True(t, strings.Contains(out, "| Fee split, owner, backers, treasury | 80%, 15%, 5% |"))
-		uassert.True(t, strings.Contains(out, "| Slash if guilty | 2 × price from the owner, 10% from each backer |"))
+		images := svgs(t, out)
+		urequire.Equal(t, 3, len(images)) // banner, stats, board
+		uassert.True(t, strings.Contains(images[1], ">12,480</text>"))
+		uassert.True(t, strings.Contains(images[1], "prefers-color-scheme:dark"))
+		uassert.True(t, strings.Contains(images[1], ">75% put in by backers</text>"))
+		uassert.True(t, strings.Contains(images[2], ">"+short(auditBot)+"</text>"))
 	})
 }
 
@@ -142,26 +177,36 @@ func TestRenderAgentShowsScoreAndBackers(t *testing.T) {
 	withSource(example(), func() {
 		out := Render("agent/" + auditBot.String())
 		uassert.True(t, strings.HasPrefix(out, "# AuditBot\n"))
-		uassert.True(t, strings.Contains(out, "`"+short(auditBot)+"`  Agent, active."))
-		uassert.True(t, strings.Contains(out, "Owned by Sinta `"+short(sinta)+"`."))
+		uassert.True(t, strings.Contains(out, tick+short(auditBot)+tick+"  Agent, active."))
+		uassert.True(t, strings.Contains(out, "Owned by Sinta "+tick+short(sinta)+tick+"."))
+		uassert.True(t, strings.Contains(out, "![Trust score 240 for "+short(auditBot)+". 400 GNOT at stake, 100 from the owner and 300 from backers."))
+		uassert.True(t, strings.Contains(out, `label="Vouch" variant="info"`))
+		uassert.True(t, strings.Contains(out, `label="Hire" variant="outline"`))
+		uassert.True(t, strings.Contains(out, "> [!TIP]\n> Vouching puts your GNOT behind this profile. If it is found guilty, each backer loses 10% and the owner loses 2× the job price."))
 		uassert.True(t, strings.Contains(out, "## Score 240"))
 		uassert.True(t, strings.Contains(out, "| Backers counted (1 GNOT or more) | 2 |"))
-		uassert.True(t, strings.Contains(out, "| Capacity left for new jobs | 100 GNOT |"))
 		uassert.True(t, strings.Contains(out, "score = floor(√400 × 10 × 1.2 × 1.0) = 240"))
-		uassert.True(t, strings.Contains(out, "| Sinta `"+short(sinta)+"` (owner) | 100 GNOT | active |"))
-		uassert.True(t, strings.Contains(out, "| Budi `"+short(budi)+"` | 200 GNOT | active |"))
-		uassert.True(t, strings.Contains(out, "| `"+short(newbie)+"` | 48 GNOT | warm-up, counts in 2 days |"))
-		uassert.True(t, strings.Contains(out, "| [#12](:job/12) | 50 GNOT | completed | 27 Nov 2026, 14:00 UTC |"))
+		uassert.True(t, strings.Contains(out, "| Sinta "+tick+short(sinta)+tick+` (owner) | 100 GNOT | <gno-icon name="check-circle" /> active |`))
+		uassert.True(t, strings.Contains(out, "| "+tick+short(newbie)+tick+` | 48 GNOT | <gno-icon name="alarm" /> warm-up, counts in 2 days |`))
+		uassert.True(t, strings.Contains(out, `| [#12](:job/12) | 50 GNOT | <gno-icon name="check-circle" /> completed | 27 Nov 2026, 14:00 UTC |`))
 		uassert.True(t, strings.Contains(out, "owns 1 agent. None has been banned."))
+		card := svgs(t, out)[0]
+		uassert.True(t, strings.Contains(card, ">240</text>"))
+		uassert.True(t, strings.Contains(card, ">+20% diversity</text>"))
+		uassert.True(t, strings.Contains(card, ">25% owner</text>"))
+		uassert.True(t, strings.Contains(card, ">capacity left for jobs</text>"))
 	})
 }
 
-func TestRenderMemberHasNoJobs(t *testing.T) {
+func TestRenderMemberHasNoJobsOrHire(t *testing.T) {
 	withSource(example(), func() {
 		out := Render("agent/" + budi.String())
 		uassert.True(t, strings.Contains(out, "Member, active."))
+		uassert.True(t, strings.Contains(out, `label="Vouch"`))
+		uassert.False(t, strings.Contains(out, `label="Hire"`))
 		uassert.False(t, strings.Contains(out, "## Jobs"))
 		uassert.False(t, strings.Contains(out, "Capacity left"))
+		uassert.False(t, strings.Contains(svgs(t, out)[0], "capacity left"))
 	})
 }
 
@@ -171,14 +216,30 @@ func TestRenderBannedAgent(t *testing.T) {
 	v.Status, v.Strikes = "banned", 3
 	s.profiles[auditBot] = v
 	withSource(s, func() {
-		uassert.True(t, strings.Contains(Render("agent/"+auditBot.String()), "Agent, banned after 3 strikes."))
+		out := Render("agent/" + auditBot.String())
+		uassert.True(t, strings.Contains(out, "Agent, banned after 3 strikes."))
+		uassert.True(t, strings.Contains(out, "> [!WARNING]\n> Banned after 3 strikes. It cannot be vouched for or hired."))
+		uassert.False(t, strings.Contains(out, "<gno-button"))
+	})
+}
+
+func TestRenderPendingAgent(t *testing.T) {
+	s := example()
+	v := s.profiles[auditBot]
+	v.Status = "pending"
+	s.profiles[auditBot] = v
+	withSource(s, func() {
+		out := Render("agent/" + auditBot.String())
+		uassert.True(t, strings.Contains(out, `<gno-button href="$help&func=AcceptRegistration" label="Accept registration" variant="success" />`))
+		uassert.False(t, strings.Contains(out, `label="Vouch"`))
 	})
 }
 
 func TestRenderNoProfile(t *testing.T) {
 	withSource(example(), func() {
 		out := Render("agent/" + newbie.String())
-		uassert.True(t, strings.HasPrefix(out, "# No profile at `"+short(newbie)+"`\n"))
+		uassert.True(t, strings.HasPrefix(out, "# No profile at "+tick+short(newbie)+tick+"\n"))
+		uassert.True(t, strings.Contains(out, `label="Register as a member or an agent"`))
 	})
 }
 
@@ -200,14 +261,31 @@ func TestRenderPagesBackers(t *testing.T) {
 	}
 	s.backs[auditBot] = rows
 	base := ":agent/" + auditBot.String()
+	row := `| 1 GNOT | <gno-icon name="check-circle" /> active |`
 	withSource(s, func() {
 		p1 := Render("agent/" + auditBot.String())
-		uassert.Equal(t, 20, strings.Count(p1, "| 1 GNOT | active |"))
+		uassert.Equal(t, 20, strings.Count(p1, row))
 		uassert.True(t, strings.Contains(p1, "Page 1 of 3.  [Next 20 backers]("+base+"?page=2)"))
 		p3 := Render("agent/" + auditBot.String() + "?page=3")
-		uassert.Equal(t, 5, strings.Count(p3, "| 1 GNOT | active |"))
+		uassert.Equal(t, 5, strings.Count(p3, row))
 		uassert.True(t, strings.Contains(p3, "[Previous]("+base+"?page=2)"))
 		uassert.False(t, strings.Contains(p3, "[Next"))
+	})
+}
+
+func TestRenderHomeBoardOnlyOnFirstPage(t *testing.T) {
+	s := example()
+	for i := 0; i < 25; i++ {
+		s.agents = append(s.agents, agentRow{Addr: testutils.TestAddress("a" + strconv.Itoa(i)), Name: "A", Score: 10, Stake: gnotU})
+	}
+	withSource(s, func() {
+		p1 := Render("")
+		images := svgs(t, p1)
+		urequire.Equal(t, 3, len(images))
+		uassert.Equal(t, 5, strings.Count(images[2], ">trust score "))
+		p2 := Render("?page=2")
+		uassert.Equal(t, 2, len(svgs(t, p2)))
+		uassert.True(t, strings.Contains(p2, "| #21 | "))
 	})
 }
 
@@ -216,7 +294,8 @@ func TestRenderVoucherPortfolio(t *testing.T) {
 		out := Render("voucher/" + budi.String())
 		uassert.True(t, strings.HasPrefix(out, "# Budi\n"))
 		uassert.True(t, strings.Contains(out, "Backs 1 agent with 200 GNOT. 3.4 GNOT ready to withdraw."))
-		uassert.True(t, strings.Contains(out, "| [AuditBot](:agent/"+auditBot.String()+") `"+short(auditBot)+"` | 200 GNOT | active | 3 GNOT |"))
+		uassert.True(t, strings.Contains(out, "| [AuditBot](:agent/"+auditBot.String()+") "+tick+short(auditBot)+tick+` | 200 GNOT | <gno-icon name="check-circle" /> active | 3 GNOT |`))
+		uassert.True(t, strings.Contains(out, `<gno-button href="$help&func=Withdraw" label="Withdraw 3.4 GNOT" variant="success" />`))
 	})
 }
 
@@ -237,6 +316,7 @@ func TestRenderEscapesUserText(t *testing.T) {
 		"# big",
 		"line\n# injected",
 		"`code`",
+		`" onload="x`,
 	}
 	for _, name := range evil {
 		s := example()
@@ -252,15 +332,64 @@ func TestRenderEscapesUserText(t *testing.T) {
 				uassert.False(t, strings.Contains(strings.ReplaceAll(out, `\<`, ""), "<img"), name)
 				uassert.False(t, strings.Contains(out, "\n# big"), name)
 				uassert.False(t, strings.Contains(out, "\n# injected"), name)
+				uassert.False(t, strings.Contains(out, "`code`"), name)
 				for _, line := range strings.Split(out, "\n") {
 					if strings.HasPrefix(line, "|") {
 						uassert.False(t, strings.Contains(line, "a | b"), line)
 					}
+					if strings.Contains(line, "<gno-button") {
+						uassert.False(t, strings.Contains(line, "Approve"), line)
+						uassert.False(t, strings.Contains(line, "onload"), line)
+					}
 				}
-				uassert.False(t, strings.Contains(out, "`code`"), name)
+				// No user text ever reaches an SVG.
+				for _, img := range svgs(t, out) {
+					uassert.False(t, strings.Contains(img, "Approve"), name)
+					uassert.False(t, strings.Contains(img, "evil"), name)
+					uassert.False(t, strings.Contains(img, "<img"), name)
+					uassert.False(t, strings.Contains(img, "onload"), name)
+					uassert.False(t, strings.Contains(img, "AuditBot"), name)
+				}
 			}
 		})
 	}
+}
+
+func TestSVGSizes(t *testing.T) {
+	s := example()
+	v, _ := s.profile(auditBot)
+	uassert.True(t, len(bannerSVG()) <= 6*1024, "banner "+strconv.Itoa(len(bannerSVG())))
+	uassert.True(t, len(scoreSVG(v, s.params())) <= 10*1024, "score "+strconv.Itoa(len(scoreSVG(v, s.params()))))
+	uassert.True(t, len(statsSVG(s.stats())) <= 10*1024, "stats "+strconv.Itoa(len(statsSVG(s.stats()))))
+	rows := make([]agentRow, 5)
+	for i := range rows {
+		rows[i] = agentRow{Addr: testutils.TestAddress("z" + strconv.Itoa(i)), Score: 100, Stake: gnotU}
+	}
+	uassert.True(t, len(boardSVG(rows)) <= 10*1024, "board "+strconv.Itoa(len(boardSVG(rows))))
+}
+
+func TestStatsSVGWithNoData(t *testing.T) {
+	out := statsSVG(homeStats{})
+	uassert.True(t, strings.Contains(out, ">0%</text>"))
+	uassert.True(t, strings.Contains(out, ">Fees and slashes land here</text>"))
+}
+
+func TestIdenticonIsStable(t *testing.T) {
+	a, b, c := &svgDoc{}, &svgDoc{}, &svgDoc{}
+	identicon(a, 0, 0, auditBot)
+	identicon(b, 0, 0, auditBot)
+	identicon(c, 0, 0, budi)
+	uassert.Equal(t, a.b.String(), b.b.String())
+	uassert.NotEqual(t, a.b.String(), c.b.String())
+}
+
+func TestRingPoint(t *testing.T) {
+	x, y := ringPoint(100, 100, 10, 25)
+	uassert.Equal(t, 110, x)
+	uassert.Equal(t, 100, y)
+	x, y = ringPoint(100, 100, 10, 50)
+	uassert.Equal(t, 100, x)
+	uassert.Equal(t, 110, y)
 }
 
 func TestFormatting(t *testing.T) {
