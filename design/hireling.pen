@@ -38005,7 +38005,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     },
@@ -38020,7 +38020,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     },
@@ -38036,7 +38036,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     }
@@ -38187,7 +38187,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-tilt-left-cutout.png",
+                        "url": "assets/coin-tilt-left.png",
                         "mode": "contain"
                       }
                     },
@@ -38202,7 +38202,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-hero-tilt-right-cutout.png",
+                        "url": "assets/coin-hero-tilt-right.png",
                         "mode": "contain"
                       }
                     }
@@ -38361,7 +38361,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-top-3q-cutout.png",
+                        "url": "assets/coin-top-3q.png",
                         "mode": "contain"
                       }
                     },
@@ -38545,7 +38545,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -38588,7 +38588,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -38631,7 +38631,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -39052,7 +39052,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-front-cutout.png",
+                "url": "assets/coin-front.png",
                 "mode": "contain"
               }
             },
@@ -81456,7 +81456,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     },
@@ -81471,7 +81471,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     },
@@ -81487,7 +81487,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     }
@@ -81638,7 +81638,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-tilt-left-cutout.png",
+                        "url": "assets/coin-tilt-left.png",
                         "mode": "contain"
                       }
                     },
@@ -81653,7 +81653,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-hero-tilt-right-cutout.png",
+                        "url": "assets/coin-hero-tilt-right.png",
                         "mode": "contain"
                       }
                     }
@@ -81812,7 +81812,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-top-3q-cutout.png",
+                        "url": "assets/coin-top-3q.png",
                         "mode": "contain"
                       }
                     },
@@ -81996,7 +81996,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -82039,7 +82039,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -82082,7 +82082,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -82503,7 +82503,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-front-cutout.png",
+                "url": "assets/coin-front.png",
                 "mode": "contain"
               }
             },
@@ -122051,7 +122051,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -122094,7 +122094,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -122137,7 +122137,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -122332,7 +122332,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-top-3q-cutout.png",
+                        "url": "assets/coin-top-3q.png",
                         "mode": "contain"
                       }
                     },
@@ -122510,7 +122510,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     },
@@ -122525,7 +122525,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     },
@@ -122541,7 +122541,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     }
@@ -122692,7 +122692,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-tilt-left-cutout.png",
+                        "url": "assets/coin-tilt-left.png",
                         "mode": "contain"
                       }
                     },
@@ -122707,7 +122707,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-hero-tilt-right-cutout.png",
+                        "url": "assets/coin-hero-tilt-right.png",
                         "mode": "contain"
                       }
                     }
@@ -123048,7 +123048,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-front-cutout.png",
+                "url": "assets/coin-front.png",
                 "mode": "contain"
               }
             },
@@ -145234,7 +145234,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     },
@@ -145249,7 +145249,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     },
@@ -145265,7 +145265,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     }
@@ -145416,7 +145416,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-tilt-left-cutout.png",
+                        "url": "assets/coin-tilt-left.png",
                         "mode": "contain"
                       }
                     },
@@ -145431,7 +145431,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-hero-tilt-right-cutout.png",
+                        "url": "assets/coin-hero-tilt-right.png",
                         "mode": "contain"
                       }
                     }
@@ -145590,7 +145590,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-top-3q-cutout.png",
+                        "url": "assets/coin-top-3q.png",
                         "mode": "contain"
                       }
                     },
@@ -145774,7 +145774,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -145817,7 +145817,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -145860,7 +145860,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -146237,7 +146237,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-front-cutout.png",
+                "url": "assets/coin-front.png",
                 "mode": "contain"
               }
             },
@@ -168042,7 +168042,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -168085,7 +168085,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -168128,7 +168128,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -168323,7 +168323,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-top-3q-cutout.png",
+                        "url": "assets/coin-top-3q.png",
                         "mode": "contain"
                       }
                     },
@@ -168501,7 +168501,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     },
@@ -168516,7 +168516,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     },
@@ -168532,7 +168532,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     }
@@ -168683,7 +168683,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-tilt-left-cutout.png",
+                        "url": "assets/coin-tilt-left.png",
                         "mode": "contain"
                       }
                     },
@@ -168698,7 +168698,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-hero-tilt-right-cutout.png",
+                        "url": "assets/coin-hero-tilt-right.png",
                         "mode": "contain"
                       }
                     }
@@ -169039,7 +169039,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-front-cutout.png",
+                "url": "assets/coin-front.png",
                 "mode": "contain"
               }
             },
@@ -192464,7 +192464,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     },
@@ -192479,7 +192479,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     },
@@ -192495,7 +192495,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-front-cutout.png",
+                        "url": "assets/coin-front.png",
                         "mode": "contain"
                       }
                     }
@@ -192646,7 +192646,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-tilt-left-cutout.png",
+                        "url": "assets/coin-tilt-left.png",
                         "mode": "contain"
                       }
                     },
@@ -192661,7 +192661,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-hero-tilt-right-cutout.png",
+                        "url": "assets/coin-hero-tilt-right.png",
                         "mode": "contain"
                       }
                     }
@@ -192820,7 +192820,7 @@
                       "fill": {
                         "type": "image",
                         "enabled": true,
-                        "url": "assets/coin-top-3q-cutout.png",
+                        "url": "assets/coin-top-3q.png",
                         "mode": "contain"
                       }
                     },
@@ -193004,7 +193004,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -193047,7 +193047,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -193090,7 +193090,7 @@
                           "fill": {
                             "type": "image",
                             "enabled": true,
-                            "url": "assets/coin-front-cutout.png",
+                            "url": "assets/coin-front.png",
                             "mode": "contain"
                           }
                         },
@@ -193467,7 +193467,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-front-cutout.png",
+                "url": "assets/coin-front.png",
                 "mode": "contain"
               }
             },
@@ -218641,7 +218641,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-hero-tilt-right-dark.jpg",
+                "url": "assets/source/coin-hero-tilt-right-dark.jpg",
                 "mode": "cover"
               },
               "cornerRadius": 24
@@ -218674,7 +218674,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-front-dark.jpg",
+                "url": "assets/source/coin-front-dark.jpg",
                 "mode": "cover"
               },
               "cornerRadius": 24
@@ -218707,7 +218707,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coins-cluster-dark.png",
+                "url": "assets/source/coins-cluster-dark.png",
                 "mode": "cover"
               },
               "cornerRadius": 24
@@ -218740,7 +218740,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-tilt-left-dark.jpg",
+                "url": "assets/source/coin-tilt-left-dark.jpg",
                 "mode": "cover"
               },
               "cornerRadius": 24
@@ -218773,7 +218773,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-edge-dark.jpg",
+                "url": "assets/source/coin-edge-dark.jpg",
                 "mode": "cover"
               },
               "cornerRadius": 24
@@ -218806,7 +218806,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-top-3q-dark.jpg",
+                "url": "assets/source/coin-top-3q-dark.jpg",
                 "mode": "cover"
               },
               "cornerRadius": 24
@@ -218839,7 +218839,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-hero-tilt-right-cutout.png",
+                "url": "assets/coin-hero-tilt-right.png",
                 "mode": "cover"
               },
               "cornerRadius": 24
@@ -218872,7 +218872,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-front-cutout.png",
+                "url": "assets/coin-front.png",
                 "mode": "cover"
               },
               "cornerRadius": 24
@@ -218907,7 +218907,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-hero-tilt-right-cutout.png",
+                "url": "assets/coin-hero-tilt-right.png",
                 "mode": "cover"
               },
               "width": 480,
@@ -219037,7 +219037,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-hero-tilt-right-cutout.png",
+                "url": "assets/coin-hero-tilt-right.png",
                 "mode": "cover"
               },
               "width": 300,
@@ -219167,7 +219167,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-front-cutout.png",
+                "url": "assets/coin-front.png",
                 "mode": "cover"
               },
               "width": 200,
@@ -219295,7 +219295,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-tilt-left-cutout.png",
+                "url": "assets/coin-tilt-left.png",
                 "mode": "cover"
               },
               "width": 300,
@@ -219425,7 +219425,7 @@
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "assets/coin-top-3q-cutout.png",
+                "url": "assets/coin-top-3q.png",
                 "mode": "cover"
               },
               "width": 160,
