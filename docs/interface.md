@@ -84,7 +84,7 @@ func ApplyCouncilChange(cur realm, changeID uint64)                 // anyone, a
 
 ```go
 func TrustScore(addr address) int64
-func IsTrusted(addr address, min int64) bool
+func IsTrusted(addr address, min int64) bool // true when TrustScore(addr) >= min
 ```
 
 ### Read API for off-chain clients (read-only, for `engine` and `apps/fe` via `vm/qeval`)

@@ -1,6 +1,6 @@
 # CLAUDE.md: sc/
 
-Gno packages for Hireling. Owner: Ancung (`p/hireling`, `r/hireling`); Wikan (`r/tavernboard`, filetests). Root rules in `/CLAUDE.md` also apply.
+Gno packages for Hireling. Owners: Wikan (`p/hireling`; `r/hireling` registry, stake, trust; `r/tavernboard`; filetests), Dilly (`r/hireling/render.gno`), Ancung (`r/hireling` jobs, disputes, council; deployer key; final review). Root rules in `/CLAUDE.md` also apply.
 
 **Update this file in the same PR whenever you change build, test or deploy commands, the toolchain version, the namespace, or a deployed package path.**
 
