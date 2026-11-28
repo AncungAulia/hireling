@@ -43,3 +43,11 @@ To be filled in week 0, once the toolchain is installed (test, lint, local `gnod
 ## Deployed
 
 Nothing deployed yet. Record each deployment here: package path, version, date, transaction hash.
+
+## Render (`r/hireling/render.gno`, owner Dilly)
+
+- Contract: `/design/gnoweb-pages.md` (Markdown per route) and `/design/guild-hall-svg.md` (SVG).
+- Routes so far: `""`, `agent/<addr>`, `voucher/<addr>`; any other path gives "Page not found".
+- User text goes through `gno.land/p/nt/markdown/sanitize/v0`: `InlineText` for headings and lines, `TableCell` for table cells. Never print user text raw.
+- Render reads state only through the `viewSource` interface at the top of `render.gno`. The registry and stake code sets `source`; until then it is `emptySource` and every page shows its empty state. Lists are paged by the source, 20 rows per page.
+- Tests: `cd sc/r/hireling && gno test -v .` (toolchain v1.8.0-rc.1, in WSL).
