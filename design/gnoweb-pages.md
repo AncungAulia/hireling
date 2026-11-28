@@ -10,7 +10,14 @@ Checked on Onyx gnoweb (`latest.testnets.gno.land`) on 2026-11-27:
 - The realm only returns Markdown. Hireling's look reaches gnoweb through **structure and the Guild Hall SVG**, not colours or fonts.
 - Headings, paragraphs, lists, tables, links, `---` rules and images render. Links are gnoweb green.
 - Only `data:` SVG images are used (allowed image host), built by the realm (`design/guild-hall-svg.md`).
-- Extensions not confirmed on Onyx yet (columns, alerts, forms): **not used**. If Ancung confirms one works, we can add it later.
+- gnoweb extensions, checked on 28 Nov 2026 in a local `gnodev` running the Onyx version (`v1.8.0-rc.1`). All of them render, in light and dark:
+  - **Columns:** `<gno-columns>`, then blocks separated by `<gno-columns-sep>`, then `</gno-columns>`. Each tag goes on its own line, with blank lines around the Markdown inside.
+  - **Frames** (bordered cards): `<gno-frame>` … `</gno-frame>`. A frame alone in a column becomes a card.
+  - **Buttons:** `<gno-button href="…" label="…" variant="…" />`. The variants are `info`, `outline`, `success`, `caution`, `warning`, `note` and `tip`. A button is a link, so `$help&func=…` TxLinks work as `href`.
+  - **Alerts:** `> [!NOTE]`, `> [!TIP]`, `> [!WARNING]` and `> [!CAUTION]`, with the text on the next `>` line.
+  - **Icons:** `<gno-icon name="…" />`. Not used yet.
+- Recheck these on the live Onyx gnoweb once the realm is deployed.
+- Never put user text inside a tag attribute (`label`, `href`). Button labels and links are built by the realm from fixed words, numbers and addresses only.
 
 ## 2. Rules for every page
 
@@ -20,15 +27,17 @@ Checked on Onyx gnoweb (`latest.testnets.gno.land`) on 2026-11-27:
 - **All user text is escaped** with `sanitize.InlineText` and `|` is escaped in table cells (NFR-06). User text never becomes a link or an image. Names ≤ 32, descriptions ≤ 280 (`MaxName`, `MaxDesc`).
 - Amounts always in GNOT with their unit: `400 GNOT`, `0.1 GNOT`. Times in UTC: `27 Nov 2026, 14:00 UTC`. Durations in words: `in 2 days`.
 - No "·", ";" or em dash. Separate actions with two spaces or put them on their own line.
-- Actions are links the realm builds, never from user text:
-  - **Free actions** (Approve, Release, Cancel, Accept, Vote, Resolve, Activate, Request unbond, Withdraw) are TxLinks: `[Approve job 12]($help&func=Approve&id=12)`. Use `p/moul/txlink/v0` if it works on Onyx.
+- Actions are **buttons** (`<gno-button>`) the realm builds, never from user text. Variants: `info` for the main paid action, `outline` for the second one, `success` for approve, release and withdraw, `caution` for dispute and guilty votes.
+  - **Free actions** (Approve, Release, Cancel, Accept, Vote, Resolve, Activate, Request unbond, Withdraw) are TxLinks used as the button `href`: `<gno-button href="$help&func=Approve&id=12" label="Approve job 12" variant="success" />`. Build the href with `p/moul/txlink/v0` (on Onyx; it also has `SetSend`, see OQ-9).
   - **Paid actions** (Register, Vouch, Hire, Open dispute) depend on OQ-9 (#3):
     - if a TxLink can attach `-send`: a TxLink like the free ones;
     - if not: a link to the web app, `https://<site>/vouch?agent=<addr>`, `/hire?agent=<addr>`, `/dispute?job=<id>`, `/register`.
-    The templates below write `{vouch link}` where this choice applies.
+    The templates below write `{vouch button: label, variant}` where this choice applies.
 - Lists that grow are paged (`p/nt/avl/pager/v0`), 20 rows per page, with `[Previous](…)` and `[Next](…)` at the bottom.
 - Empty states say what is empty and what to do next, in one sentence.
 - Every page ends with the same footer block (section 3.8).
+- Numbers that matter most on a page go in a row of cards (columns of frames), each with the value in bold and a short label under it. At most four cards per row.
+- Notes the reader must not miss go in an alert: `NOTE` for facts (testnet, public data), `TIP` for what an action means, `WARNING` for a state that blocks an action. One or two per page at most.
 
 ## 3. Templates
 
@@ -39,11 +48,50 @@ A name in braces such as `{DiversityThreshold}` is printed from the `p/<ns>/hire
 ### 3.1 `""` The Guild Hall
 
 ```markdown
+![Hireling, deposit-backed trust for Gno](data:image/svg+xml;base64,…)
+
 # The Guild Hall
 
 Deposit-backed trust for Gno. Agents and members lock GNOT, others vouch with their own, and any realm checks the score in one line.
 
-12,480 GNOT at stake across 38 profiles. 112 jobs done. 64.5 GNOT in the Guild Treasury.
+<gno-columns>
+<gno-frame>
+
+**12,480 GNOT**
+
+at stake
+
+</gno-frame>
+<gno-columns-sep>
+<gno-frame>
+
+**38**
+
+profiles
+
+</gno-frame>
+<gno-columns-sep>
+<gno-frame>
+
+**112**
+
+jobs done
+
+</gno-frame>
+<gno-columns-sep>
+<gno-frame>
+
+**64.5 GNOT**
+
+in the Guild Treasury
+
+</gno-frame>
+</gno-columns>
+
+{register button: Register an agent, info}  {register button: Become a member, outline}
+
+> [!NOTE]
+> Testnet only. For this demo, the council that judges disputes is the Hireling team.
 
 ## Top agents
 
@@ -90,9 +138,46 @@ Reviews Gno realms against the security checklist.
 
 Owned by Sinta `g1sint…a8x2`.
 
+<gno-columns>
+<gno-frame>
+
+**240**
+
+trust score
+
+</gno-frame>
+<gno-columns-sep>
+<gno-frame>
+
+**400 GNOT**
+
+at stake
+
+</gno-frame>
+<gno-columns-sep>
+<gno-frame>
+
+**2**
+
+backers counted
+
+</gno-frame>
+<gno-columns-sep>
+<gno-frame>
+
+**100 GNOT**
+
+capacity left for jobs
+
+</gno-frame>
+</gno-columns>
+
+{vouch button: Vouch for AuditBot, info}  {hire button: Hire AuditBot, outline}
+
 ![Trust graph of g1jg8m…sqf5, score 240, 2 backers, 400 GNOT at stake](data:image/svg+xml;base64,…)
 
-{vouch link: Vouch for AuditBot}  {hire link: Hire AuditBot}
+> [!TIP]
+> Vouching puts your GNOT behind AuditBot. If it is found guilty, each backer loses 10% and the owner loses 2× the job price.
 
 ## Score 240
 
@@ -130,7 +215,7 @@ Sinta `g1sint…a8x2` owns 1 agent. None has been banned.
 - **Pending** agents show one line under the title: "Waiting for the agent key to accept. [Accept registration]($help&func=AcceptRegistration)".
 - **Banned** agents: the title line says "Agent, banned after 3 strikes." The Vouch and Hire links are not shown, and the SVG uses the banned state.
 - **Owner history** with a ban: "Sinta `g1sint…a8x2` owns 2 agents. 1 was banned: OldBot `g1old0…11aa`."
-- **Not found**: "# No profile at `g1xxxx…yyyy`" and "This address has not registered. {register link: Register as a member or an agent}".
+- **Not found**: "# No profile at `g1xxxx…yyyy`" and "This address has not registered. {register button: Register as a member or an agent, info}".
 
 ### 3.3 `job/<id>` Job
 
@@ -148,6 +233,9 @@ AuditBot `g1jg8m…sqf5` for Joko `g1joko…3m1z`. 50 GNOT in escrow.
 
 Status delivered.
 
+> [!NOTE]
+> The brief and the result are public on chain.
+
 ## Brief
 
 > Review gno.land/r/joko/shop. Acceptance: list every finding against the Gno security checklist, with the line.
@@ -158,9 +246,7 @@ Status delivered.
 
 ## Actions
 
-[Approve job 12]($help&func=Approve&id=12)  {dispute link: Open a dispute}
-
-The brief and the result are public on chain.
+<gno-button href="$help&func=Approve&id=12" label="Approve job 12" variant="success" />  {dispute button: Open a dispute, caution}
 ```
 
 - Actions shown depend on status and time: Accept and Cancel for the agent while open; Cancel for the hirer after the accept window or deadline; Approve and Open dispute before the window ends; Release for anyone after it ends (PRD F3, §5.2 #23).
@@ -191,11 +277,12 @@ Deposit 5 GNOT. Voting ends 2 Dec 2026, 09:00 UTC.
 
 ## Actions
 
-[Vote guilty]($help&func=Vote&disputeID=3&choice=yes)  [Vote not guilty]($help&func=Vote&disputeID=3&choice=no)  [Abstain]($help&func=Vote&disputeID=3&choice=abstain)
+<gno-button href="$help&func=Vote&disputeID=3&choice=yes" label="Vote guilty" variant="caution" />  <gno-button href="$help&func=Vote&disputeID=3&choice=no" label="Vote not guilty" variant="success" />  <gno-button href="$help&func=Vote&disputeID=3&choice=abstain" label="Abstain" variant="outline" />
 
-[Resolve dispute 3]($help&func=Resolve&disputeID=3)
+<gno-button href="$help&func=Resolve&disputeID=3" label="Resolve dispute 3" variant="info" />
 
-Jurors who are the owner, the agent, the hirer or a backer of the agent cannot vote.
+> [!WARNING]
+> Jurors who are the owner, the agent, the hirer or a backer of the agent cannot vote.
 ```
 
 - After resolution, the Actions section is replaced by "## Outcome" with one sentence per effect: refund, slash, strike, juror pay (PRD §5).
@@ -216,7 +303,7 @@ Jurors who are the owner, the agent, the hirer or a backer of the agent cannot v
 
 ## Rewards
 
-[Withdraw 3.4 GNOT]($help&func=Withdraw)
+<gno-button href="$help&func=Withdraw" label="Withdraw 3.4 GNOT" variant="success" />
 
 A guilty verdict cuts 10% of each backer's stake, including stake that is still warming up or unbonding.
 ```

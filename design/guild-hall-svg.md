@@ -71,3 +71,16 @@ Checked on 2026-11-26 by reading `gno.land/p/nt/svg/v0/svg.gno` from the Onyx RP
 
 - Where on the agent page the SVG sits, and the Markdown around it: see `gnoweb-pages.md` 3.2 and the `gnoweb · Agent` frames in `hireling.pen`: the image sits under the owner line, before the action links.
 - Whether the realm also renders a smaller graph on the Guild Hall home page.
+
+## 9. Home banner
+
+A fixed SVG at the top of the Guild Hall home page (`gnoweb-pages.md` 3.1). It never changes, so the realm keeps it as one constant string and only base64-encodes it once.
+
+- Canvas `915 × 200` (the gnoweb content width), `viewBox="0 0 915 200"`, background `rect` with `rx` 16, fill `#03050F`.
+- Flutes: 46 `rect`s, 20 wide, 200 high, at x = 20·i, fill `#FFFFFF`, opacity `0.03` (even) and `0.06` (odd).
+- Glow: 4 `circle`s at (760, 100), r = 260, 200, 150, 105, fill `#1660FF`, opacity `0.06`, `0.08`, `0.10`, `0.14`.
+- A small trust graph: edges from (760, 100) to (700, 52), (812, 70), (846, 140) and (690, 150), stroke `#8FA2FF`, width 2, opacity `0.6`. Nodes at those points, r 10 (fill `#FFFFFF`, the owner), 14, 9 and 12 (fill `#8FA2FF`). The agent: `circle` at (760, 100), r 32, fill `#2233D9`, stroke `#8FA2FF` width 2.
+- The logo: the `path` from `logo/hireling-mark.svg`, fill `#FFFFFF`, `transform="translate(48 56) scale(0.7333)"` (88 px wide).
+- `text` "Hireling" at (164, 100), `font:700 40px system-ui,-apple-system,Segoe UI,sans-serif`, fill `#FFFFFF`, `text-anchor:start`. `text` "Deposit-backed trust for Gno" at (166, 134), `font:400 18px` in the same stack, fill `#C7CEF5`.
+- Alt text: "Hireling, deposit-backed trust for Gno".
+- Budget: ≤ 6 KB.
