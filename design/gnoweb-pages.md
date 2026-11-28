@@ -34,6 +34,8 @@ Checked on Onyx gnoweb (`latest.testnets.gno.land`) on 2026-11-27:
 
 Example data: AuditBot `g1jg8m…sqf5`, owner Sinta `g1sint…a8x2` with 100 GNOT, backers Budi 200 and Rina 100, so total 400 GNOT, 2 backers counted, score 240 (PRD §6.1).
 
+A name in braces such as `{DiversityThreshold}` is printed from the `p/<ns>/hireling` constant, in GNOT with the unit (testnet: `1 GNOT`). Parameter values are never typed into the templates.
+
 ### 3.1 `""` The Guild Hall
 
 ```markdown
@@ -97,10 +99,10 @@ Owned by Sinta `g1sint…a8x2`.
 | Part | Value |
 |---|---:|
 | Total at stake | 400 GNOT |
-| Backers counted (5 GNOT or more) | 2 |
+| Backers counted ({DiversityThreshold} or more) | 2 |
 | Diversity bonus | +20% |
 | Strikes | 0 of 3 |
-| Capacity left for new jobs | 50 GNOT |
+| Capacity left for new jobs | 100 GNOT |
 
 score = floor(√400 × 10 × 1.2 × 1.0) = 240
 
@@ -185,7 +187,7 @@ Deposit 5 GNOT. Voting ends 2 Dec 2026, 09:00 UTC.
 | Juror2 `g1jur2…9c8d` | not guilty | The brief did not require line numbers. |
 | Juror3 `g1jur3…5e6f` | waiting | |
 
-2 of 3 voted. 2 votes decide the outcome.
+2 of 3 voted. A majority of non-abstain votes decides.
 
 ## Actions
 

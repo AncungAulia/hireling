@@ -44,16 +44,17 @@ Checked on 2026-11-26 by reading `gno.land/p/nt/svg/v0/svg.gno` from the Onyx RP
 | Backer, unbonding | `circle`, opacity `0.4` | `#8FA2FF` | none |
 | More | `circle` r 16 | `#1B2470` | `#8FA2FF`, width 1; `text` `+N` centred, class `a`, fill `#FFFFFF` |
 
-- Node radius: r = 8 + round(14 · √(stake / maxStake)), so 8 to 22. `maxStake` is the largest stake among the nodes shown. In integer maths: `8 + 14 * ISqrt(stake * 10000 / maxStake) / 100`, with `ISqrt` from `p/<ns>/hireling`.
+- Node radius: r = 8 + floor(14 · √(stake / maxStake)), so 8 to 22. `maxStake` is the largest stake among the nodes shown. In integer maths: `8 + 14 * ISqrt(stake * 10000 / maxStake) / 100`, with `ISqrt` from `p/<ns>/hireling`.
 - Address label under each node: `text` at (x, y + r + 14), class `a`, fill `#C9D4F2`, the shortened address `g1` + 4 … last 4 (`g1jg8m…sqf5`). Text anchor: add `AddStyle("text", "text-anchor:middle")` once.
 
 ## 5. Edges
 
 - One `path` per node: `M{ax} {ay} L{bx} {by}` from the agent centre to the node centre, drawn **before** the nodes so nodes sit on top.
-- Width: 1 + round(5 · √(stake / maxStake)), so 1 to 6. Same integer trick as the radius.
+- Width: 1 + floor(5 · √(stake / maxStake)), so 1 to 6. Same integer trick as the radius; integer division floors.
 - Active and owner: stroke `#8FA2FF`, opacity `0.7`.
 - Warm-up: same, plus `style="stroke-dasharray:6 6"`.
 - Unbonding: opacity `0.25`.
+- More node: one edge to it, stroke `#8FA2FF`, width 1, opacity `0.4`.
 
 ## 6. States
 
@@ -68,5 +69,5 @@ Checked on 2026-11-26 by reading `gno.land/p/nt/svg/v0/svg.gno` from the Onyx RP
 
 ## 8. Not decided here
 
-- Where on the agent page the SVG sits, and the Markdown around it: see the gnoweb frames in `hireling.pen` (page `gnoweb`, coming next).
+- Where on the agent page the SVG sits, and the Markdown around it: see `gnoweb-pages.md` 3.2 and the `gnoweb · Agent` frames in `hireling.pen`: the image sits under the owner line, before the action links.
 - Whether the realm also renders a smaller graph on the Guild Hall home page.

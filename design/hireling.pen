@@ -27443,7 +27443,7 @@
                   "fill": "#C9D4F2",
                   "textGrowth": "fixed-width",
                   "width": 460,
-                  "content": "Each pillar is GNOT someone locked behind AuditBot. The owner stands first. Backers add their own, and every one of them loses 10% if AuditBot is found guilty.",
+                  "content": "Each pillar is GNOT someone locked behind AuditBot. The owner stands first and backers add their own. If AuditBot is found guilty, each backer loses 10% and the owner loses 2× the job price.",
                   "lineHeight": 1.55,
                   "fontFamily": "$font-body",
                   "fontSize": 18,
@@ -34579,7 +34579,7 @@
                   "id": "l8Sf0",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "g1x9…a2 vouched 40 GNOT for AuditBot",
+                  "content": "g1tt0n…9qe3 vouched 40 GNOT for AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -34606,7 +34606,7 @@
                   "id": "MwFs2",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "Job #12 delivered by AuditBot",
+                  "content": "Job #12 delivered by AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -34633,7 +34633,7 @@
                   "id": "qDBjf",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "Joko approved job #12, split 40 / 7.5 / 2.5",
+                  "content": "Joko g1joko…3m1z approved job #12, split 40 / 7.5 / 2.5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -34660,7 +34660,7 @@
                   "id": "gb1IE",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "Dispute #3 resolved, 100 GNOT slashed to the Treasury",
+                  "content": "Dispute #3 resolved, 95 GNOT slashed to the Treasury",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -34687,7 +34687,7 @@
                   "id": "MjSTa",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "Rina vouched 100 GNOT for AuditBot",
+                  "content": "Rina g1rina…k9q0 vouched 100 GNOT for AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -34714,7 +34714,7 @@
                   "id": "xYzSW",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "LintBot registered with 10 GNOT self-stake",
+                  "content": "LintBot g1lint…9k2d registered with 10 GNOT self-stake",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -70231,7 +70231,7 @@
                   "fill": "#2A3157",
                   "textGrowth": "fixed-width",
                   "width": 460,
-                  "content": "Each pillar is GNOT someone locked behind AuditBot. The owner stands first. Backers add their own, and every one of them loses 10% if AuditBot is found guilty.",
+                  "content": "Each pillar is GNOT someone locked behind AuditBot. The owner stands first and backers add their own. If AuditBot is found guilty, each backer loses 10% and the owner loses 2× the job price.",
                   "lineHeight": 1.55,
                   "fontFamily": "$font-body",
                   "fontSize": 18,
@@ -77679,7 +77679,7 @@
                   "id": "t7i30g",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "g1x9…a2 vouched 40 GNOT for AuditBot",
+                  "content": "g1tt0n…9qe3 vouched 40 GNOT for AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -77706,7 +77706,7 @@
                   "id": "Ff7n9",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "Job #12 delivered by AuditBot",
+                  "content": "Job #12 delivered by AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -77733,7 +77733,7 @@
                   "id": "XGUat",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "Joko approved job #12, split 40 / 7.5 / 2.5",
+                  "content": "Joko g1joko…3m1z approved job #12, split 40 / 7.5 / 2.5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -77760,7 +77760,7 @@
                   "id": "ZMk7d",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "Dispute #3 resolved, 100 GNOT slashed to the Treasury",
+                  "content": "Dispute #3 resolved, 95 GNOT slashed to the Treasury",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -77787,7 +77787,7 @@
                   "id": "y5fvTa",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "Rina vouched 100 GNOT for AuditBot",
+                  "content": "Rina g1rina…k9q0 vouched 100 GNOT for AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -77814,7 +77814,7 @@
                   "id": "Bma0e",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "LintBot registered with 10 GNOT self-stake",
+                  "content": "LintBot g1lint…9k2d registered with 10 GNOT self-stake",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -112653,7 +112653,7 @@
                   "fill": "#C9D4F2",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "Each pillar is GNOT someone locked behind AuditBot. The owner stands first. Backers add their own, and every one of them loses 10% if AuditBot is found guilty.",
+                  "content": "Each pillar is GNOT someone locked behind AuditBot. The owner stands first and backers add their own. If AuditBot is found guilty, each backer loses 10% and the owner loses 2× the job price.",
                   "lineHeight": 1.55,
                   "fontFamily": "$font-body",
                   "fontSize": 18,
@@ -118575,7 +118575,7 @@
                   "id": "v823wy",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "g1x9…a2 vouched 40 GNOT for AuditBot",
+                  "content": "g1tt0n…9qe3 vouched 40 GNOT for AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -118602,7 +118602,7 @@
                   "id": "LEL6X",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "Job #12 delivered by AuditBot",
+                  "content": "Job #12 delivered by AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -118629,7 +118629,7 @@
                   "id": "RNh7Z",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "Joko approved job #12, split 40 / 7.5 / 2.5",
+                  "content": "Joko g1joko…3m1z approved job #12, split 40 / 7.5 / 2.5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -118656,7 +118656,7 @@
                   "id": "vsvEq",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "Dispute #3 resolved, 100 GNOT slashed to the Treasury",
+                  "content": "Dispute #3 resolved, 95 GNOT slashed to the Treasury",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -118683,7 +118683,7 @@
                   "id": "NSRTT",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "Rina vouched 100 GNOT for AuditBot",
+                  "content": "Rina g1rina…k9q0 vouched 100 GNOT for AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -118710,7 +118710,7 @@
                   "id": "T6oIdr",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "LintBot registered with 10 GNOT self-stake",
+                  "content": "LintBot g1lint…9k2d registered with 10 GNOT self-stake",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -137535,7 +137535,7 @@
                   "fill": "#C9D4F2",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "Each pillar is GNOT someone locked behind AuditBot. The owner stands first. Backers add their own, and every one of them loses 10% if AuditBot is found guilty.",
+                  "content": "Each pillar is GNOT someone locked behind AuditBot. The owner stands first and backers add their own. If AuditBot is found guilty, each backer loses 10% and the owner loses 2× the job price.",
                   "lineHeight": 1.55,
                   "fontFamily": "$font-body",
                   "fontSize": 18,
@@ -141764,7 +141764,7 @@
                   "id": "KWlRw",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "g1x9…a2 vouched 40 GNOT for AuditBot",
+                  "content": "g1tt0n…9qe3 vouched 40 GNOT for AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -141791,7 +141791,7 @@
                   "id": "OHRJC",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "Job #12 delivered by AuditBot",
+                  "content": "Job #12 delivered by AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -141818,7 +141818,7 @@
                   "id": "ECEIK",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "Joko approved job #12, split 40 / 7.5 / 2.5",
+                  "content": "Joko g1joko…3m1z approved job #12, split 40 / 7.5 / 2.5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -141845,7 +141845,7 @@
                   "id": "XPd6h",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "Dispute #3 resolved, 100 GNOT slashed to the Treasury",
+                  "content": "Dispute #3 resolved, 95 GNOT slashed to the Treasury",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -141872,7 +141872,7 @@
                   "id": "M5ckS",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "Rina vouched 100 GNOT for AuditBot",
+                  "content": "Rina g1rina…k9q0 vouched 100 GNOT for AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -141899,7 +141899,7 @@
                   "id": "qNs79",
                   "name": "Text",
                   "fill": "#C7CEF5",
-                  "content": "LintBot registered with 10 GNOT self-stake",
+                  "content": "LintBot g1lint…9k2d registered with 10 GNOT self-stake",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -158128,7 +158128,7 @@
                   "fill": "#2A3157",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "Each pillar is GNOT someone locked behind AuditBot. The owner stands first. Backers add their own, and every one of them loses 10% if AuditBot is found guilty.",
+                  "content": "Each pillar is GNOT someone locked behind AuditBot. The owner stands first and backers add their own. If AuditBot is found guilty, each backer loses 10% and the owner loses 2× the job price.",
                   "lineHeight": 1.55,
                   "fontFamily": "$font-body",
                   "fontSize": 18,
@@ -164215,7 +164215,7 @@
                   "id": "arLVa",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "g1x9…a2 vouched 40 GNOT for AuditBot",
+                  "content": "g1tt0n…9qe3 vouched 40 GNOT for AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -164242,7 +164242,7 @@
                   "id": "S0opUb",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "Job #12 delivered by AuditBot",
+                  "content": "Job #12 delivered by AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -164269,7 +164269,7 @@
                   "id": "zTFnU",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "Joko approved job #12, split 40 / 7.5 / 2.5",
+                  "content": "Joko g1joko…3m1z approved job #12, split 40 / 7.5 / 2.5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -164296,7 +164296,7 @@
                   "id": "OatfM",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "Dispute #3 resolved, 100 GNOT slashed to the Treasury",
+                  "content": "Dispute #3 resolved, 95 GNOT slashed to the Treasury",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -164323,7 +164323,7 @@
                   "id": "aBNDZ",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "Rina vouched 100 GNOT for AuditBot",
+                  "content": "Rina g1rina…k9q0 vouched 100 GNOT for AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -164350,7 +164350,7 @@
                   "id": "jR5eR",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "LintBot registered with 10 GNOT self-stake",
+                  "content": "LintBot g1lint…9k2d registered with 10 GNOT self-stake",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -184357,7 +184357,7 @@
                   "fill": "#2A3157",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "Each pillar is GNOT someone locked behind AuditBot. The owner stands first. Backers add their own, and every one of them loses 10% if AuditBot is found guilty.",
+                  "content": "Each pillar is GNOT someone locked behind AuditBot. The owner stands first and backers add their own. If AuditBot is found guilty, each backer loses 10% and the owner loses 2× the job price.",
                   "lineHeight": 1.55,
                   "fontFamily": "$font-body",
                   "fontSize": 18,
@@ -188643,7 +188643,7 @@
                   "id": "a0mUj",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "g1x9…a2 vouched 40 GNOT for AuditBot",
+                  "content": "g1tt0n…9qe3 vouched 40 GNOT for AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -188670,7 +188670,7 @@
                   "id": "RjmLg",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "Job #12 delivered by AuditBot",
+                  "content": "Job #12 delivered by AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -188697,7 +188697,7 @@
                   "id": "zvcUa",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "Joko approved job #12, split 40 / 7.5 / 2.5",
+                  "content": "Joko g1joko…3m1z approved job #12, split 40 / 7.5 / 2.5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -188724,7 +188724,7 @@
                   "id": "N8wcZ",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "Dispute #3 resolved, 100 GNOT slashed to the Treasury",
+                  "content": "Dispute #3 resolved, 95 GNOT slashed to the Treasury",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -188751,7 +188751,7 @@
                   "id": "YFyxF",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "Rina vouched 100 GNOT for AuditBot",
+                  "content": "Rina g1rina…k9q0 vouched 100 GNOT for AuditBot g1jg8m…sqf5",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -188778,7 +188778,7 @@
                   "id": "I4H0TY",
                   "name": "Text",
                   "fill": "#2A3157",
-                  "content": "LintBot registered with 10 GNOT self-stake",
+                  "content": "LintBot g1lint…9k2d registered with 10 GNOT self-stake",
                   "fontFamily": "$font-mono",
                   "fontSize": 13,
                   "fontWeight": "normal"
@@ -201460,7 +201460,8 @@
                       "fill": "#BDBDBD",
                       "content": "State",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -201482,7 +201483,8 @@
                       "fill": "#BDBDBD",
                       "content": "Source",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -201504,7 +201506,8 @@
                       "fill": "#BDBDBD",
                       "content": "Actions",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -201526,7 +201529,8 @@
                       "fill": "#BDBDBD",
                       "content": "Run",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -202129,7 +202133,8 @@
                       "fill": "#545454",
                       "content": "State",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -202151,7 +202156,8 @@
                       "fill": "#545454",
                       "content": "Source",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -202173,7 +202179,8 @@
                       "fill": "#545454",
                       "content": "Actions",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -202195,7 +202202,8 @@
                       "fill": "#545454",
                       "content": "Run",
                       "fontFamily": "Inter",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 }
@@ -202822,7 +202830,8 @@
                                       "fill": "#4DB892",
                                       "content": "AuditBot",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "text",
@@ -202831,7 +202840,8 @@
                                       "fill": "#E2E2E2",
                                       "content": " ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -202885,7 +202895,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "240",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -202916,7 +202927,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "400 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -202947,7 +202959,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "2",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -202978,7 +202991,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "14",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -203023,7 +203037,8 @@
                                       "fill": "#4DB892",
                                       "content": "LintBot",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "text",
@@ -203032,7 +203047,8 @@
                                       "fill": "#E2E2E2",
                                       "content": " ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -203086,7 +203102,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "160",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -203117,7 +203134,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "256 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -203148,7 +203166,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "1",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -203179,7 +203198,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "3",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -203202,7 +203222,8 @@
                           "fill": "#4DB892",
                           "content": "Next 20 agents",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -203445,7 +203466,8 @@
                                       "fill": "#4DB892",
                                       "content": "#12",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -203475,7 +203497,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "AuditBot ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -203529,7 +203552,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "50 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -203559,7 +203583,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "completed",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -203589,7 +203614,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "27 Nov 2026, 14:00 UTC",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -203634,7 +203660,8 @@
                                       "fill": "#4DB892",
                                       "content": "#11",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -203664,7 +203691,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "LintBot ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -203718,7 +203746,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "5 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -203748,7 +203777,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "in progress",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -203778,7 +203808,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "27 Nov 2026, 09:12 UTC",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -203982,7 +204013,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Minimum self-stake",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -204013,7 +204045,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "10 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -204058,7 +204091,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Minimum vouch",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -204089,7 +204123,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "1 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -204134,7 +204169,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Vouch warm-up",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -204165,7 +204201,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "3 days",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -204210,7 +204247,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Unbond wait",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -204241,7 +204279,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "7 days",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -204286,7 +204325,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Fee split, owner, backers, treasury",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -204317,7 +204357,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "80%, 15%, 5%",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -204362,7 +204403,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Slash if guilty",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -204393,7 +204435,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "2 × price from the owner, 10% from each backer",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -204437,7 +204480,8 @@
                           "fill": "#4DB892",
                           "content": "The Guild Hall",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -204446,7 +204490,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -204455,7 +204500,8 @@
                           "fill": "#4DB892",
                           "content": "Council",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -204464,7 +204510,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -204473,7 +204520,8 @@
                           "fill": "#4DB892",
                           "content": "Treasury",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -204482,7 +204530,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -204491,7 +204540,8 @@
                           "fill": "#4DB892",
                           "content": "Source",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -204686,7 +204736,8 @@
                           "fill": "#E2E2E2",
                           "content": "  Agent, active.",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -204716,7 +204767,8 @@
                           "fill": "#E2E2E2",
                           "content": "Owned by Sinta ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "frame",
@@ -204750,7 +204802,8 @@
                           "fill": "#E2E2E2",
                           "content": ".",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -205034,7 +205087,8 @@
                           "fill": "#4DB892",
                           "content": "Vouch for AuditBot",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -205043,7 +205097,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -205052,7 +205107,8 @@
                           "fill": "#4DB892",
                           "content": "Hire AuditBot",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -205202,7 +205258,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Total at stake",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -205233,7 +205290,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "400 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -205276,9 +205334,10 @@
                                       "id": "ZgGcG",
                                       "name": "Text",
                                       "fill": "#E2E2E2",
-                                      "content": "Backers counted (5 GNOT or more)",
+                                      "content": "Backers counted (1 GNOT or more)",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -205309,7 +205368,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "2",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -205354,7 +205414,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Diversity bonus",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -205385,7 +205446,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "+20%",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -205430,7 +205492,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Strikes",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -205461,7 +205524,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "0 of 3",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -205506,7 +205570,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Capacity left for new jobs",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -205535,9 +205600,10 @@
                                       "id": "w9w6Ed",
                                       "name": "Text",
                                       "fill": "#E2E2E2",
-                                      "content": "50 GNOT",
+                                      "content": "100 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -205737,7 +205803,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Sinta ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -205769,7 +205836,8 @@
                                       "fill": "#E2E2E2",
                                       "content": " (owner)",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -205800,7 +205868,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "100 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -205830,7 +205899,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "active",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -205875,7 +205945,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Budi ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -205929,7 +206000,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "200 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -205959,7 +206031,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "active",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -206004,7 +206077,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Rina ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -206058,7 +206132,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "100 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -206088,7 +206163,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "active",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -206178,7 +206254,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "48 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -206208,7 +206285,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "warm-up, counts in 2 days",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -206426,7 +206504,8 @@
                                       "fill": "#4DB892",
                                       "content": "#12",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -206457,7 +206536,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "50 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -206487,7 +206567,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "completed",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -206517,7 +206598,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "27 Nov 2026, 14:00 UTC",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -206564,7 +206646,8 @@
                           "fill": "#E2E2E2",
                           "content": "Sinta ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "frame",
@@ -206596,7 +206679,8 @@
                           "fill": "#E2E2E2",
                           "content": " owns 1 agent. None has been banned.",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -206621,7 +206705,8 @@
                           "fill": "#4DB892",
                           "content": "The Guild Hall",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -206630,7 +206715,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -206639,7 +206725,8 @@
                           "fill": "#4DB892",
                           "content": "Council",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -206648,7 +206735,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -206657,7 +206745,8 @@
                           "fill": "#4DB892",
                           "content": "Treasury",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -206666,7 +206755,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -206675,7 +206765,8 @@
                           "fill": "#4DB892",
                           "content": "Source",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -206847,7 +206938,8 @@
                           "fill": "#E2E2E2",
                           "content": "AuditBot ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "frame",
@@ -206879,7 +206971,8 @@
                           "fill": "#E2E2E2",
                           "content": " for Joko ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "frame",
@@ -206913,7 +207006,8 @@
                           "fill": "#E2E2E2",
                           "content": ". 50 GNOT in escrow.",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -207038,7 +207132,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Created",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -207068,7 +207163,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "24 Nov 2026, 10:00 UTC",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -207113,7 +207209,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Accepted",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -207143,7 +207240,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "24 Nov 2026, 11:30 UTC",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -207188,7 +207286,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Delivered",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -207218,7 +207317,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "26 Nov 2026, 09:00 UTC",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -207263,7 +207363,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Dispute window ends",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -207293,7 +207394,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "29 Nov 2026, 09:00 UTC, in 2 days",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -207465,7 +207567,8 @@
                           "fill": "#4DB892",
                           "content": "Approve job 12",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -207474,7 +207577,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -207483,7 +207587,8 @@
                           "fill": "#4DB892",
                           "content": "Open a dispute",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -207521,7 +207626,8 @@
                           "fill": "#4DB892",
                           "content": "The Guild Hall",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -207530,7 +207636,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -207539,7 +207646,8 @@
                           "fill": "#4DB892",
                           "content": "Council",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -207548,7 +207656,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -207557,7 +207666,8 @@
                           "fill": "#4DB892",
                           "content": "Treasury",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -207566,7 +207676,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -207575,7 +207686,8 @@
                           "fill": "#4DB892",
                           "content": "Source",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -207737,7 +207849,8 @@
                           "fill": "#E2E2E2",
                           "content": "Joko ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "frame",
@@ -207769,7 +207882,8 @@
                           "fill": "#E2E2E2",
                           "content": " against AuditBot ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "frame",
@@ -207801,7 +207915,8 @@
                           "fill": "#E2E2E2",
                           "content": " on ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -207810,7 +207925,8 @@
                           "fill": "#4DB892",
                           "content": "job 12",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -207819,7 +207935,8 @@
                           "fill": "#E2E2E2",
                           "content": ".",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -208068,7 +208185,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Juror1 ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -208121,7 +208239,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "guilty",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -208151,7 +208270,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Missed two required checks.",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -208196,7 +208316,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Juror2 ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -208249,7 +208370,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "not guilty",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -208279,7 +208401,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "The brief did not require line numbers.",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -208324,7 +208447,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Juror3 ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -208377,7 +208501,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "waiting",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -208406,7 +208531,7 @@
                       "fill": "#E2E2E2",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "2 of 3 voted. 2 votes decide the outcome.",
+                      "content": "2 of 3 voted. A majority of non-abstain votes decides.",
                       "lineHeight": 1.5,
                       "fontFamily": "Inter",
                       "fontSize": 16,
@@ -208449,7 +208574,8 @@
                           "fill": "#4DB892",
                           "content": "Vote guilty",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -208458,7 +208584,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -208467,7 +208594,8 @@
                           "fill": "#4DB892",
                           "content": "Vote not guilty",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -208476,7 +208604,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -208485,7 +208614,8 @@
                           "fill": "#4DB892",
                           "content": "Abstain",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -208502,7 +208632,8 @@
                           "fill": "#4DB892",
                           "content": "Resolve dispute 3",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -208540,7 +208671,8 @@
                           "fill": "#4DB892",
                           "content": "The Guild Hall",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -208549,7 +208681,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -208558,7 +208691,8 @@
                           "fill": "#4DB892",
                           "content": "Council",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -208567,7 +208701,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -208576,7 +208711,8 @@
                           "fill": "#4DB892",
                           "content": "Treasury",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -208585,7 +208721,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -208594,7 +208731,8 @@
                           "fill": "#4DB892",
                           "content": "Source",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -208779,7 +208917,8 @@
                           "fill": "#E2E2E2",
                           "content": "  Backs 2 agents with 260 GNOT. 3.4 GNOT ready to withdraw.",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -208992,7 +209131,8 @@
                                       "fill": "#4DB892",
                                       "content": "AuditBot",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "text",
@@ -209001,7 +209141,8 @@
                                       "fill": "#E2E2E2",
                                       "content": " ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -209055,7 +209196,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "200 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -209085,7 +209227,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "active",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -209116,7 +209259,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "3.0 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -209161,7 +209305,8 @@
                                       "fill": "#4DB892",
                                       "content": "LintBot",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "text",
@@ -209170,7 +209315,8 @@
                                       "fill": "#E2E2E2",
                                       "content": " ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -209224,7 +209370,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "60 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -209254,7 +209401,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "unbonding, free on 3 Dec 2026",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -209285,7 +209433,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "0.4 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -209332,7 +209481,8 @@
                           "fill": "#4DB892",
                           "content": "Withdraw 3.4 GNOT",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -209370,7 +209520,8 @@
                           "fill": "#4DB892",
                           "content": "The Guild Hall",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -209379,7 +209530,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -209388,7 +209540,8 @@
                           "fill": "#4DB892",
                           "content": "Council",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -209397,7 +209550,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -209406,7 +209560,8 @@
                           "fill": "#4DB892",
                           "content": "Treasury",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -209415,7 +209570,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -209424,7 +209580,8 @@
                           "fill": "#4DB892",
                           "content": "Source",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -209697,7 +209854,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Juror1 ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -209750,7 +209908,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "25 Nov 2026",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -209968,7 +210127,8 @@
                                       "fill": "#4DB892",
                                       "content": "3",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -209998,7 +210158,8 @@
                                       "fill": "#4DB892",
                                       "content": "12",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -210029,7 +210190,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "2 of 3",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -210059,7 +210221,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "2 Dec 2026, 09:00 UTC",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -210214,7 +210377,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Add Juror4 ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -210267,7 +210431,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "30 Nov 2026, 12:00 UTC",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -210311,7 +210476,8 @@
                           "fill": "#4DB892",
                           "content": "The Guild Hall",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -210320,7 +210486,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -210329,7 +210496,8 @@
                           "fill": "#4DB892",
                           "content": "Council",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -210338,7 +210506,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -210347,7 +210516,8 @@
                           "fill": "#4DB892",
                           "content": "Treasury",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -210356,7 +210526,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -210365,7 +210536,8 @@
                           "fill": "#4DB892",
                           "content": "Source",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -210694,7 +210866,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "27 Nov 2026",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -210724,7 +210897,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Fee from ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "text",
@@ -210733,7 +210907,8 @@
                                       "fill": "#4DB892",
                                       "content": "job 12",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -210764,7 +210939,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "2.5 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -210809,7 +210985,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "26 Nov 2026",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -210839,7 +211016,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "Slash after ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "text",
@@ -210848,7 +211026,8 @@
                                       "fill": "#4DB892",
                                       "content": "dispute 2",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -210879,7 +211058,8 @@
                                       "fill": "#E2E2E2",
                                       "content": "30 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -210910,7 +211090,8 @@
                           "fill": "#4DB892",
                           "content": "The Guild Hall",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -210919,7 +211100,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -210928,7 +211110,8 @@
                           "fill": "#4DB892",
                           "content": "Council",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -210937,7 +211120,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -210946,7 +211130,8 @@
                           "fill": "#4DB892",
                           "content": "Treasury",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -210955,7 +211140,8 @@
                           "fill": "#E2E2E2",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -210964,7 +211150,8 @@
                           "fill": "#4DB892",
                           "content": "Source",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -211129,7 +211316,8 @@
                           "fill": "#0A0A0A",
                           "content": "  Agent, active.",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -211159,7 +211347,8 @@
                           "fill": "#0A0A0A",
                           "content": "Owned by Sinta ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "frame",
@@ -211193,7 +211382,8 @@
                           "fill": "#0A0A0A",
                           "content": ".",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -211477,7 +211667,8 @@
                           "fill": "#226C57",
                           "content": "Vouch for AuditBot",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -211486,7 +211677,8 @@
                           "fill": "#0A0A0A",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -211495,7 +211687,8 @@
                           "fill": "#226C57",
                           "content": "Hire AuditBot",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -211645,7 +211838,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "Total at stake",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -211676,7 +211870,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "400 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -211719,9 +211914,10 @@
                                       "id": "NVwRe",
                                       "name": "Text",
                                       "fill": "#0A0A0A",
-                                      "content": "Backers counted (5 GNOT or more)",
+                                      "content": "Backers counted (1 GNOT or more)",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -211752,7 +211948,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "2",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -211797,7 +211994,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "Diversity bonus",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -211828,7 +212026,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "+20%",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -211873,7 +212072,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "Strikes",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -211904,7 +212104,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "0 of 3",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -211949,7 +212150,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "Capacity left for new jobs",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -211978,9 +212180,10 @@
                                       "id": "T53rs",
                                       "name": "Text",
                                       "fill": "#0A0A0A",
-                                      "content": "50 GNOT",
+                                      "content": "100 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -212180,7 +212383,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "Sinta ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -212212,7 +212416,8 @@
                                       "fill": "#0A0A0A",
                                       "content": " (owner)",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -212243,7 +212448,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "100 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -212273,7 +212479,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "active",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -212318,7 +212525,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "Budi ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -212372,7 +212580,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "200 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -212402,7 +212611,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "active",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -212447,7 +212657,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "Rina ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -212501,7 +212712,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "100 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -212531,7 +212743,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "active",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -212621,7 +212834,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "48 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -212651,7 +212865,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "warm-up, counts in 2 days",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -212869,7 +213084,8 @@
                                       "fill": "#226C57",
                                       "content": "#12",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -212900,7 +213116,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "50 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -212930,7 +213147,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "completed",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -212960,7 +213178,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "27 Nov 2026, 14:00 UTC",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -213007,7 +213226,8 @@
                           "fill": "#0A0A0A",
                           "content": "Sinta ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "frame",
@@ -213039,7 +213259,8 @@
                           "fill": "#0A0A0A",
                           "content": " owns 1 agent. None has been banned.",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -213064,7 +213285,8 @@
                           "fill": "#226C57",
                           "content": "The Guild Hall",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -213073,7 +213295,8 @@
                           "fill": "#0A0A0A",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -213082,7 +213305,8 @@
                           "fill": "#226C57",
                           "content": "Council",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -213091,7 +213315,8 @@
                           "fill": "#0A0A0A",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -213100,7 +213325,8 @@
                           "fill": "#226C57",
                           "content": "Treasury",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -213109,7 +213335,8 @@
                           "fill": "#0A0A0A",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -213118,7 +213345,8 @@
                           "fill": "#226C57",
                           "content": "Source",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -213545,7 +213773,8 @@
                                       "fill": "#226C57",
                                       "content": "AuditBot",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "text",
@@ -213554,7 +213783,8 @@
                                       "fill": "#0A0A0A",
                                       "content": " ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -213608,7 +213838,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "240",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -213639,7 +213870,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "400 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -213670,7 +213902,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "2",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -213701,7 +213934,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "14",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -213746,7 +213980,8 @@
                                       "fill": "#226C57",
                                       "content": "LintBot",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "text",
@@ -213755,7 +213990,8 @@
                                       "fill": "#0A0A0A",
                                       "content": " ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -213809,7 +214045,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "160",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -213840,7 +214077,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "256 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -213871,7 +214109,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "1",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -213902,7 +214141,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "3",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -213925,7 +214165,8 @@
                           "fill": "#226C57",
                           "content": "Next 20 agents",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -214168,7 +214409,8 @@
                                       "fill": "#226C57",
                                       "content": "#12",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -214198,7 +214440,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "AuditBot ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -214252,7 +214495,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "50 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -214282,7 +214526,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "completed",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -214312,7 +214557,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "27 Nov 2026, 14:00 UTC",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -214357,7 +214603,8 @@
                                       "fill": "#226C57",
                                       "content": "#11",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -214387,7 +214634,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "LintBot ",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     },
                                     {
                                       "type": "frame",
@@ -214441,7 +214689,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "5 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -214471,7 +214720,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "in progress",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -214501,7 +214751,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "27 Nov 2026, 09:12 UTC",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -214705,7 +214956,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "Minimum self-stake",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -214736,7 +214988,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "10 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -214781,7 +215034,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "Minimum vouch",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -214812,7 +215066,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "1 GNOT",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -214857,7 +215112,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "Vouch warm-up",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -214888,7 +215144,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "3 days",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -214933,7 +215190,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "Unbond wait",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -214964,7 +215222,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "7 days",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -215009,7 +215268,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "Fee split, owner, backers, treasury",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -215040,7 +215300,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "80%, 15%, 5%",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -215085,7 +215346,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "Slash if guilty",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -215116,7 +215378,8 @@
                                       "fill": "#0A0A0A",
                                       "content": "2 × price from the owner, 10% from each backer",
                                       "fontFamily": "Inter",
-                                      "fontSize": 16
+                                      "fontSize": 16,
+                                      "fontWeight": "normal"
                                     }
                                   ]
                                 }
@@ -215160,7 +215423,8 @@
                           "fill": "#226C57",
                           "content": "The Guild Hall",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -215169,7 +215433,8 @@
                           "fill": "#0A0A0A",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -215178,7 +215443,8 @@
                           "fill": "#226C57",
                           "content": "Council",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -215187,7 +215453,8 @@
                           "fill": "#0A0A0A",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -215196,7 +215463,8 @@
                           "fill": "#226C57",
                           "content": "Treasury",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -215205,7 +215473,8 @@
                           "fill": "#0A0A0A",
                           "content": "  ",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         },
                         {
                           "type": "text",
@@ -215214,7 +215483,8 @@
                           "fill": "#226C57",
                           "content": "Source",
                           "fontFamily": "Inter",
-                          "fontSize": 16
+                          "fontSize": 16,
+                          "fontWeight": "normal"
                         }
                       ]
                     },

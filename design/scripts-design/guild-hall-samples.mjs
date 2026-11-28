@@ -106,7 +106,7 @@ export function render({ score, nodes, hidden = 0, state = "ok", strikes = 0 }) 
 }
 
 const many = [
-  { addr: "g1jg8m…sqf5", stake: 100, kind: "owner" },
+  { addr: "g1sint…a8x2", stake: 100, kind: "owner" },
   { addr: "g1bud1…7x2a", stake: 200, kind: "active" },
   { addr: "g1rina…k9q0", stake: 100, kind: "active" },
   { addr: "g1pc4w…uu1d", stake: 62, kind: "active" },
